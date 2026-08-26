@@ -1,0 +1,49 @@
+HELP.md
+target/
+/target/
+/node/
+/node_modules/
+backend/src/main/resources/static/built/bundle.js
+frontend/static/built/bundle.js
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+### additional ###
+node_modules
+*.properties
+aws-config
+node
+.idea/
+*.log
