@@ -1,16 +1,22 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const { resolve } = require("@babel/core/lib/vendor/import-meta-resolve");
+
+// PUBLIC_PATH defaults to '/built/' for Spring Boot (static/built -> /built/*).
+// Vercel serves outputDirectory at '/', so build there with PUBLIC_PATH=/ .
+const publicPath = process.env.PUBLIC_PATH || '/built/';
+// Only sync into backend/resources for the Spring Boot layout (default /built/).
+// On Vercel (PUBLIC_PATH=/) the backend copy is skipped — only outputDirectory deploys.
+const syncBackend = publicPath === '/built/';
 
 module.exports = {
-    mode: 'development',
+    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
     devtool: 'inline-source-map',
     entry: path.resolve(__dirname, './frontend/src/index.js'), // Entry point
     output: {
         path: path.resolve(__dirname, './frontend/static/built'), // Output directory
         filename: 'bundle.js', // Output bundle filename
-        publicPath: '/built/', // Public path for assets
+        publicPath, // Asset base: '/built/' on Render, '/' on Vercel
     },
     module: {
         rules: [
@@ -46,14 +52,21 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './frontend/public/index.html'), // HTML template file
             filename: 'index.html', // Output HTML filename
+            templateParameters: {
+                assetBase: publicPath,
+            },
         }),
         new CopyPlugin({
             patterns: [
                 { from: path.resolve(__dirname, './frontend/public/styles.css'), to: path.resolve(__dirname, './frontend/static/built/styles.css'), noErrorOnMissing: true },
-                { from: path.resolve(__dirname, './frontend/public/styles.css'), to: path.resolve(__dirname, './backend/src/main/resources/static/built/styles.css'), noErrorOnMissing: true },
-                { from: path.resolve(__dirname, './frontend/static/built/index.html'), to: path.resolve(__dirname, './backend/src/main/resources/static/index.html'), noErrorOnMissing: true },
-                { from: path.resolve(__dirname, './frontend/static/built/index.html'), to: path.resolve(__dirname, './backend/src/main/resources/static/built/index.html'), noErrorOnMissing: true },
-                { from: path.resolve(__dirname, './frontend/static/built/bundle.js'), to: path.resolve(__dirname, './backend/src/main/resources/static/built/bundle.js'), noErrorOnMissing: true },
+                ...(syncBackend
+                    ? [
+                        { from: path.resolve(__dirname, './frontend/public/styles.css'), to: path.resolve(__dirname, './backend/src/main/resources/static/built/styles.css'), noErrorOnMissing: true },
+                        { from: path.resolve(__dirname, './frontend/static/built/index.html'), to: path.resolve(__dirname, './backend/src/main/resources/static/index.html'), noErrorOnMissing: true },
+                        { from: path.resolve(__dirname, './frontend/static/built/index.html'), to: path.resolve(__dirname, './backend/src/main/resources/static/built/index.html'), noErrorOnMissing: true },
+                        { from: path.resolve(__dirname, './frontend/static/built/bundle.js'), to: path.resolve(__dirname, './backend/src/main/resources/static/built/bundle.js'), noErrorOnMissing: true },
+                    ]
+                    : []),
             ],
         }),
     ],

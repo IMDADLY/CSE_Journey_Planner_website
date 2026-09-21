@@ -1,11 +1,15 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
+  "buildCommand": "PUBLIC_PATH=/ npm run build",
   "outputDirectory": "frontend/static/built",
   "rewrites": [
     {
       "source": "/api/:match*",
       "destination": "https://cse-journey-planner-backend.onrender.com/api/:match*"
+    },
+    {
+      "source": "/built/:path*",
+      "destination": "/:path*"
     },
     {
       "source": "/((?!api/).*)",
