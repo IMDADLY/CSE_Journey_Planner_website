@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: cse-planner-backend
+    runtime: docker
+    plan: free
+    region: oregon
+    autoDeploy: true
+    healthCheckPath: /api/specializations
+    envVars:
+      - key: SPRING_DATA_MONGODB_URI
+        sync: false
+      - key: PORT
+        value: "8080"
+      - key: JAVA_TOOL_OPTIONS
+        value: "-Xmx380m -Xms190m"

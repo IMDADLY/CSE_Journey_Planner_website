@@ -1,0 +1,9 @@
+target/
+node_modules/
+.git/
+.gitignore
+.DS_Store
+*.log
+docs/
+.agents/
+.gemini/

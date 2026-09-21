@@ -6,4 +6,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.Optional;
 
 public interface SurveyRepository extends MongoRepository<Survey, String> {
+
+    Optional<Survey> findBySpecializationId(String specializationId);
 }

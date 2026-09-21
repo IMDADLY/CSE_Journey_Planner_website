@@ -1,15 +1,18 @@
 package com.example.cseplanner.models;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Document(collection = "roadmap")
@@ -18,23 +21,48 @@ public class Roadmap {
     @Id
     private String id;
 
-    // No login -> client holds this token (e.g. UUID in localStorage)
-    // and sends it back to fetch/update their roadmap later.
+    // Client holds this token in localStorage (e.g. UUID)
     private String anonymousSessionToken;
 
     private String specializationId;
+    private String specializationName;
 
-    // Snapshot of the survey result that generated this roadmap,
-    // so the roadmap logic behind it stays reproducible/explainable.
-    private String surveyId;
+    private String surveyResponseId;
     private int competencyScore;
     private String competencyLevel;   // "Beginner" | "Intermediate" | "Advanced"
 
     private int currentSemester;      // student's semester at generation time
-    private int totalSemesters;       // usually 8 for B.Tech
+    @Builder.Default
+    private int totalSemesters = 8;   // 8 semesters for B.Tech
 
-    private List<SemesterPlan> semesterPlans;
+    private int totalMilestones;
+    private int completedMilestones;
+    private float progressPercentage;
+
+    @Builder.Default
+    private List<SemesterPlan> semesterPlans = new ArrayList<>();
 
     private Instant createdAt;
     private Instant updatedAt;
+
+    public void recalculateProgress() {
+        int total = 0;
+        int completed = 0;
+        if (semesterPlans != null) {
+            for (SemesterPlan plan : semesterPlans) {
+                if (plan.getMilestones() != null) {
+                    for (MilestoneItem item : plan.getMilestones()) {
+                        total++;
+                        if ("COMPLETED".equalsIgnoreCase(item.getStatus())) {
+                            completed++;
+                        }
+                    }
+                }
+            }
+        }
+        this.totalMilestones = total;
+        this.completedMilestones = completed;
+        this.progressPercentage = total > 0 ? Math.round(((float) completed / total) * 100.0f) : 0f;
+        this.updatedAt = Instant.now();
+    }
 }

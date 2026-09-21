@@ -10,7 +10,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './frontend/static/built'), // Output directory
         filename: 'bundle.js', // Output bundle filename
-        publicPath: 'built/', // Public path for assets
+        publicPath: '/built/', // Public path for assets
     },
     module: {
         rules: [
@@ -49,6 +49,9 @@ module.exports = {
         }),
         new CopyPlugin({
             patterns: [
+                { from: path.resolve(__dirname, './frontend/public/styles.css'), to: path.resolve(__dirname, './frontend/static/built/styles.css'), noErrorOnMissing: true },
+                { from: path.resolve(__dirname, './frontend/public/styles.css'), to: path.resolve(__dirname, './backend/src/main/resources/static/built/styles.css'), noErrorOnMissing: true },
+                { from: path.resolve(__dirname, './frontend/static/built/index.html'), to: path.resolve(__dirname, './backend/src/main/resources/static/index.html'), noErrorOnMissing: true },
                 { from: path.resolve(__dirname, './frontend/static/built/index.html'), to: path.resolve(__dirname, './backend/src/main/resources/static/built/index.html'), noErrorOnMissing: true },
                 { from: path.resolve(__dirname, './frontend/static/built/bundle.js'), to: path.resolve(__dirname, './backend/src/main/resources/static/built/bundle.js'), noErrorOnMissing: true },
             ],

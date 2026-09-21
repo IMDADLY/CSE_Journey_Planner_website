@@ -11,7 +11,7 @@
   },
   "scripts": {
     "watch": "webpack --watch",
-    "build": "webpack && cp frontend/static/built/index.html backend/src/main/resources/static/built/ && cp frontend/static/built/bundle.js backend/src/main/resources/static/built/"
+    "build": "webpack && cp frontend/static/built/index.html backend/src/main/resources/static/built/ && cp frontend/static/built/bundle.js backend/src/main/resources/static/built/ && cp frontend/static/built/styles.css backend/src/main/resources/static/built/"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.25.3",

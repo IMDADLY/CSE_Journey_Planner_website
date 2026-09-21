@@ -4,7 +4,9 @@ target/
 /node/
 /node_modules/
 backend/src/main/resources/static/built/bundle.js
+backend/src/main/resources/static/built/styles.css
 frontend/static/built/bundle.js
+frontend/static/built/styles.css
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -42,7 +44,7 @@ build/
 
 ### additional ###
 node_modules
-*.properties
+# *.properties  <- removed: application.properties must be tracked in git
 aws-config
 node
 .idea/
