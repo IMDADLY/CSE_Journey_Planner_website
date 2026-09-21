@@ -5,7 +5,7 @@
   "rewrites": [
     {
       "source": "/api/:match*",
-      "destination": "https://cse-journey-planner-backend.onrender.com"
+      "destination": "https://cse-journey-planner-backend.onrender.com/api/:match*"
     },
     {
       "source": "/((?!api/).*)",
