@@ -8,7 +8,5 @@ import java.util.Optional;
 
 public interface SpecializationRepository extends MongoRepository<Specialization, String> {
 
-    List<Specialization> findByActiveTrueOrderByDisplayOrderAsc();
-
     Optional<Specialization> findBySlug(String slug);
 }

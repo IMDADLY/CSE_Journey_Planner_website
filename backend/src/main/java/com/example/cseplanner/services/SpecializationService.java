@@ -14,8 +14,8 @@ public class SpecializationService {
 
     private final SpecializationRepository specializationRepository;
 
-    public List<Specialization> getAllActive() {
-        return specializationRepository.findByActiveTrueOrderByDisplayOrderAsc();
+    public List<Specialization> getAll() {
+        return specializationRepository.findAll();
     }
 
     public Specialization getById(String id) {
@@ -30,5 +30,12 @@ public class SpecializationService {
 
     public Specialization create(Specialization specialization) {
         return specializationRepository.save(specialization);
+    }
+
+    public void deleteById(String id){
+        if (!specializationRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Specialization not found : "+id);
+        }
+        specializationRepository.deleteById(id);
     }
 }

@@ -12,22 +12,15 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "specialization")
-public class Specialization {
+@Document(collection = "survey")
+public class Survey {
 
     @Id
     private String id;
-    private String surveyId;
-    private String name;
-    private String slug;
-    private String description;
 
-    private int industryDemand;
-    private List<String> careerOutcomes;
-    private List<String> coreSkills;
-    private List<String> relatedTools;
+    private String specializationId;
 
-    private String iconUrl;
+    private List<String> surveyQuestionIds;
 
     private Instant createdAt;
 }
