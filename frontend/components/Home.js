@@ -2,152 +2,55 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SpecializationDetailModal from './SpecializationDetailModal';
 
-// Default pre-curated CSE specializations (instant render & offline fallback)
-const DEFAULT_SPECIALIZATIONS = [
-    {
-        id: "spec-ai-ml",
-        name: "Artificial Intelligence & Machine Learning",
-        slug: "ai-ml",
-        description: "Develop intelligent algorithms, deep neural networks, computer vision, and predictive AI models.",
-        category: "Data & AI",
-        industryDemand: 5,
-        demandTag: "HIGH GROWTH (+30% CAGR)",
-        salaryRange: "₹8–16 LPA",
-        difficulty: "Advanced",
-        careerOutcomes: ["Machine Learning Engineer", "Data Scientist", "AI Research Scientist", "MLOps Engineer"],
-        coreSkills: ["Python", "Linear Algebra", "PyTorch / TensorFlow", "Scikit-Learn", "Deep Learning", "NLP"],
-        relatedTools: ["Jupyter", "Hugging Face", "MLflow", "CUDA", "Pandas", "NumPy"],
-        iconUrl: "brain"
-    },
-    {
-        id: "spec-full-stack",
-        name: "Full Stack Web Development",
-        slug: "full-stack-web-dev",
-        description: "Build end-to-end modern web applications, design intuitive user interfaces, and develop scalable backend APIs.",
-        category: "Software & Web",
-        industryDemand: 5,
-        demandTag: "STEADY HIGH DEMAND",
-        salaryRange: "₹6–14 LPA",
-        difficulty: "Beginner Friendly",
-        careerOutcomes: ["Full Stack Developer", "Frontend Engineer", "Backend Architect", "Product Engineer"],
-        coreSkills: ["JavaScript/TypeScript", "React.js", "Java Spring Boot / Node.js", "REST / GraphQL", "MongoDB / PostgreSQL"],
-        relatedTools: ["Git", "Webpack/Vite", "Docker", "Postman", "Tailwind CSS"],
-        iconUrl: "code"
-    },
-    {
-        id: "spec-cybersecurity",
-        name: "Cybersecurity & Ethical Hacking",
-        slug: "cybersecurity",
-        description: "Defend critical digital infrastructure, fight modern cyber threats, perform ethical penetration testing, and secure cloud environments.",
-        category: "Systems & Security",
-        industryDemand: 5,
-        demandTag: "CRITICAL DEMAND",
-        salaryRange: "₹8–15 LPA",
-        difficulty: "Intermediate",
-        careerOutcomes: ["Security Analyst", "Penetration Tester", "SOC Analyst", "Cloud Security Engineer", "CISO Track"],
-        coreSkills: ["Network Security", "Cryptography", "Linux Internals", "Vulnerability Assessment", "SIEM"],
-        relatedTools: ["Wireshark", "Metasploit", "Burp Suite", "Nmap", "Kali Linux"],
-        iconUrl: "shield"
-    },
-    {
-        id: "spec-cloud-devops",
-        name: "Cloud Computing & DevOps",
-        slug: "cloud-computing",
-        description: "Architect scalable cloud-native architectures, automate CI/CD pipelines, and manage distributed containerized infrastructure.",
-        category: "Cloud & Infrastructure",
-        industryDemand: 5,
-        demandTag: "VERY HIGH DEMAND",
-        salaryRange: "₹7–15 LPA",
-        difficulty: "Intermediate",
-        careerOutcomes: ["DevOps Engineer", "Cloud Architect", "Site Reliability Engineer (SRE)", "Infrastructure Engineer"],
-        coreSkills: ["Linux", "AWS / GCP / Azure", "Docker & Containers", "Kubernetes", "CI/CD Pipelines", "Terraform"],
-        relatedTools: ["Kubernetes", "Docker", "GitHub Actions", "Terraform", "Prometheus", "Ansible"],
-        iconUrl: "cloud"
-    },
-    {
-        id: "spec-data-engineering",
-        name: "Data Engineering & Big Data",
-        slug: "data-engineering",
-        description: "Build robust ETL pipelines, high-throughput distributed data systems, and enterprise data warehouses.",
-        category: "Data & AI",
-        industryDemand: 4,
-        demandTag: "HIGH GROWTH",
-        salaryRange: "₹7–14 LPA",
-        difficulty: "Intermediate",
-        careerOutcomes: ["Data Engineer", "Big Data Developer", "Analytics Engineer", "Database Administrator"],
-        coreSkills: ["SQL & Database Internals", "Apache Spark", "Data Warehousing", "Python / Scala", "Distributed Systems"],
-        relatedTools: ["Spark", "Kafka", "Airflow", "Snowflake", "dbt", "PostgreSQL"],
-        iconUrl: "database"
-    },
-    {
-        id: "spec-game-dev",
-        name: "Game Development & Interactive Media",
-        slug: "game-development",
-        description: "Build immersive 2D/3D games, interactive virtual environments, physics simulations, and graphics rendering engines.",
-        category: "Interactive Media",
-        industryDemand: 3,
-        demandTag: "STEADY GROWTH",
-        salaryRange: "₹5–12 LPA",
-        difficulty: "Intermediate",
-        careerOutcomes: ["Game Programmer", "Unity / Unreal Developer", "Graphics Engineer", "AR/VR Developer"],
-        coreSkills: ["C++", "C#", "Computer Graphics & Shaders", "Physics Engines", "3D Mathematics"],
-        relatedTools: ["Unity", "Unreal Engine", "Blender", "OpenGL", "DirectX"],
-        iconUrl: "gamepad"
-    },
-    {
-        id: "spec-embedded-iot",
-        name: "Embedded Systems & Robotics / IoT",
-        slug: "embedded-systems",
-        description: "Develop firmware, real-time operating systems (RTOS), robotics controllers, and smart connected IoT devices.",
-        category: "Hardware & Systems",
-        industryDemand: 4,
-        demandTag: "STEADY DEMAND",
-        salaryRange: "₹6–13 LPA",
-        difficulty: "Advanced",
-        careerOutcomes: ["Embedded Software Engineer", "IoT Systems Developer", "Robotics Engineer", "Firmware Specialist"],
-        coreSkills: ["Embedded C / C++", "Microcontrollers (ARM, ESP32)", "RTOS", "Communication Protocols (I2C, SPI, UART)"],
-        relatedTools: ["STM32Cube", "Arduino IDE", "Raspberry Pi", "ROS", "KiCad"],
-        iconUrl: "cpu"
-    }
-];
-
-const CATEGORIES = [
-    "All Tracks",
-    "Data & AI",
-    "Software & Web",
-    "Cloud & Infrastructure",
-    "Systems & Security",
-    "Interactive Media",
-    "Hardware & Systems"
-];
-
 const Home = () => {
     const navigate = useNavigate();
-    const [specializations, setSpecializations] = useState(DEFAULT_SPECIALIZATIONS);
+    // DB is the single source of truth: no fallback dataset.
+    // null = not loaded yet; [] = loaded but empty.
+    const [specializations, setSpecializations] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [fetchError, setFetchError] = useState(null);
+    const [retryKey, setRetryKey] = useState(0);
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All Tracks');
     const [selectedSpec, setSelectedSpec] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    // Fetch from backend API if available
+    // Fetch is mandatory; neutral state until it resolves.
     useEffect(() => {
-        fetch('/api/specializations')
+        const controller = new AbortController();
+        setIsLoading(true);
+        setFetchError(null);
+        fetch('/api/specializations', { signal: controller.signal })
             .then(res => {
-                if (!res.ok) throw new Error('Network error');
+                if (!res.ok) throw new Error(`Request failed: ${res.status}`);
                 return res.json();
             })
             .then(data => {
-                if (Array.isArray(data) && data.length > 0) {
-                    setSpecializations(data);
-                }
+                if (!Array.isArray(data)) throw new Error('Unexpected response shape');
+                setSpecializations(data);
+                setIsLoading(false);
             })
-            .catch(() => {
-                // Keep default dataset if backend API is not yet running
+            .catch((err) => {
+                if (err && err.name === 'AbortError') return;
+                setFetchError(err instanceof Error ? err.message : 'Failed to load specializations');
+                setIsLoading(false);
             });
-    }, []);
+        return () => controller.abort();
+    }, [retryKey]);
+
+    // Categories derived from DB data so pills can never disagree with it.
+    const categories = useMemo(() => {
+        if (!specializations) return ['All Tracks'];
+        const seen = [];
+        for (const spec of specializations) {
+            if (spec.category && !seen.includes(spec.category)) seen.push(spec.category);
+        }
+        return ['All Tracks', ...seen];
+    }, [specializations]);
 
     // Filter specializations based on search query and category pill
     const filteredSpecializations = useMemo(() => {
+        if (!specializations) return [];
         const query = searchQuery.trim().toLowerCase();
         return specializations.filter(spec => {
             const matchesCategory = (selectedCategory === 'All Tracks') || 
@@ -214,9 +117,24 @@ const Home = () => {
                     </a>
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                        <span style={{ fontSize: '0.875rem', fontWeight: 600, color: '#475569' }}>
-                            {specializations.length} Specializations Available
-                        </span>
+                        {isLoading ? (
+                            <span className="header-count-skeleton" aria-label="Loading specializations" />
+                        ) : fetchError ? (
+                            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', fontWeight: 600, color: '#475569' }}>
+                                Unable to load
+                                <button
+                                    type="button"
+                                    className="filter-pill"
+                                    onClick={() => setRetryKey(k => k + 1)}
+                                >
+                                    Retry
+                                </button>
+                            </span>
+                        ) : (
+                            <span style={{ fontSize: '0.875rem', fontWeight: 600, color: '#475569' }}>
+                                {specializations.length} Specializations Available
+                            </span>
+                        )}
                     </div>
                 </div>
             </header>
@@ -269,11 +187,12 @@ const Home = () => {
 
                     {/* Category Filter Pills */}
                     <div className="filter-pills-container">
-                        {CATEGORIES.map((category) => (
+                        {categories.map((category) => (
                             <button
                                 key={category}
                                 className={`filter-pill ${selectedCategory === category ? 'active' : ''}`}
                                 onClick={() => setSelectedCategory(category)}
+                                disabled={isLoading || !!fetchError}
                             >
                                 {category}
                             </button>
@@ -283,15 +202,45 @@ const Home = () => {
 
                 {/* Results Header */}
                 <div className="results-header">
-                    <span className="results-count">
-                        Showing {filteredSpecializations.length} of {specializations.length} specializations
-                        {selectedCategory !== 'All Tracks' && ` in "${selectedCategory}"`}
-                        {searchQuery && ` matching "${searchQuery}"`}
-                    </span>
+                    {isLoading ? (
+                        <span className="results-count">Loading specializations…</span>
+                    ) : fetchError ? (
+                        <span className="results-count">Unable to load specializations.</span>
+                    ) : (
+                        <span className="results-count">
+                            Showing {filteredSpecializations.length} of {specializations.length} specializations
+                            {selectedCategory !== 'All Tracks' && ` in "${selectedCategory}"`}
+                            {searchQuery && ` matching "${searchQuery}"`}
+                        </span>
+                    )}
                 </div>
 
                 {/* Specializations Grid */}
-                {filteredSpecializations.length > 0 ? (
+                {isLoading ? (
+                    <div className="specializations-grid" aria-label="Loading specializations">
+                        {[0, 1, 2, 3, 4, 5].map((n) => (
+                            <div key={n} className="spec-card spec-card-skeleton" aria-hidden="true">
+                                <div className="skeleton-line skeleton-title" />
+                                <div className="skeleton-line" />
+                                <div className="skeleton-line skeleton-short" />
+                            </div>
+                        ))}
+                    </div>
+                ) : fetchError ? (
+                    <div className="empty-state">
+                        <div className="empty-icon">⚠️</div>
+                        <h3 className="empty-title">Couldn&apos;t load specializations</h3>
+                        <p className="empty-text">
+                            {fetchError} Check your connection and try again.
+                        </p>
+                        <button
+                            className="reset-search-btn"
+                            onClick={() => setRetryKey(k => k + 1)}
+                        >
+                            Retry
+                        </button>
+                    </div>
+                ) : filteredSpecializations.length > 0 ? (
                     <div className="specializations-grid">
                         {filteredSpecializations.map((spec) => (
                             <article 
