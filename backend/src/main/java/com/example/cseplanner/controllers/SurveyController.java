@@ -22,8 +22,10 @@ public class SurveyController {
     private final RoadmapService roadmapService;
 
     @GetMapping("/{specializationId}/questions")
-    public ResponseEntity<List<SurveyQuestion>> getQuestions(@PathVariable String specializationId) {
-        return ResponseEntity.ok(surveyService.getQuestionsBySpecialization(specializationId));
+    public ResponseEntity<List<SurveyQuestion>> getQuestions(
+            @PathVariable String specializationId,
+            @RequestParam(required = false, defaultValue = "1") int semester) {
+        return ResponseEntity.ok(surveyService.getQuestionsBySpecializationAndSemester(specializationId, semester));
     }
 
     @PostMapping("/submit")

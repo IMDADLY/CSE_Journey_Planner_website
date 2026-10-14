@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import SpecializationDetailModal from './SpecializationDetailModal';
 
 // Default pre-curated CSE specializations (instant render & offline fallback)
@@ -121,6 +122,7 @@ const CATEGORIES = [
 ];
 
 const Home = () => {
+    const navigate = useNavigate();
     const [specializations, setSpecializations] = useState(DEFAULT_SPECIALIZATIONS);
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All Tracks');
@@ -177,7 +179,8 @@ const Home = () => {
 
     const handleStartSurvey = (spec) => {
         setIsModalOpen(false);
-        alert(`Starting competency survey for ${spec.name}! (Specialization ID: ${spec.id})`);
+        const specKey = spec.slug || spec.id || 'ai-ml';
+        navigate(`/survey/${specKey}`);
     };
 
     const renderCardIcon = (icon) => {
@@ -334,17 +337,30 @@ const Home = () => {
                                     <span className="card-difficulty">
                                         Level: {spec.difficulty || 'All Levels'}
                                     </span>
-                                    <button 
-                                        type="button"
-                                        className="card-explore-btn"
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            handleOpenDetail(spec);
-                                        }}
-                                    >
-                                        <span>Explore Track</span>
-                                        <span>→</span>
-                                    </button>
+                                    <div className="card-actions-group">
+                                        <button 
+                                            type="button"
+                                            className="card-survey-btn"
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                handleStartSurvey(spec);
+                                            }}
+                                            title="Take Competency Survey"
+                                        >
+                                            <span>📝 Survey</span>
+                                        </button>
+                                        <button 
+                                            type="button"
+                                            className="card-explore-btn"
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                handleOpenDetail(spec);
+                                            }}
+                                        >
+                                            <span>Explore</span>
+                                            <span>→</span>
+                                        </button>
+                                    </div>
                                 </div>
                             </article>
                         ))}

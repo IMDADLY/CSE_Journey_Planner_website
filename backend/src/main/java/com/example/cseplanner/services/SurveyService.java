@@ -41,6 +41,26 @@ public class SurveyService {
         return questions;
     }
 
+    public List<SurveyQuestion> getQuestionsBySpecializationAndSemester(String specializationId, int semester) {
+        List<SurveyQuestion> allQuestions = getQuestionsBySpecialization(specializationId);
+        if (allQuestions == null || allQuestions.isEmpty()) {
+            return allQuestions;
+        }
+        // AI/ML nested survey support (S8=25, S7=30, ... S1=60)
+        if ((specializationId.contains("ai") || specializationId.contains("ml")) && allQuestions.size() >= 25) {
+            int startIdx = 0;
+            if (semester >= 8) startIdx = Math.min(35, allQuestions.size() - 25);
+            else if (semester == 7) startIdx = Math.min(30, allQuestions.size() - 30);
+            else if (semester == 6) startIdx = Math.min(25, allQuestions.size() - 35);
+            else if (semester == 5) startIdx = Math.min(20, allQuestions.size() - 40);
+            else if (semester == 4) startIdx = Math.min(15, allQuestions.size() - 45);
+            else if (semester == 3) startIdx = Math.min(10, allQuestions.size() - 50);
+            else if (semester == 2) startIdx = Math.min(5, allQuestions.size() - 55);
+            return allQuestions.subList(startIdx, allQuestions.size());
+        }
+        return allQuestions;
+    }
+
     public SurveyResponse evaluateSurvey(SurveySubmitRequest request) {
         String specializationId = request.getSpecializationId();
         String sessionToken = request.getAnonymousSessionToken();
