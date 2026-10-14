@@ -1,47 +1,39 @@
-import React, { useState } from 'react';
+import React from 'react';
 
+/**
+ * Ultra-compact light-theme read-only code snippet editor with line numbers.
+ * Simple, distraction-free styling matching modern developer IDEs.
+ */
 const CodeSnippetBlock = ({ code, language, compact }) => {
-    const [copied, setCopied] = useState(false);
-
     if (!code) return null;
 
-    const handleCopy = async () => {
-        try {
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                await navigator.clipboard.writeText(code);
-            } else {
-                const ta = document.createElement('textarea');
-                ta.value = code;
-                document.body.appendChild(ta);
-                ta.select();
-                document.execCommand('copy');
-                document.body.removeChild(ta);
-            }
-            setCopied(true);
-            setTimeout(() => setCopied(false), 1500);
-        } catch (e) {
-            // copy unavailable; fail silently
-        }
-    };
+    const lines = code.trim().split('\n');
 
     return (
-        <figure
-            className={`code-snippet-block${compact ? ' compact' : ''}`}
+        <div 
+            className={`editor-snippet-container${compact ? ' compact' : ''}`}
             aria-label={language ? `${language} code snippet` : 'code snippet'}
         >
-            <div className="code-snippet-header">
-                <span className="code-dots" aria-hidden="true">
-                    <i />
-                    <i />
-                    <i />
-                </span>
-                <span className="code-lang-badge">{language || 'code'}</span>
-                <button type="button" className="code-copy-btn" onClick={handleCopy}>
-                    {copied ? 'Copied ✓' : 'Copy'}
-                </button>
+            {/* Gutter with Line Numbers */}
+            <div className="editor-snippet-gutter" aria-hidden="true">
+                {lines.map((_, idx) => (
+                    <span key={idx} className="editor-line-number">
+                        {idx + 1}
+                    </span>
+                ))}
             </div>
-            <pre className="code-snippet-pre"><code>{code}</code></pre>
-        </figure>
+
+            {/* Code Content */}
+            <pre className="editor-snippet-pre">
+                <code>
+                    {lines.map((line, idx) => (
+                        <div key={idx} className="editor-code-line">
+                            {line || ' '}
+                        </div>
+                    ))}
+                </code>
+            </pre>
+        </div>
     );
 };
 
