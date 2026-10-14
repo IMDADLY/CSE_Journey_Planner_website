@@ -6,6 +6,7 @@ import {
     SEMESTER_CONFIG 
 } from '../src/data/aiMlQuestionBank';
 import SurveyResultsView from './SurveyResultsView';
+import CodeSnippetBlock from './CodeSnippetBlock';
 
 const SurveyView = () => {
     const navigate = useNavigate();
@@ -218,6 +219,10 @@ const SurveyView = () => {
                                 <h2 className="survey-q-stem">
                                     {q.questionText}
                                 </h2>
+
+                                {q.codeSnippet && (
+                                    <CodeSnippetBlock code={q.codeSnippet} language={q.codeLanguage} />
+                                )}
 
                                 {/* Options list */}
                                 <div className={`survey-options-group ${shortOptions ? 'layout-horizontal' : 'layout-stacked'}`}>

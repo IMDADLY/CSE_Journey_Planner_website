@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TIER_NAMES } from '../src/data/aiMlQuestionBank';
+import CodeSnippetBlock from './CodeSnippetBlock';
 
 const SurveyResultsView = ({ result, semester, questions, answers, onRetake }) => {
     const navigate = useNavigate();
@@ -233,6 +234,10 @@ const SurveyResultsView = ({ result, semester, questions, answers, onRetake }) =
                                 </div>
 
                                 <div className="review-stem">{q.questionText}</div>
+
+                                {q.codeSnippet && (
+                                    <CodeSnippetBlock code={q.codeSnippet} language={q.codeLanguage} compact />
+                                )}
 
                                 {/* Options breakdown */}
                                 <div className="review-options-grid">

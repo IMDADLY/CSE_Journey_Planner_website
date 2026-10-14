@@ -35,7 +35,9 @@ export const AI_ML_QUESTIONS = [
         topic: "Python",
         skillTag: "Python Programming",
         weight: 2,
-        questionText: "What is the value of sum(x*x for x in range(3)) in Python 3?",
+        questionText: "What is the value of the following Python expression?",
+        codeSnippet: "sum(x*x for x in range(3))",
+        codeLanguage: "python",
         options: ["9", "6", "5", "14"],
         correctOptionIndex: 2, // C
         explanation: "The loop uses 0, 1, and 2; their squares are 0, 1, and 4, which sum to 5.",
@@ -678,7 +680,9 @@ export const AI_ML_QUESTIONS = [
         topic: "Regularized optimization",
         skillTag: "L2 Regularization & Gradient Updates",
         weight: 4,
-        questionText: "For one training example, L(w)=(wx−y)²+lambda×w², with x=2, y=3, w=1, and lambda=0.5. What is w after one gradient-descent step with learning rate 0.1?",
+        questionText: "For one training example with the loss below, what is w after one gradient-descent step with learning rate 0.1?",
+        codeSnippet: "L(w) = (w*x - y)^2 + lambda * w^2\nx = 2, y = 3, w = 1, lambda = 0.5",
+        codeLanguage: "text",
         options: ["1.3", "0.7", "1.4", "0.6"],
         correctOptionIndex: 0, // A
         explanation: "dL/dw = 2x(wx - y) + 2*lambda*w = 2(2)(2*1 - 3) + 2(0.5)(1) = 4(-1) + 1 = -3. w_new = 1 - 0.1*(-3) = 1 + 0.3 = 1.3.",
@@ -825,7 +829,9 @@ export const AI_ML_QUESTIONS = [
         topic: "Autograd code interpretation",
         skillTag: "PyTorch Autograd Graph Mechanics",
         weight: 4,
-        questionText: "In PyTorch, run x=torch.tensor(2.0, requires_grad=True); (x*x).backward(); (3*x).backward(). No gradient is cleared between calls, and the second expression creates a fresh graph. What is x.grad afterward?",
+        questionText: "In PyTorch, run the following code. No gradient is cleared between calls, and the second expression creates a fresh graph. What is x.grad afterward?",
+        codeSnippet: "x = torch.tensor(2.0, requires_grad=True)\n(x * x).backward()\n(3 * x).backward()",
+        codeLanguage: "python",
         options: ["4.0", "3.0", "An error because two different graphs can never share a leaf", "7.0"],
         correctOptionIndex: 3, // D
         explanation: "PyTorch accumulates gradients into leaf tensors: d(x^2)/dx at x=2 is 4; d(3x)/dx is 3. Total accumulated gradient = 4 + 3 = 7.0.",
