@@ -722,6 +722,25 @@ body {
   box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
 }
 
+.btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.modal-survey-pending {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.modal-survey-note {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
 /* Animations */
 @keyframes fadeIn {
   from { opacity: 0; }

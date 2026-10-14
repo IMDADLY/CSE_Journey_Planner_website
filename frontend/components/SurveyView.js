@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Navigate } from 'react-router-dom';
 import { 
     getQuestionsForSemester, 
     calculateSurveyScore, 
@@ -11,6 +11,12 @@ import CodeSnippetBlock from './CodeSnippetBlock';
 const SurveyView = () => {
     const navigate = useNavigate();
     const { specializationId } = useParams();
+
+    // Only the AI/ML track has a survey; any other slug redirects home
+    // instead of serving AI/ML content under another track's name.
+    if (specializationId && specializationId !== 'ai-ml' && specializationId !== 'spec-ai-ml') {
+        return <Navigate to="/" replace />;
+    }
 
     // Default to Semester 5 or URL query/state
     const [selectedSemester, setSelectedSemester] = useState(5);

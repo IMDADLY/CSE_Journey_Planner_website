@@ -70,9 +70,22 @@ const Home = () => {
         });
     }, [specializations, searchQuery, selectedCategory]);
 
+    const isAiMlSpec = (spec) => {
+        if (!spec) return false;
+        return spec.slug === 'ai-ml' || spec.id === 'spec-ai-ml';
+    };
+
     const handleOpenDetail = (spec) => {
         setSelectedSpec(spec);
         setIsModalOpen(true);
+    };
+
+    const handleCardClick = (spec) => {
+        if (isAiMlSpec(spec)) {
+            navigate('/survey/ai-ml');
+        } else {
+            handleOpenDetail(spec);
+        }
     };
 
     const handleCloseModal = () => {
@@ -246,7 +259,7 @@ const Home = () => {
                             <article 
                                 key={spec.id || spec.slug} 
                                 className="spec-card"
-                                onClick={() => handleOpenDetail(spec)}
+                                onClick={() => handleCardClick(spec)}
                             >
                                 <div className="card-top">
                                     <div className="card-icon-box">
@@ -287,17 +300,6 @@ const Home = () => {
                                         Level: {spec.difficulty || 'All Levels'}
                                     </span>
                                     <div className="card-actions-group">
-                                        <button 
-                                            type="button"
-                                            className="card-survey-btn"
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                handleStartSurvey(spec);
-                                            }}
-                                            title="Take Competency Survey"
-                                        >
-                                            <span>📝 Survey</span>
-                                        </button>
                                         <button 
                                             type="button"
                                             className="card-explore-btn"

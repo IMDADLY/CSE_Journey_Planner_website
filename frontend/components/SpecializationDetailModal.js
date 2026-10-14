@@ -145,13 +145,23 @@ const SpecializationDetailModal = ({ specialization, isOpen, onClose, onStartSur
                     <button className="btn-secondary" onClick={onClose}>
                         Close
                     </button>
-                    <button 
-                        className="btn-primary" 
-                        onClick={() => onStartSurvey && onStartSurvey(specialization)}
-                    >
-                        <span>Take Competency Survey</span>
-                        <span>→</span>
-                    </button>
+                    {(specialization.slug === 'ai-ml' || specialization.id === 'spec-ai-ml') ? (
+                        <button 
+                            className="btn-primary" 
+                            onClick={() => onStartSurvey && onStartSurvey(specialization)}
+                        >
+                            <span>Take Competency Survey</span>
+                            <span>→</span>
+                        </button>
+                    ) : (
+                        <div className="modal-survey-pending">
+                            <button className="btn-primary" disabled title="Survey coming soon for this track">
+                                <span>Take Competency Survey</span>
+                                <span>→</span>
+                            </button>
+                            <span className="modal-survey-note">Survey coming soon for this track</span>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

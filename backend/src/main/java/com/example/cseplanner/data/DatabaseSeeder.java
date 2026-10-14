@@ -7,6 +7,7 @@ import com.example.cseplanner.repository.SurveyQuestionRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @Slf4j
 @Component
+@Order(1)
 @RequiredArgsConstructor
 public class DatabaseSeeder implements CommandLineRunner {
 
@@ -42,10 +44,12 @@ public class DatabaseSeeder implements CommandLineRunner {
         }
     }
 
-    private List<Specialization> createSpecializations() {
-        List<Specialization> list = new ArrayList<>();
-
-        list.add(Specialization.builder()
+    /**
+     * Canonical AI/ML specialization. Also used by {@code AiMlSpecRestoreRunner}
+     * to restore the track on databases seeded before it existed.
+     */
+    public static Specialization aiMlSpecialization() {
+        return Specialization.builder()
                 .id("spec-ai-ml")
                 .name("Artificial Intelligence & Machine Learning")
                 .slug("ai-ml")
@@ -60,7 +64,13 @@ public class DatabaseSeeder implements CommandLineRunner {
                 .relatedTools(List.of("Jupyter", "Hugging Face", "MLflow", "CUDA", "Pandas", "NumPy"))
                 .iconUrl("brain")
                 .createdAt(Instant.now())
-                .build());
+                .build();
+    }
+
+    private List<Specialization> createSpecializations() {
+        List<Specialization> list = new ArrayList<>();
+
+        list.add(aiMlSpecialization());
 
         list.add(Specialization.builder()
                 .id("spec-full-stack")
@@ -76,23 +86,6 @@ public class DatabaseSeeder implements CommandLineRunner {
                 .coreSkills(List.of("JavaScript/TypeScript", "React.js", "Java Spring Boot / Node.js", "REST / GraphQL", "MongoDB / PostgreSQL"))
                 .relatedTools(List.of("Git", "Webpack/Vite", "Docker", "Postman", "Tailwind CSS"))
                 .iconUrl("code")
-                .createdAt(Instant.now())
-                .build());
-
-        list.add(Specialization.builder()
-                .id("spec-cybersecurity")
-                .name("Cybersecurity & Ethical Hacking")
-                .slug("cybersecurity")
-                .description("Defend critical digital infrastructure, fight modern cyber threats, perform ethical penetration testing, and secure cloud environments.")
-                .category("Systems & Security")
-                .industryDemand(5)
-                .demandTag("CRITICAL DEMAND")
-                .salaryRange("₹8–15 LPA")
-                .difficulty("Intermediate")
-                .careerOutcomes(List.of("Security Analyst", "Penetration Tester", "SOC Analyst", "Cloud Security Engineer", "CISO Track"))
-                .coreSkills(List.of("Network Security", "Cryptography", "Linux Internals", "Vulnerability Assessment", "SIEM"))
-                .relatedTools(List.of("Wireshark", "Metasploit", "Burp Suite", "Nmap", "Kali Linux"))
-                .iconUrl("shield")
                 .createdAt(Instant.now())
                 .build());
 
