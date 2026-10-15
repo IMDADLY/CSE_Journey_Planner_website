@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SpecializationDetailModal from './SpecializationDetailModal';
+import { loadSpecializations } from '../src/api/specializations.mjs';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -10,6 +11,12 @@ const Home = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [fetchError, setFetchError] = useState(null);
     const [retryKey, setRetryKey] = useState(0);
+    const [retryAt, setRetryAt] = useState(0);
+    const [now, setNow] = useState(Date.now);
+    const requestPending = useRef(true);
+    const retrySeconds = Math.max(0, Math.ceil((retryAt - now) / 1000));
+    const retryDisabled = isLoading || retrySeconds > 0;
+    const retryLabel = retrySeconds > 0 ? `Retry in ${retrySeconds}s` : 'Retry';
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All Tracks');
     const [selectedSpec, setSelectedSpec] = useState(null);
@@ -20,23 +27,42 @@ const Home = () => {
         const controller = new AbortController();
         setIsLoading(true);
         setFetchError(null);
-        fetch('/api/specializations', { signal: controller.signal })
-            .then(res => {
-                if (!res.ok) throw new Error(`Request failed: ${res.status}`);
-                return res.json();
-            })
+        requestPending.current = true;
+        loadSpecializations(controller.signal)
             .then(data => {
-                if (!Array.isArray(data)) throw new Error('Unexpected response shape');
+                if (controller.signal.aborted) return;
+                requestPending.current = false;
+                setRetryAt(0);
                 setSpecializations(data);
                 setIsLoading(false);
             })
             .catch((err) => {
-                if (err && err.name === 'AbortError') return;
-                setFetchError(err instanceof Error ? err.message : 'Failed to load specializations');
+                if (controller.signal.aborted) return;
+                requestPending.current = false;
+                setNow(Date.now());
+                setRetryAt(err.retryAt || 0);
+                setFetchError(err instanceof Error ? err.message : 'Unable to connect. Please try again.');
                 setIsLoading(false);
             });
         return () => controller.abort();
     }, [retryKey]);
+
+    useEffect(() => {
+        if (!retryAt) return;
+        const timer = setInterval(() => {
+            const time = Date.now();
+            setNow(time);
+            if (time >= retryAt) clearInterval(timer);
+        }, 1000);
+        return () => clearInterval(timer);
+    }, [retryAt]);
+
+    const handleRetry = () => {
+        if (requestPending.current || Date.now() < retryAt) return;
+        requestPending.current = true;
+        setIsLoading(true);
+        setRetryKey(k => k + 1);
+    };
 
     // Categories derived from DB data so pills can never disagree with it.
     const categories = useMemo(() => {
@@ -138,9 +164,10 @@ const Home = () => {
                                 <button
                                     type="button"
                                     className="filter-pill"
-                                    onClick={() => setRetryKey(k => k + 1)}
+                                    onClick={handleRetry}
+                                    disabled={retryDisabled}
                                 >
-                                    Retry
+                                    {retryLabel}
                                 </button>
                             </span>
                         ) : (
@@ -243,14 +270,15 @@ const Home = () => {
                     <div className="empty-state">
                         <div className="empty-icon">⚠️</div>
                         <h3 className="empty-title">Couldn&apos;t load specializations</h3>
-                        <p className="empty-text">
-                            {fetchError} Check your connection and try again.
+                        <p className="empty-text" role="alert">
+                            {fetchError}
                         </p>
                         <button
                             className="reset-search-btn"
-                            onClick={() => setRetryKey(k => k + 1)}
+                            onClick={handleRetry}
+                            disabled={retryDisabled}
                         >
-                            Retry
+                            {retryLabel}
                         </button>
                     </div>
                 ) : filteredSpecializations.length > 0 ? (
