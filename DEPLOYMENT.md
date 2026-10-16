@@ -9,7 +9,7 @@ This project is configured for **Continuous Deployment (CI/CD)**. Every time you
 | Component | Platform | Configuration |
 | :--- | :--- | :--- |
 | **Frontend (React UI)** | **Vercel** | `vercel.json` (Static build + edge proxy) |
-| **Backend (Spring Boot)** | **Render** | `Dockerfile` & `render.yaml` (Java 17 runtime) |
+| **Backend (Spring Boot)** | **Render** | `Dockerfile` & `render.yaml` (Java 25 LTS runtime) |
 | **Database** | **MongoDB Atlas** | Managed Cloud MongoDB (Already configured) |
 
 ---
