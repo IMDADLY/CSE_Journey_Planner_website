@@ -35,21 +35,6 @@ const DEFAULT_SPECIALIZATIONS = [
         iconUrl: "code"
     },
     {
-        id: "spec-cybersecurity",
-        name: "Cybersecurity & Ethical Hacking",
-        slug: "cybersecurity",
-        description: "Defend critical digital infrastructure, fight modern cyber threats, perform ethical penetration testing, and secure cloud environments.",
-        category: "Systems & Security",
-        industryDemand: 5,
-        demandTag: "CRITICAL DEMAND",
-        salaryRange: "₹8–15 LPA",
-        difficulty: "Intermediate",
-        careerOutcomes: ["Security Analyst", "Penetration Tester", "SOC Analyst", "Cloud Security Engineer", "CISO Track"],
-        coreSkills: ["Network Security", "Cryptography", "Linux Internals", "Vulnerability Assessment", "SIEM"],
-        relatedTools: ["Wireshark", "Metasploit", "Burp Suite", "Nmap", "Kali Linux"],
-        iconUrl: "shield"
-    },
-    {
         id: "spec-cloud-devops",
         name: "Cloud Computing & DevOps",
         slug: "cloud-computing",
@@ -116,7 +101,6 @@ const CATEGORIES = [
     "Data & AI",
     "Software & Web",
     "Cloud & Infrastructure",
-    "Systems & Security",
     "Interactive Media",
     "Hardware & Systems"
 ];

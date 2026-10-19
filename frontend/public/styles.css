@@ -900,14 +900,56 @@ body {
   box-shadow: var(--shadow-sm);
 }
 
-/* Two-Column Survey Layout */
+/* Sticky progress overlay — always visible while scrolling */
+.survey-progress-overlay {
+  position: sticky;
+  top: 72px;
+  z-index: 30;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.survey-progress-overlay-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.survey-progress-overlay-stats {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.survey-progress-overlay-track {
+  height: 4px;
+  background: #e2e8f0;
+  overflow: hidden;
+}
+
+.survey-progress-overlay-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary) 0%, #3b82f6 100%);
+  border-radius: 0 999px 999px 0;
+  transition: width 300ms ease;
+}
+
+/* Single-Column Survey Layout (sidebar removed) */
 .survey-main-layout {
-  display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 3rem;
-  padding-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 880px;
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 1.5rem;
   padding-bottom: 5rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 /* Questionnaire Cards Column */
@@ -1205,72 +1247,18 @@ body {
   font-size: 1.05rem;
 }
 
+.survey-submit-count {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  text-align: center;
+}
+
 .survey-unanswered-note {
   font-size: 0.85rem;
   color: #64748b;
   line-height: 1.4;
   text-align: center;
-}
-
-/* Sticky Right Sidebar */
-.survey-sidebar-column {
-  position: relative;
-}
-
-.survey-sticky-sidebar {
-  position: sticky;
-  top: 96px;
-  display: flex;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-}
-
-.sidebar-accent-bar {
-  width: 5px;
-  background: var(--primary);
-  flex-shrink: 0;
-}
-
-.sidebar-content {
-  padding: 1.75rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.15rem;
-  width: 100%;
-}
-
-.sidebar-title {
-  font-size: 1.35rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: #0f172a;
-}
-
-.sidebar-description {
-  font-size: 0.92rem;
-  color: #475569;
-  line-height: 1.5;
-}
-
-.sidebar-progress-card {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: var(--radius-md);
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.progress-card-top {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #334155;
 }
 
 .progress-bar-track {
@@ -1285,40 +1273,6 @@ body {
   background: linear-gradient(90deg, var(--primary) 0%, #3b82f6 100%);
   border-radius: var(--radius-full);
   transition: width 300ms ease;
-}
-
-.progress-percent-label {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: #64748b;
-  text-align: right;
-}
-
-.scroll-helper-btn {
-  background: none;
-  border: none;
-  color: var(--primary);
-  font-weight: 700;
-  font-size: 0.95rem;
-  cursor: pointer;
-  text-align: left;
-  padding: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  transition: var(--transition-fast);
-}
-
-.scroll-helper-btn:hover {
-  color: #1d4ed8;
-  transform: translateX(2px);
-}
-
-.sidebar-submit-btn {
-  width: 100%;
-  justify-content: center;
-  padding: 0.85rem 1.25rem;
-  margin-top: 0.5rem;
 }
 
 /* ==========================================================================
@@ -1836,12 +1790,12 @@ body {
 /* Survey Responsive */
 @media (max-width: 960px) {
   .survey-main-layout {
-    grid-template-columns: 1fr;
+    max-width: 100%;
     gap: 2rem;
   }
 
-  .survey-sticky-sidebar {
-    position: static;
+  .survey-progress-overlay {
+    top: 72px;
   }
 
   .metrics-grid {

@@ -1,19 +1,24 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { 
-    getQuestionsForSemester, 
-    calculateSurveyScore, 
-    SEMESTER_CONFIG 
-} from '../src/data/aiMlQuestionBank';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { getQuestionBankForSpecialization } from '../src/data/questionBanks';
 import SurveyResultsView from './SurveyResultsView';
 import CodeSnippetBlock from './CodeSnippetBlock';
 
 const SurveyView = () => {
     const navigate = useNavigate();
     const { specializationId } = useParams();
+    const [searchParams] = useSearchParams();
 
-    // Default to Semester 5 or URL query/state
-    const [selectedSemester, setSelectedSemester] = useState(5);
+    // Dynamically retrieve the question bank for this specialization
+    const bank = useMemo(() => {
+        return getQuestionBankForSpecialization(specializationId);
+    }, [specializationId]);
+
+    // Default to Semester 1 (all 60 questions) or from URL query
+    const querySem = parseInt(searchParams.get('semester') || searchParams.get('sem'), 10);
+    const initialSemester = (querySem >= 1 && querySem <= 8) ? querySem : 1;
+    const [selectedSemester, setSelectedSemester] = useState(initialSemester);
+
     const [answers, setAnswers] = useState({}); // { [qId]: optionIndex }
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [evaluationResult, setEvaluationResult] = useState(null);
@@ -22,10 +27,17 @@ const SurveyView = () => {
 
     // Get strictly nested questions for the chosen semester
     const currentQuestions = useMemo(() => {
-        return getQuestionsForSemester(selectedSemester);
-    }, [selectedSemester]);
+        return bank.getQuestionsForSemester(selectedSemester);
+    }, [bank, selectedSemester]);
 
-    const semConfig = SEMESTER_CONFIG[selectedSemester];
+    const semConfig = bank.config[selectedSemester] || bank.config[1];
+
+    // Reset answers if specialization changes
+    useEffect(() => {
+        setAnswers({});
+        setIsSubmitted(false);
+        setEvaluationResult(null);
+    }, [specializationId]);
 
     // Count how many questions in the current form have been answered
     const answeredCount = useMemo(() => {
@@ -50,7 +62,7 @@ const SurveyView = () => {
         setIsSubmitting(true);
 
         // 1. Calculate standard evaluation according to the exact research-backed weights
-        const evalScore = calculateSurveyScore(currentQuestions, answers);
+        const evalScore = bank.calculateSurveyScore(currentQuestions, answers);
         setEvaluationResult(evalScore);
 
         // 2. Proactively try submitting to backend for MongoDB persistence & logging
@@ -59,7 +71,7 @@ const SurveyView = () => {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    specializationId: specializationId || 'spec-ai-ml',
+                    specializationId: bank.id,
                     currentSemester: selectedSemester,
                     answers: answers
                 })
@@ -109,7 +121,7 @@ const SurveyView = () => {
                         </div>
 
                         <div className="survey-header-right">
-                            <span className="survey-breadcrumb">AI & Machine Learning / Diagnostic Result</span>
+                            <span className="survey-breadcrumb">{bank.shortName || bank.name} / Diagnostic Result</span>
                         </div>
                     </div>
                 </header>
@@ -120,6 +132,8 @@ const SurveyView = () => {
                         semester={selectedSemester}
                         questions={currentQuestions}
                         answers={answers}
+                        specializationName={bank.name}
+                        tierNames={bank.tierNames}
                         onRetake={handleRetake}
                     />
                 </main>
@@ -145,7 +159,7 @@ const SurveyView = () => {
                     </div>
 
                     <div className="survey-header-right">
-                        <span className="survey-breadcrumb">AI & Machine Learning / Survey</span>
+                        <span className="survey-breadcrumb">{bank.shortName || bank.name} / Survey</span>
                     </div>
                 </div>
             </header>
@@ -189,9 +203,30 @@ const SurveyView = () => {
                 </div>
             </div>
 
-            {/* Main Survey Two-Column Layout */}
+            {/* Sticky progress overlay — always visible while scrolling */}
+            <div
+                className="survey-progress-overlay"
+                role="progressbar"
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-valuenow={answeredPercent}
+                aria-label={`Survey progress: ${answeredCount} of ${currentQuestions.length} answered`}
+            >
+                <div className="container survey-progress-overlay-inner">
+                    <span className="survey-progress-overlay-label">Your Progress</span>
+                    <span className="survey-progress-overlay-stats">{answeredCount} of {currentQuestions.length} • {answeredPercent}%</span>
+                </div>
+                <div className="survey-progress-overlay-track">
+                    <div
+                        className="survey-progress-overlay-fill"
+                        style={{ width: `${answeredPercent}%` }}
+                    />
+                </div>
+            </div>
+
+            {/* Main Survey Single-Column Layout */}
             <main className="container survey-main-layout">
-                {/* Left Column: Continuous Questionnaire Form */}
+                {/* Continuous Questionnaire Form */}
                 <section className="survey-questions-column">
                     {currentQuestions.map((q, idx) => {
                         const isSelf = q.type === 'self-assessment';
@@ -255,15 +290,18 @@ const SurveyView = () => {
                         );
                     })}
 
-                    {/* Bottom Submit Action */}
+                    {/* Bottom Submit Action — single submit for the survey */}
                     <div className="survey-bottom-actions">
-                        <button 
+                        <button
                             className="btn-primary survey-submit-btn-large"
                             onClick={handleSubmit}
                             disabled={isSubmitting}
                         >
-                            {isSubmitting ? 'Evaluating Responses...' : `Submit Competency Survey (${answeredCount}/${currentQuestions.length} answered)`}
+                            {isSubmitting ? 'Evaluating Responses...' : 'Submit Survey →'}
                         </button>
+                        <p className="survey-submit-count">
+                            {answeredCount} of {currentQuestions.length} answered • {answeredPercent}% completed
+                        </p>
                         {answeredCount < currentQuestions.length && (
                             <p className="survey-unanswered-note">
                                 ℹ️ You have {currentQuestions.length - answeredCount} unanswered questions. Unanswered items score 0 with no penalty. You can submit now or complete them above.
@@ -271,71 +309,6 @@ const SurveyView = () => {
                         )}
                     </div>
                 </section>
-
-                {/* Right Sticky Sidebar (Mockup exact fidelity) */}
-                <aside className="survey-sidebar-column">
-                    <div className="survey-sticky-sidebar">
-                        <div className="sidebar-accent-bar" />
-                        
-                        <div className="sidebar-content">
-                            <h3 className="sidebar-title">One continuous form</h3>
-
-                            <p className="sidebar-description">
-                                Most questions test coding and theory.
-                            </p>
-
-                            <p className="sidebar-description">
-                                Self-assessment provides a smaller supporting signal.
-                            </p>
-
-                            <p className="sidebar-description">
-                                Scroll to view more questions and submit at the bottom.
-                            </p>
-
-                            {/* Live Progress Card */}
-                            <div className="sidebar-progress-card">
-                                <div className="progress-card-top">
-                                    <span className="progress-card-label">Your Progress</span>
-                                    <span className="progress-card-stats">{answeredCount} of {currentQuestions.length}</span>
-                                </div>
-                                <div className="progress-bar-track">
-                                    <div 
-                                        className="progress-bar-fill" 
-                                        style={{ width: `${answeredPercent}%` }}
-                                    />
-                                </div>
-                                <span className="progress-percent-label">{answeredPercent}% completed</span>
-                            </div>
-
-                            {/* Quick Scroll Indicator */}
-                            <button 
-                                className="scroll-helper-btn"
-                                onClick={() => {
-                                    // Scroll to the first unanswered question
-                                    const unanswered = currentQuestions.find(q => answers[q.id] === undefined || answers[q.id] === null);
-                                    if (unanswered) {
-                                        const elem = document.getElementById(`question-${unanswered.id}`);
-                                        if (elem) elem.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                                    } else {
-                                        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-                                    }
-                                }}
-                            >
-                                <span>{answeredCount < currentQuestions.length ? 'Next unattempted MCQ ↓' : 'Jump to submit ↓'}</span>
-                            </button>
-
-                            {/* Action Button */}
-                            <button 
-                                className="btn-primary sidebar-submit-btn"
-                                onClick={handleSubmit}
-                                disabled={isSubmitting}
-                            >
-                                <span>Submit Survey</span>
-                                <span>→</span>
-                            </button>
-                        </div>
-                    </div>
-                </aside>
             </main>
         </div>
     );

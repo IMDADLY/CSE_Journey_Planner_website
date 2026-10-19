@@ -20,12 +20,20 @@ import java.util.UUID;
 
 @Slf4j
 @Service
-@RequiredArgsConstructor
 public class SurveyService {
 
     private final SurveyRepository surveyRepository;
     private final SurveyQuestionRepository surveyQuestionRepository;
     private final SurveyResponseRepository surveyResponseRepository;
+
+    public SurveyService(
+            SurveyRepository surveyRepository,
+            SurveyQuestionRepository surveyQuestionRepository,
+            SurveyResponseRepository surveyResponseRepository) {
+        this.surveyRepository = surveyRepository;
+        this.surveyQuestionRepository = surveyQuestionRepository;
+        this.surveyResponseRepository = surveyResponseRepository;
+    }
 
     public Survey getById(String id) {
         return surveyRepository.findById(id)
@@ -46,8 +54,8 @@ public class SurveyService {
         if (allQuestions == null || allQuestions.isEmpty()) {
             return allQuestions;
         }
-        // AI/ML nested survey support (S8=25, S7=30, ... S1=60)
-        if ((specializationId.contains("ai") || specializationId.contains("ml")) && allQuestions.size() >= 25) {
+        // Nested survey support across all CSE specializations (S8=25, S7=30, ... S1=60)
+        if (allQuestions.size() >= 25) {
             int startIdx = 0;
             if (semester >= 8) startIdx = Math.min(35, allQuestions.size() - 25);
             else if (semester == 7) startIdx = Math.min(30, allQuestions.size() - 30);

@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { TIER_NAMES } from '../src/data/aiMlQuestionBank';
 import CodeSnippetBlock from './CodeSnippetBlock';
 
-const SurveyResultsView = ({ result, semester, questions, answers, onRetake }) => {
+const SurveyResultsView = ({ 
+    result, 
+    semester, 
+    questions, 
+    answers, 
+    specializationName = 'Computer Science & Engineering',
+    tierNames,
+    onRetake 
+}) => {
     const navigate = useNavigate();
     const [filterReview, setFilterReview] = useState('all'); // 'all' | 'incorrect' | 'self'
-
-    const handlePrint = () => {
-        window.print();
-    };
 
     const reviewQuestions = questions.filter(q => {
         const selected = answers[q.id];
@@ -39,9 +42,6 @@ const SurveyResultsView = ({ result, semester, questions, answers, onRetake }) =
                     <button className="btn-secondary" onClick={onRetake}>
                         🔄 Retake Survey
                     </button>
-                    <button className="btn-primary" onClick={handlePrint}>
-                        🖨️ Print / Save Diagnostic Report
-                    </button>
                 </div>
             </div>
 
@@ -49,7 +49,7 @@ const SurveyResultsView = ({ result, semester, questions, answers, onRetake }) =
             <div className="results-hero-card">
                 <div className="results-hero-content">
                     <div className="results-badge-row">
-                        <span className="results-track-badge">Artificial Intelligence & Machine Learning</span>
+                        <span className="results-track-badge">{specializationName}</span>
                         <span className="results-sem-badge">Semester {semester} Cohort</span>
                         <span className={`results-level-badge level-${result.competencyLevel.toLowerCase()}`}>
                             {result.competencyLevel} Level
@@ -293,9 +293,6 @@ const SurveyResultsView = ({ result, semester, questions, answers, onRetake }) =
                 <div style={{ display: 'flex', gap: '0.75rem' }}>
                     <button className="btn-secondary" onClick={onRetake}>
                         🔄 Retake Survey
-                    </button>
-                    <button className="btn-primary" onClick={handlePrint}>
-                        🖨️ Print / Save Report
                     </button>
                 </div>
             </div>

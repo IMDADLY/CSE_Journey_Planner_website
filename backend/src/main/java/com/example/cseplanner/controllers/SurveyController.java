@@ -15,11 +15,15 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/surveys")
-@RequiredArgsConstructor
 public class SurveyController {
 
     private final SurveyService surveyService;
     private final RoadmapService roadmapService;
+
+    public SurveyController(SurveyService surveyService, RoadmapService roadmapService) {
+        this.surveyService = surveyService;
+        this.roadmapService = roadmapService;
+    }
 
     @GetMapping("/{specializationId}/questions")
     public ResponseEntity<List<SurveyQuestion>> getQuestions(

@@ -14,11 +14,17 @@ import java.util.*;
 
 @Slf4j
 @Service
-@RequiredArgsConstructor
 public class RoadmapService {
 
     private final RoadmapRepository roadmapRepository;
     private final SpecializationRepository specializationRepository;
+
+    public RoadmapService(
+            RoadmapRepository roadmapRepository,
+            SpecializationRepository specializationRepository) {
+        this.roadmapRepository = roadmapRepository;
+        this.specializationRepository = specializationRepository;
+    }
 
     public Roadmap generateRoadmap(SurveyResponse response) {
         String specializationId = response.getSpecializationId();

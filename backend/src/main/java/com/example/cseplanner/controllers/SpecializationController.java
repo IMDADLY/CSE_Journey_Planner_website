@@ -10,10 +10,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/specializations")
-@RequiredArgsConstructor
 public class SpecializationController {
 
     private final SpecializationService specializationService;
+
+    public SpecializationController(SpecializationService specializationService) {
+        this.specializationService = specializationService;
+    }
 
     @GetMapping
     public ResponseEntity<List<Specialization>> getAll() {

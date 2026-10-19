@@ -9,10 +9,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class SpecializationService {
 
     private final SpecializationRepository specializationRepository;
+
+    public SpecializationService(SpecializationRepository specializationRepository) {
+        this.specializationRepository = specializationRepository;
+    }
 
     public List<Specialization> getAll() {
         return specializationRepository.findAll();

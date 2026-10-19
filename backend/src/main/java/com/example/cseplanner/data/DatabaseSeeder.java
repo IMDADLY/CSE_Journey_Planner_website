@@ -15,11 +15,17 @@ import java.util.List;
 
 @Slf4j
 @Component
-@RequiredArgsConstructor
 public class DatabaseSeeder implements CommandLineRunner {
 
     private final SpecializationRepository specializationRepository;
     private final SurveyQuestionRepository surveyQuestionRepository;
+
+    public DatabaseSeeder(
+            SpecializationRepository specializationRepository,
+            SurveyQuestionRepository surveyQuestionRepository) {
+        this.specializationRepository = specializationRepository;
+        this.surveyQuestionRepository = surveyQuestionRepository;
+    }
 
     @Override
     public void run(String... args) {
@@ -76,23 +82,6 @@ public class DatabaseSeeder implements CommandLineRunner {
                 .coreSkills(List.of("JavaScript/TypeScript", "React.js", "Java Spring Boot / Node.js", "REST / GraphQL", "MongoDB / PostgreSQL"))
                 .relatedTools(List.of("Git", "Webpack/Vite", "Docker", "Postman", "Tailwind CSS"))
                 .iconUrl("code")
-                .createdAt(Instant.now())
-                .build());
-
-        list.add(Specialization.builder()
-                .id("spec-cybersecurity")
-                .name("Cybersecurity & Ethical Hacking")
-                .slug("cybersecurity")
-                .description("Defend critical digital infrastructure, fight modern cyber threats, perform ethical penetration testing, and secure cloud environments.")
-                .category("Systems & Security")
-                .industryDemand(5)
-                .demandTag("CRITICAL DEMAND")
-                .salaryRange("₹8–15 LPA")
-                .difficulty("Intermediate")
-                .careerOutcomes(List.of("Security Analyst", "Penetration Tester", "SOC Analyst", "Cloud Security Engineer", "CISO Track"))
-                .coreSkills(List.of("Network Security", "Cryptography", "Linux Internals", "Vulnerability Assessment", "SIEM"))
-                .relatedTools(List.of("Wireshark", "Metasploit", "Burp Suite", "Nmap", "Kali Linux"))
-                .iconUrl("shield")
                 .createdAt(Instant.now())
                 .build());
 
@@ -256,20 +245,6 @@ public class DatabaseSeeder implements CommandLineRunner {
                     .correctOptionIndex(1)
                     .weight(1.5f)
                     .skillTag("Model Evaluation & Overfitting")
-                    .difficulty("MEDIUM")
-                    .createdAt(Instant.now())
-                    .build());
-        } else if (spec.getSlug().contains("cyber")) {
-            list.add(SurveyQuestion.builder()
-                    .specializationId(specId)
-                    .section("SPECIALIZATION_CORE")
-                    .questionText("What type of attack involves an attacker inserting malicious SQL statements into entry fields for execution by the database?")
-                    .codeSnippet(null)
-                    .options(List.of("Cross-Site Scripting (XSS)", "SQL Injection", "Man-in-the-Middle (MitM)", "DDoS"))
-                    .optionScores(List.of(0, 10, 0, 0))
-                    .correctOptionIndex(1)
-                    .weight(1.5f)
-                    .skillTag("Web Security & SQL Injection")
                     .difficulty("MEDIUM")
                     .createdAt(Instant.now())
                     .build());

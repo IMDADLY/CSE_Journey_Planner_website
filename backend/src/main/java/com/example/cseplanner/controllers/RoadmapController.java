@@ -12,10 +12,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/roadmaps")
-@RequiredArgsConstructor
 public class RoadmapController {
 
     private final RoadmapService roadmapService;
+
+    public RoadmapController(RoadmapService roadmapService) {
+        this.roadmapService = roadmapService;
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Roadmap> getById(@PathVariable String id) {

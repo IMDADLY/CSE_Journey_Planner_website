@@ -1138,8 +1138,8 @@ export const AI_ML_QUESTIONS = [
 ];
 
 // Helper to filter questions by semester according to the strict subset rule
-export const getQuestionsForSemester = (semester = 5) => {
-    const sem = Math.max(1, Math.min(8, Number(semester) || 5));
+export const getQuestionsForSemester = (semester = 1) => {
+    const sem = Math.max(1, Math.min(8, Number(semester) || 1));
     const config = SEMESTER_CONFIG[sem];
     const [startId, endId] = config.idRange;
     const startIndex = AI_ML_QUESTIONS.findIndex(q => q.id === startId);
