@@ -10,7 +10,7 @@ This project is configured for **Continuous Deployment (CI/CD)**. Every time you
 | :--- | :--- | :--- |
 | **Frontend (React UI)** | **Vercel** | `vercel.json` (Static build + edge proxy) |
 | **Backend (Spring Boot)** | **Render** | `Dockerfile` & `render.yaml` (Java 25 LTS runtime) |
-| **Database** | **MongoDB Atlas** | Managed Cloud MongoDB (Already configured) |
+| **Database** | **MongoDB Atlas** | Managed Cloud MongoDB (connection string required) |
 
 ---
 
@@ -24,8 +24,9 @@ This project is configured for **Continuous Deployment (CI/CD)**. Every time you
    - **Region**: Oregon (US West) or closest to you
    - **Runtime**: **Docker**
    - **Instance Type**: **Free**
-5. *(Optional)* Under **Environment Variables**, add:
-   - `SPRING_DATA_MONGODB_URI`: `mongodb+srv://helloimdadu_db_user:5AGbeJ8TsedXXtIt@cluster0.emiuxbo.mongodb.net/?appName=Cluster0`
+5. Under **Environment Variables**, add the required secret:
+   - `SPRING_DATA_MONGODB_URI`: your MongoDB Atlas connection string, including the database name `cse_journey_planner`.
+   - Store the real connection string only in your hosting environment, never in tracked files. Allow your backend's IP addresses in Atlas Network Access.
 6. Click **Deploy Web Service**.
 7. Once deployed, Render will provide your backend URL (e.g. `https://cse-planner-backend.onrender.com`).
    - Test it by visiting: `https://<your-render-url>/api/specializations`.

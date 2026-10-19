@@ -49,3 +49,11 @@ aws-config
 node
 .idea/
 *.log
+
+# Local secrets (Spring Boot does not automatically load .env files)
+.env
+.env.*
+!.env.example
+application-local.properties
+application-local.yml
+application-local.yaml
