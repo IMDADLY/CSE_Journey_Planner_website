@@ -1,4 +1,3 @@
-import * as aiMlBank from './aiMlQuestionBank.js';
 import * as fullStackBank from './fullStackQuestionBank.js';
 import * as cloudBank from './cloudQuestionBank.js';
 import * as dataEngBank from './dataEngineeringQuestionBank.js';
@@ -13,11 +12,8 @@ export const QUESTION_BANKS = {
         shortName: 'AI & Machine Learning',
         category: 'Data & AI',
         iconUrl: 'brain',
-        config: aiMlBank.SEMESTER_CONFIG,
-        tierNames: aiMlBank.TIER_NAMES,
-        questions: aiMlBank.AI_ML_QUESTIONS,
-        getQuestionsForSemester: aiMlBank.getQuestionsForSemester,
-        calculateSurveyScore: aiMlBank.calculateSurveyScore
+        surveyRoute: '/survey/ai-ml',
+        surveyFormat: 'server-scored-common-form'
     },
     'spec-full-stack': {
         id: 'spec-full-stack',
