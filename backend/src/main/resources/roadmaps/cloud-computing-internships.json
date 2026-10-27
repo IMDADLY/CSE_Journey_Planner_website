@@ -1,0 +1,84 @@
+{
+  "contentVersion": "internships-v1",
+  "opportunities": [
+    {
+      "id": "agentic-academy-devops",
+      "employer": "Agentic Academy Labs",
+      "role": "DevOps Intern",
+      "location": "Remote, India",
+      "workMode": "Remote",
+      "eligibleCountries": [
+        "IN"
+      ],
+      "undergraduateEligible": true,
+      "eligibilityResolved": true,
+      "minimumSemester": 1,
+      "maximumSemester": 8,
+      "eligibility": "Pursuing CS, IT or a related technical degree; students located in India. No year restriction stated.",
+      "compensation": "Paid; amount not stated",
+      "duration": "Not stated",
+      "deadline": null,
+      "sourceUrl": "https://www.agenticacademy.online/company/careers/devops-intern",
+      "applicationUrl": "https://www.agenticacademy.online/company/careers/devops-intern",
+      "applicationInstructions": "Follow the role-specific application instructions on the official employer page. No application is submitted by this website.",
+      "status": "open",
+      "feeRequired": false,
+      "verifiedAt": "2026-10-27T13:13:11Z",
+      "verification": "Official current role and its application route reviewed on 27 October 2026; no fee listed and no application submitted.",
+      "requirements": [
+        {
+          "label": "Linux command-line foundations",
+          "courseTopicIds": [
+            "CD-L-01",
+            "CD-L-02",
+            "CD-L-03",
+            "CD-L-04"
+          ],
+          "assignmentTopicIds": [
+            "CD-L-01",
+            "CD-L-02",
+            "CD-L-03",
+            "CD-L-04"
+          ],
+          "alignment": "The linked course covers this subject and the selected individual exercise practises the named skill; completion is not checked."
+        },
+        {
+          "label": "Git workflow",
+          "courseTopicIds": [
+            "CD-B-04"
+          ],
+          "assignmentTopicIds": [
+            "CD-B-04"
+          ],
+          "alignment": "The linked course covers this subject and the selected individual exercise practises the named skill; completion is not checked."
+        },
+        {
+          "label": "Networking and web architecture",
+          "courseTopicIds": [
+            "CD-N-03",
+            "CD-N-04"
+          ],
+          "assignmentTopicIds": [
+            "CD-N-03",
+            "CD-N-04"
+          ],
+          "alignment": "The linked course covers this subject and the selected individual exercise practises the named skill; completion is not checked."
+        },
+        {
+          "label": "Shell scripting",
+          "courseTopicIds": [
+            "CD-L-01",
+            "CD-L-04",
+            "CD-B-04"
+          ],
+          "assignmentTopicIds": [
+            "CD-L-01",
+            "CD-L-04",
+            "CD-B-04"
+          ],
+          "alignment": "The linked course covers this subject and the selected individual exercise practises the named skill; completion is not checked."
+        }
+      ]
+    }
+  ]
+}

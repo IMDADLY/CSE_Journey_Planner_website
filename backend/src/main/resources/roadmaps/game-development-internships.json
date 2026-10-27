@@ -1,0 +1,60 @@
+{
+  "contentVersion": "internships-v1",
+  "opportunities": [
+    {
+      "id": "avsar-unity",
+      "employer": "Avsar Games",
+      "role": "Unity Game Development Intern",
+      "location": "Remote within India; studio in Chandigarh",
+      "workMode": "Remote",
+      "eligibleCountries": [
+        "IN"
+      ],
+      "undergraduateEligible": true,
+      "eligibilityResolved": true,
+      "minimumSemester": 1,
+      "maximumSemester": 8,
+      "eligibility": "Entry/intern role; no degree or year restriction stated. Interest in mobile games is personal and is not assessed.",
+      "compensation": "Not stated",
+      "duration": "Not stated",
+      "deadline": null,
+      "sourceUrl": "https://avsargames.com/careers/",
+      "applicationUrl": "https://avsargames.com/careers/",
+      "applicationInstructions": "Follow the role-specific application instructions on the official employer page. No application is submitted by this website.",
+      "status": "open",
+      "feeRequired": false,
+      "verifiedAt": "2026-10-27T13:13:11Z",
+      "verification": "Official current role and its application route reviewed on 27 October 2026; no fee listed and no application submitted.",
+      "requirements": [
+        {
+          "label": "Unity and C# familiarity",
+          "courseTopicIds": [
+            "GD-C-01",
+            "GD-C-02",
+            "GD-G-01",
+            "GD-G-02",
+            "GD-G-03"
+          ],
+          "assignmentTopicIds": [
+            "GD-C-01",
+            "GD-C-02",
+            "GD-G-01",
+            "GD-G-02",
+            "GD-G-03"
+          ],
+          "alignment": "The linked course covers this subject and the selected individual exercise practises the named skill; completion is not checked."
+        },
+        {
+          "label": "Object-oriented programming",
+          "courseTopicIds": [
+            "GD-C-01"
+          ],
+          "assignmentTopicIds": [
+            "GD-C-01"
+          ],
+          "alignment": "The linked course covers this subject and the selected individual exercise practises the named skill; completion is not checked."
+        }
+      ]
+    }
+  ]
+}

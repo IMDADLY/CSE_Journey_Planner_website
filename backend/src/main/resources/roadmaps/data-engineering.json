@@ -1,0 +1,869 @@
+{
+  "contentVersion": "data-engineering-roadmap-v1",
+  "units": [
+    {
+      "id": "DE-P-01",
+      "parentSubtopicId": "DE-P",
+      "title": "Python functions and structured files",
+      "studyFocus": "Loops, collections and CSV parsing",
+      "goal": "Explain and apply loops, collections and CSV parsing.",
+      "prerequisites": [],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Loops, collections and CSV parsing"
+    },
+    {
+      "id": "DE-P-02",
+      "parentSubtopicId": "DE-P",
+      "title": "Schema validation and quarantine",
+      "studyFocus": "Types, required fields and missing values",
+      "goal": "Explain and apply types, required fields and missing values.",
+      "prerequisites": [
+        "DE-P-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Types, required fields and missing values"
+    },
+    {
+      "id": "DE-P-03",
+      "parentSubtopicId": "DE-P",
+      "title": "Dates, Unicode and deterministic parsing",
+      "studyFocus": "Timezone-aware values and text encodings",
+      "goal": "Explain and apply timezone-aware values and text encodings.",
+      "prerequisites": [
+        "DE-P-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Timezone-aware values and text encodings"
+    },
+    {
+      "id": "DE-P-04",
+      "parentSubtopicId": "DE-P",
+      "title": "Profiling and bounded processing",
+      "studyFocus": "Counts, null rates and streaming iteration",
+      "goal": "Explain and apply counts, null rates and streaming iteration.",
+      "prerequisites": [
+        "DE-P-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Counts, null rates and streaming iteration"
+    },
+    {
+      "id": "DE-Q-01",
+      "parentSubtopicId": "DE-Q",
+      "title": "Keys and normalized tables",
+      "studyFocus": "Primary keys, relationships and constraints",
+      "goal": "Explain and apply primary keys, relationships and constraints.",
+      "prerequisites": [],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Primary keys, relationships and constraints"
+    },
+    {
+      "id": "DE-Q-02",
+      "parentSubtopicId": "DE-Q",
+      "title": "SQL filtering and aggregation",
+      "studyFocus": "SELECT, WHERE, GROUP BY and NULL",
+      "goal": "Explain and apply sELECT, WHERE, GROUP BY and NULL.",
+      "prerequisites": [
+        "DE-Q-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "SELECT, WHERE, GROUP BY and NULL"
+    },
+    {
+      "id": "DE-Q-03",
+      "parentSubtopicId": "DE-Q",
+      "title": "Joins and cardinality",
+      "studyFocus": "Outer joins, duplicate matches and anti-joins",
+      "goal": "Explain and apply outer joins, duplicate matches and anti-joins.",
+      "prerequisites": [
+        "DE-Q-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Outer joins, duplicate matches and anti-joins"
+    },
+    {
+      "id": "DE-Q-04",
+      "parentSubtopicId": "DE-Q",
+      "title": "Window queries and stable extracts",
+      "studyFocus": "Window functions, indexes and pagination",
+      "goal": "Explain and apply window functions, indexes and pagination.",
+      "prerequisites": [
+        "DE-Q-03"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Window functions, indexes and pagination"
+    },
+    {
+      "id": "DE-D-01",
+      "parentSubtopicId": "DE-D",
+      "title": "Transactions and snapshots",
+      "studyFocus": "Atomicity, isolation and concurrent readers",
+      "goal": "Explain and apply atomicity, isolation and concurrent readers.",
+      "prerequisites": [
+        "DE-Q-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Atomicity, isolation and concurrent readers"
+    },
+    {
+      "id": "DE-D-02",
+      "parentSubtopicId": "DE-D",
+      "title": "Historical dimensions",
+      "studyFocus": "Validity intervals and slowly changing records",
+      "goal": "Explain and apply validity intervals and slowly changing records.",
+      "prerequisites": [
+        "DE-Q-03"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Validity intervals and slowly changing records"
+    },
+    {
+      "id": "DE-D-03",
+      "parentSubtopicId": "DE-D",
+      "title": "Change events and schema evolution",
+      "studyFocus": "Ordered upserts, deletes and compatible columns",
+      "goal": "Explain and apply ordered upserts, deletes and compatible columns.",
+      "prerequisites": [
+        "DE-D-01",
+        "DE-P-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Ordered upserts, deletes and compatible columns"
+    },
+    {
+      "id": "DE-B-01",
+      "parentSubtopicId": "DE-B",
+      "title": "Batch transformations and partitioning",
+      "studyFocus": "ETL versus ELT and grouped output",
+      "goal": "Explain and apply eTL versus ELT and grouped output.",
+      "prerequisites": [
+        "DE-P-02",
+        "DE-Q-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "ETL versus ELT and grouped output"
+    },
+    {
+      "id": "DE-B-02",
+      "parentSubtopicId": "DE-B",
+      "title": "Aggregation and data skew",
+      "studyFocus": "Partition sizes and partial aggregates",
+      "goal": "Explain and apply partition sizes and partial aggregates.",
+      "prerequisites": [
+        "DE-B-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Partition sizes and partial aggregates"
+    },
+    {
+      "id": "DE-B-03",
+      "parentSubtopicId": "DE-B",
+      "title": "Distributed-processing cost reasoning",
+      "studyFocus": "Shuffles, joins and caching tradeoffs",
+      "goal": "Explain and apply shuffles, joins and caching tradeoffs.",
+      "prerequisites": [
+        "DE-B-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Shuffles, joins and caching tradeoffs"
+    },
+    {
+      "id": "DE-O-01",
+      "parentSubtopicId": "DE-O",
+      "title": "Workflow dependencies",
+      "studyFocus": "DAGs, ordered tasks and failure propagation",
+      "goal": "Explain and apply dAGs, ordered tasks and failure propagation.",
+      "prerequisites": [
+        "DE-P-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "DAGs, ordered tasks and failure propagation"
+    },
+    {
+      "id": "DE-O-02",
+      "parentSubtopicId": "DE-O",
+      "title": "Idempotent loads and retries",
+      "studyFocus": "Stable keys and repeatable writes",
+      "goal": "Explain and apply stable keys and repeatable writes.",
+      "prerequisites": [
+        "DE-Q-01",
+        "DE-P-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Stable keys and repeatable writes"
+    },
+    {
+      "id": "DE-O-03",
+      "parentSubtopicId": "DE-O",
+      "title": "Backfills and interval boundaries",
+      "studyFocus": "Date partitions and deterministic reruns",
+      "goal": "Explain and apply date partitions and deterministic reruns.",
+      "prerequisites": [
+        "DE-O-01",
+        "DE-O-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Date partitions and deterministic reruns"
+    },
+    {
+      "id": "DE-S-01",
+      "parentSubtopicId": "DE-S",
+      "title": "Events, partitions and offsets",
+      "studyFocus": "Key ordering and replay positions",
+      "goal": "Explain and apply key ordering and replay positions.",
+      "prerequisites": [
+        "DE-D-03",
+        "DE-O-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Key ordering and replay positions"
+    },
+    {
+      "id": "DE-S-02",
+      "parentSubtopicId": "DE-S",
+      "title": "Event time and late records",
+      "studyFocus": "Windows, allowed lateness and watermarks",
+      "goal": "Explain and apply windows, allowed lateness and watermarks.",
+      "prerequisites": [
+        "DE-S-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Windows, allowed lateness and watermarks"
+    },
+    {
+      "id": "DE-S-03",
+      "parentSubtopicId": "DE-S",
+      "title": "Deduplication and delivery semantics",
+      "studyFocus": "Duplicate keys and retention boundaries",
+      "goal": "Explain and apply duplicate keys and retention boundaries.",
+      "prerequisites": [
+        "DE-S-01",
+        "DE-O-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Duplicate keys and retention boundaries"
+    },
+    {
+      "id": "DE-L-01",
+      "parentSubtopicId": "DE-L",
+      "title": "Storage layout and pruning",
+      "studyFocus": "Columnar versus row formats and partitions",
+      "goal": "Explain and apply columnar versus row formats and partitions.",
+      "prerequisites": [
+        "DE-B-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Columnar versus row formats and partitions"
+    },
+    {
+      "id": "DE-L-02",
+      "parentSubtopicId": "DE-L",
+      "title": "Publication and snapshot consistency",
+      "studyFocus": "Atomic replacement and reader-visible state",
+      "goal": "Explain and apply atomic replacement and reader-visible state.",
+      "prerequisites": [
+        "DE-P-02",
+        "DE-O-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Atomic replacement and reader-visible state"
+    },
+    {
+      "id": "DE-L-03",
+      "parentSubtopicId": "DE-L",
+      "title": "Schema contracts and compaction",
+      "studyFocus": "Compatible fields and reconciliation",
+      "goal": "Explain and apply compatible fields and reconciliation.",
+      "prerequisites": [
+        "DE-L-02",
+        "DE-L-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Compatible fields and reconciliation"
+    },
+    {
+      "id": "DE-G-01",
+      "parentSubtopicId": "DE-G",
+      "title": "Quality rules and reconciliation",
+      "studyFocus": "Completeness, uniqueness and aggregate checks",
+      "goal": "Explain and apply completeness, uniqueness and aggregate checks.",
+      "prerequisites": [
+        "DE-P-04",
+        "DE-O-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Completeness, uniqueness and aggregate checks"
+    },
+    {
+      "id": "DE-G-02",
+      "parentSubtopicId": "DE-G",
+      "title": "Lineage, privacy and access",
+      "studyFocus": "Source-to-output mapping and minimization",
+      "goal": "Explain and apply source-to-output mapping and minimization.",
+      "prerequisites": [
+        "DE-L-02",
+        "DE-P-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Source-to-output mapping and minimization"
+    },
+    {
+      "id": "DE-G-03",
+      "parentSubtopicId": "DE-G",
+      "title": "Freshness and operational recovery",
+      "studyFocus": "Timestamps, quality thresholds and rollback",
+      "goal": "Explain and apply timestamps, quality thresholds and rollback.",
+      "prerequisites": [
+        "DE-G-01",
+        "DE-P-03"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Timestamps, quality thresholds and rollback"
+    }
+  ],
+  "assignments": {
+    "DE-P-01": {
+      "title": "Python functions and structured files — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Python 3",
+        "standard library"
+      ],
+      "requirements": [
+        "Create a five-row CSV with id and amount, including one quoted comma in a description; parse it with the CSV module.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Quoted fields remain intact; record malformed rows separately instead of silently dropping them."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-P-02": {
+      "title": "Schema validation and quarantine — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Python 3",
+        "standard library"
+      ],
+      "requirements": [
+        "Validate three records: {id:1,amount:10}, {id:2,amount:null}, and {id:3,amount:bad}; return accepted and rejected lists.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Only the first record is accepted; each rejection includes id and reason; original data is unchanged."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-P-03": {
+      "title": "Dates, Unicode and deterministic parsing — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Python 3",
+        "standard library"
+      ],
+      "requirements": [
+        "Parse two timestamps representing the same instant in UTC and +05:30, plus names containing accented characters.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Both timestamps normalize to the same UTC instant; names survive UTF-8 round-trip; timezone-free input is rejected."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-P-04": {
+      "title": "Profiling and bounded processing — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Python 3",
+        "standard library"
+      ],
+      "requirements": [
+        "Write a streaming profile of a local CSV with row count, null count and distinct status values; generate 100 rows yourself.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Counts agree with manual totals; processing uses iteration rather than loading the entire input into a list."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-Q-01": {
+      "title": "Keys and normalized tables — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "SQLite 3 CLI",
+        "SQL"
+      ],
+      "requirements": [
+        "Create people and orders tables with two people and three orders; enable SQLite foreign keys.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Duplicate keys and orphan orders are rejected; document the one-to-many relationship."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-Q-02": {
+      "title": "CS50 SQL — Cyberchase queries 1–5",
+      "sourceType": "Selected course tasks",
+      "techStack": [
+        "SQLite 3 CLI",
+        "SQL"
+      ],
+      "requirements": [
+        "Use the supplied Cyberchase database and complete queries 1–5 only; keep the database unchanged.",
+        "Complete only the named tasks. Course submission, certificate and optional extensions are not required."
+      ],
+      "acceptanceCriteria": [
+        "Each selected SQL file runs locally and returns the requested columns and ordering."
+      ],
+      "source": {
+        "title": "CS50 SQL — Cyberchase queries 1–5",
+        "url": "https://cs50.harvard.edu/sql/psets/0/cyberchase/",
+        "access": "Public instructions and local work; no paid enrollment required.",
+        "verifiedOn": "2026-10-27"
+      },
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Use only the linked exercise starter files or scaffolding, with attribution; write the solution independently and do not open completed solutions.",
+      "estimatedHours": 8
+    },
+    "DE-Q-03": {
+      "title": "Joins and cardinality — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "SQLite 3 CLI",
+        "SQL"
+      ],
+      "requirements": [
+        "Join customers A,B to orders [A:10,A:20]; include B with zero orders and find customers without orders.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "A totals 30, B totals 0; anti-join returns B; explain how duplicated customer rows inflate aggregates."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-Q-04": {
+      "title": "Window queries and stable extracts — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "SQLite 3 CLI",
+        "SQL"
+      ],
+      "requirements": [
+        "For sales [A:5,A:7,B:3], compute per-customer running totals with a deterministic order and inspect an index plan.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "A has running totals 5,12 and B has 3; the order has an explicit tie-breaker."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-D-01": {
+      "title": "Transactions and snapshots — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "SQLite 3",
+        "SQL",
+        "local fixture files"
+      ],
+      "requirements": [
+        "Perform two related SQLite updates inside one transaction, force an error and compare the final rows with the originals.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Rollback preserves both originals; explain committed state versus an in-progress update."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-D-02": {
+      "title": "Historical dimensions — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "SQLite 3",
+        "SQL",
+        "local fixture files"
+      ],
+      "requirements": [
+        "Represent customer A changing city from X to Y on day 5 using two non-overlapping validity rows; query days 3 and 6.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Day 3 yields X and day 6 yields Y; intervals do not overlap and the boundary convention is explicit."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-D-03": {
+      "title": "Change events and schema evolution — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "SQLite 3",
+        "SQL",
+        "local fixture files"
+      ],
+      "requirements": [
+        "Replay events insert(A,1),update(A,2),delete(A),update(B,3) into a local dictionary or SQL table with sequence numbers.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "A is absent and B is 3; replaying old sequence numbers cannot resurrect deleted data."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-B-01": {
+      "title": "Batch transformations and partitioning — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Python 3",
+        "standard library",
+        "local files"
+      ],
+      "requirements": [
+        "Read a 12-row synthetic transactions CSV, validate amounts and write one output CSV per date; report rejected rows.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Every accepted row appears in exactly one partition; totals reconcile with the valid input."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-B-02": {
+      "title": "Aggregation and data skew — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Python 3",
+        "standard library",
+        "local files"
+      ],
+      "requirements": [
+        "Simulate partitioning keys [A,A,A,A,B,C] into two workers and merge partial sums; report load imbalance.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Merged totals match a single-worker calculation; identify the hot key instead of claiming balanced work."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-B-03": {
+      "title": "Distributed-processing cost reasoning — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Python 3",
+        "standard library",
+        "local files"
+      ],
+      "requirements": [
+        "For two fictional tables of 100 MB and 1 MB, compare repartitioning both with replicating the smaller table to four workers.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "State the replication cost and memory assumption; explain when the small-table strategy stops being safe."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-O-01": {
+      "title": "Workflow dependencies — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Python 3",
+        "SQLite",
+        "standard library"
+      ],
+      "requirements": [
+        "Implement a local extract -> validate -> load pipeline using functions; skip load when validation fails.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Tasks run in dependency order; failed validation leaves the target unchanged."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-O-02": {
+      "title": "Idempotent loads and retries — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Python 3",
+        "SQLite",
+        "standard library"
+      ],
+      "requirements": [
+        "Load rows (id=1,amount=10) and (id=2,amount=20) into SQLite twice, keyed by id. On conflict, replace amount with the new amount. Load (id=2,amount=25) a third time.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Row count remains 2; final amounts are 10 and 25; repeated input has no extra effect."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-O-03": {
+      "title": "Backfills and interval boundaries — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Python 3",
+        "SQLite",
+        "standard library"
+      ],
+      "requirements": [
+        "Create three daily partitions and rerun only the middle date from a fixed input fixture.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Neighboring partition checksums are unchanged; the rerun produces the same middle-date totals."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-S-01": {
+      "title": "Events, partitions and offsets — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Python 3",
+        "standard library",
+        "local JSON lines"
+      ],
+      "requirements": [
+        "Replay six numbered events for keys A and B, checkpoint after event 3 and resume from that offset.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The resumed output matches a full run; explain why per-key order differs from global order."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-S-02": {
+      "title": "Event time and late records — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Python 3",
+        "standard library",
+        "local JSON lines"
+      ],
+      "requirements": [
+        "Assign events at times 1,4,2,9 to five-second windows; state a watermark and late-event policy before processing.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Each event has a documented window or rejection reason; processing order cannot silently redefine event time."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-S-03": {
+      "title": "Deduplication and delivery semantics — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Python 3",
+        "standard library",
+        "local JSON lines"
+      ],
+      "requirements": [
+        "Process ids [a,b,a,c] with a local seen-id set; then simulate clearing that state before a replay.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The first pass accepts 3 events; explain why losing deduplication state weakens any exactly-once claim."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-L-01": {
+      "title": "Storage layout and pruning — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Python 3",
+        "standard library",
+        "local files"
+      ],
+      "requirements": [
+        "Design a folder layout for events by month and list which folders a February-only query needs; write a tiny CSV fixture.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The plan avoids unrelated months; explain why partitioning by unique user id creates too many small files."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-L-02": {
+      "title": "Publication and snapshot consistency — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Python 3",
+        "standard library",
+        "local files"
+      ],
+      "requirements": [
+        "Write a new local dataset to a temporary file, validate it, then replace the published file using an atomic rename on the same filesystem.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "A failed validation retains the prior file; readers see a complete old or new file, not a half-written one."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-L-03": {
+      "title": "Schema contracts and compaction — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Python 3",
+        "standard library",
+        "local files"
+      ],
+      "requirements": [
+        "Merge three small same-schema CSVs into one, preserving row ids and totals; reject a file with a missing required column.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The compacted row count and totals equal inputs; incompatible data does not replace published output."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-G-01": {
+      "title": "Quality rules and reconciliation — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Python 3",
+        "standard library",
+        "local fixtures"
+      ],
+      "requirements": [
+        "Implement checks for duplicate ids, null amounts and mismatched source/output totals on a ten-row local fixture.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Each defect is reported separately; a clean fixture passes without modifying the raw input."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-G-02": {
+      "title": "Lineage, privacy and access — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Python 3",
+        "standard library",
+        "local fixtures"
+      ],
+      "requirements": [
+        "Create a lineage note for raw -> cleaned -> daily-total files; remove a fictional email field from published totals.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Every output field has a source rule; no email appears in the published sample."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "DE-G-03": {
+      "title": "Freshness and operational recovery — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Python 3",
+        "standard library",
+        "local fixtures"
+      ],
+      "requirements": [
+        "Using fixed UTC timestamps, flag a dataset when now minus published_at is greater than or equal to 24 hours. A failed quality check must retain the prior published version.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The exact 24-hour boundary is stale; a 23-hour-old dataset is not; failures cannot publish an invalid replacement."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    }
+  },
+  "courseOverrides": {
+    "DE-P": {
+      "provider": "MIT OpenCourseWare"
+    },
+    "DE-Q": {
+      "provider": "Harvard CS50"
+    },
+    "DE-D": {
+      "provider": "Carnegie Mellon University"
+    },
+    "DE-B": {
+      "provider": "DataTalks.Club"
+    },
+    "DE-O": {
+      "provider": "DataTalks.Club"
+    },
+    "DE-S": {
+      "provider": "Confluent Developer"
+    },
+    "DE-L": {
+      "provider": "DataTalks.Club"
+    },
+    "DE-G": {
+      "provider": "DataTalks.Club"
+    }
+  }
+}

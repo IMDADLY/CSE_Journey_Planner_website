@@ -43,6 +43,8 @@ class SpecializationJourneyControllerTest {
             assertEquals(120,((List<?>)empty.get("review")).size(),slug);
             assertTrue(((List<Map<String,Object>>)empty.get("review")).stream().allMatch(q->"unanswered".equals(q.get("status"))),slug);
             Map<String,Object> roadmap=(Map<String,Object>)empty.get("roadmap");
+            assertEquals(form.get("roadmapContentVersion"),roadmap.get("contentVersion"),slug);
+            assertTrue(roadmap.containsKey("internshipOpportunities"),slug);
             assertEquals(8,((List<?>)roadmap.get("semesters")).size(),slug);
             Map<String,Object> first=(Map<String,Object>)((List<?>)roadmap.get("semesters")).get(0);
             Map<String,Object> unit=(Map<String,Object>)((List<?>)first.get("learningUnits")).get(0);

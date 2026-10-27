@@ -1,0 +1,898 @@
+{
+  "contentVersion": "cloud-computing-roadmap-v1",
+  "units": [
+    {
+      "id": "CD-L-01",
+      "parentSubtopicId": "CD-L",
+      "title": "Shell commands and exit status",
+      "studyFocus": "Paths, quoting and command failures",
+      "goal": "Explain and apply paths, quoting and command failures.",
+      "prerequisites": [],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Paths, quoting and command failures"
+    },
+    {
+      "id": "CD-L-02",
+      "parentSubtopicId": "CD-L",
+      "title": "Linux permissions and ownership",
+      "studyFocus": "File modes and least privilege",
+      "goal": "Explain and apply file modes and least privilege.",
+      "prerequisites": [
+        "CD-L-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "File modes and least privilege"
+    },
+    {
+      "id": "CD-L-03",
+      "parentSubtopicId": "CD-L",
+      "title": "Processes, logs and capacity",
+      "studyFocus": "Signals, process lifecycle and disk/inode usage",
+      "goal": "Explain and apply signals, process lifecycle and disk/inode usage.",
+      "prerequisites": [
+        "CD-L-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Signals, process lifecycle and disk/inode usage"
+    },
+    {
+      "id": "CD-L-04",
+      "parentSubtopicId": "CD-L",
+      "title": "Shell pipelines and safe automation",
+      "studyFocus": "Pipes, filtering and error propagation",
+      "goal": "Explain and apply pipes, filtering and error propagation.",
+      "prerequisites": [
+        "CD-L-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Pipes, filtering and error propagation"
+    },
+    {
+      "id": "CD-N-01",
+      "parentSubtopicId": "CD-N",
+      "title": "IP addressing and subnets",
+      "studyFocus": "CIDR, private ranges and host counts",
+      "goal": "Explain and apply cIDR, private ranges and host counts.",
+      "prerequisites": [],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "CIDR, private ranges and host counts"
+    },
+    {
+      "id": "CD-N-02",
+      "parentSubtopicId": "CD-N",
+      "title": "DNS and TCP diagnosis",
+      "studyFocus": "Name resolution, ports and handshake stages",
+      "goal": "Explain and apply name resolution, ports and handshake stages.",
+      "prerequisites": [
+        "CD-N-01",
+        "CD-L-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Name resolution, ports and handshake stages"
+    },
+    {
+      "id": "CD-N-03",
+      "parentSubtopicId": "CD-N",
+      "title": "TLS and HTTP request boundaries",
+      "studyFocus": "Certificates, HTTP methods and retry safety",
+      "goal": "Explain and apply certificates, HTTP methods and retry safety.",
+      "prerequisites": [
+        "CD-N-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Certificates, HTTP methods and retry safety"
+    },
+    {
+      "id": "CD-N-04",
+      "parentSubtopicId": "CD-N",
+      "title": "Load balancing and health checks",
+      "studyFocus": "Readiness, routing and latency budgets",
+      "goal": "Explain and apply readiness, routing and latency budgets.",
+      "prerequisites": [
+        "CD-N-03"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Readiness, routing and latency budgets"
+    },
+    {
+      "id": "CD-C-01",
+      "parentSubtopicId": "CD-C",
+      "title": "Cloud services and responsibility",
+      "studyFocus": "Compute, storage and shared responsibility",
+      "goal": "Explain and apply compute, storage and shared responsibility.",
+      "prerequisites": [],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Compute, storage and shared responsibility"
+    },
+    {
+      "id": "CD-C-02",
+      "parentSubtopicId": "CD-C",
+      "title": "Failure domains and availability",
+      "studyFocus": "Regions, zones and stateless replicas",
+      "goal": "Explain and apply regions, zones and stateless replicas.",
+      "prerequisites": [
+        "CD-C-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Regions, zones and stateless replicas"
+    },
+    {
+      "id": "CD-C-03",
+      "parentSubtopicId": "CD-C",
+      "title": "Cloud costs and scaling",
+      "studyFocus": "Cost units and load-based scaling",
+      "goal": "Explain and apply cost units and load-based scaling.",
+      "prerequisites": [
+        "CD-C-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Cost units and load-based scaling"
+    },
+    {
+      "id": "CD-B-01",
+      "parentSubtopicId": "CD-B",
+      "title": "Container images and processes",
+      "studyFocus": "Image layers, ports and immutable identity",
+      "goal": "Explain and apply image layers, ports and immutable identity.",
+      "prerequisites": [
+        "CD-L-01",
+        "CD-N-03",
+        "CD-C-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Image layers, ports and immutable identity"
+    },
+    {
+      "id": "CD-B-02",
+      "parentSubtopicId": "CD-B",
+      "title": "Terraform resources and plans",
+      "studyFocus": "Configuration, state and lifecycle",
+      "goal": "Explain and apply configuration, state and lifecycle.",
+      "prerequisites": [
+        "CD-B-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Configuration, state and lifecycle"
+    },
+    {
+      "id": "CD-B-03",
+      "parentSubtopicId": "CD-B",
+      "title": "Infrastructure drift and state",
+      "studyFocus": "State ownership, locking and change review",
+      "goal": "Explain and apply state ownership, locking and change review.",
+      "prerequisites": [
+        "CD-B-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "State ownership, locking and change review"
+    },
+    {
+      "id": "CD-B-04",
+      "parentSubtopicId": "CD-B",
+      "title": "Git and delivery pipelines",
+      "studyFocus": "Version control, immutable builds and release gating",
+      "goal": "Explain and apply version control, immutable builds and release gating.",
+      "prerequisites": [
+        "CD-L-04",
+        "CD-B-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Version control, immutable builds and release gating",
+      "courseRef": "FSO: Full Stack Open",
+      "provider": "University of Helsinki"
+    },
+    {
+      "id": "CD-K-01",
+      "parentSubtopicId": "CD-K",
+      "title": "Pods, Services and namespaces",
+      "studyFocus": "Labels, selectors and service discovery",
+      "goal": "Explain and apply labels, selectors and service discovery.",
+      "prerequisites": [
+        "CD-B-01",
+        "CD-N-04"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Labels, selectors and service discovery"
+    },
+    {
+      "id": "CD-K-02",
+      "parentSubtopicId": "CD-K",
+      "title": "Readiness, liveness and startup",
+      "studyFocus": "Probe roles and failure behavior",
+      "goal": "Explain and apply probe roles and failure behavior.",
+      "prerequisites": [
+        "CD-K-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Probe roles and failure behavior"
+    },
+    {
+      "id": "CD-K-03",
+      "parentSubtopicId": "CD-K",
+      "title": "Resources and rolling updates",
+      "studyFocus": "Requests, limits and controlled replacement",
+      "goal": "Explain and apply requests, limits and controlled replacement.",
+      "prerequisites": [
+        "CD-K-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Requests, limits and controlled replacement"
+    },
+    {
+      "id": "CD-I-01",
+      "parentSubtopicId": "CD-I",
+      "title": "Least privilege policies",
+      "studyFocus": "Roles, service accounts and resource verbs",
+      "goal": "Explain and apply roles, service accounts and resource verbs.",
+      "prerequisites": [
+        "CD-K-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Roles, service accounts and resource verbs"
+    },
+    {
+      "id": "CD-I-02",
+      "parentSubtopicId": "CD-I",
+      "title": "Secrets and configuration boundaries",
+      "studyFocus": "Secret files, environment exposure and rotation",
+      "goal": "Explain and apply secret files, environment exposure and rotation.",
+      "prerequisites": [
+        "CD-L-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Secret files, environment exposure and rotation"
+    },
+    {
+      "id": "CD-I-03",
+      "parentSubtopicId": "CD-I",
+      "title": "Short-lived identity and network boundaries",
+      "studyFocus": "Credential lifetime, metadata and namespace isolation",
+      "goal": "Explain and apply credential lifetime, metadata and namespace isolation.",
+      "prerequisites": [
+        "CD-I-01",
+        "CD-C-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Credential lifetime, metadata and namespace isolation"
+    },
+    {
+      "id": "CD-S-01",
+      "parentSubtopicId": "CD-S",
+      "title": "Service indicators and objectives",
+      "studyFocus": "SLIs, SLOs and error budgets",
+      "goal": "Explain and apply sLIs, SLOs and error budgets.",
+      "prerequisites": [
+        "CD-C-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "SLIs, SLOs and error budgets"
+    },
+    {
+      "id": "CD-S-02",
+      "parentSubtopicId": "CD-S",
+      "title": "Metrics and alert interpretation",
+      "studyFocus": "Counters, latency and alert windows",
+      "goal": "Explain and apply counters, latency and alert windows.",
+      "prerequisites": [
+        "CD-S-01",
+        "CD-L-04"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Counters, latency and alert windows"
+    },
+    {
+      "id": "CD-S-03",
+      "parentSubtopicId": "CD-S",
+      "title": "Incident notes and diagnosis",
+      "studyFocus": "Golden signals, timelines and blameless analysis",
+      "goal": "Explain and apply golden signals, timelines and blameless analysis.",
+      "prerequisites": [
+        "CD-S-02",
+        "CD-N-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Golden signals, timelines and blameless analysis"
+    },
+    {
+      "id": "CD-R-01",
+      "parentSubtopicId": "CD-R",
+      "title": "Backup and restore evidence",
+      "studyFocus": "RPO, RTO and recovery rehearsal",
+      "goal": "Explain and apply rPO, RTO and recovery rehearsal.",
+      "prerequisites": [
+        "CD-L-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "RPO, RTO and recovery rehearsal"
+    },
+    {
+      "id": "CD-R-02",
+      "parentSubtopicId": "CD-R",
+      "title": "Bounded retries and overload",
+      "studyFocus": "Backoff, jitter and retry amplification",
+      "goal": "Explain and apply backoff, jitter and retry amplification.",
+      "prerequisites": [
+        "CD-N-03"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Backoff, jitter and retry amplification"
+    },
+    {
+      "id": "CD-R-03",
+      "parentSubtopicId": "CD-R",
+      "title": "Queue capacity and resilience tradeoffs",
+      "studyFocus": "Arrival/service rates and recovery objectives",
+      "goal": "Explain and apply arrival/service rates and recovery objectives.",
+      "prerequisites": [
+        "CD-S-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Arrival/service rates and recovery objectives"
+    }
+  ],
+  "assignments": {
+    "CD-L-01": {
+      "title": "Shell commands and exit status — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Linux shell or local Linux VM",
+        "standard command-line tools"
+      ],
+      "requirements": [
+        "Create a temporary directory with files whose names include spaces; write a shell script that counts them and fails on a missing directory.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Spaced names are counted once; missing paths produce a nonzero exit status; operate only in the temporary directory."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-L-02": {
+      "title": "Linux permissions and ownership — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Linux shell or local Linux VM",
+        "standard command-line tools"
+      ],
+      "requirements": [
+        "Create a temporary report readable only by its owner; record mode bits before and after changing permissions.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The final mode grants no group/other access; explain read versus execute on directories."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-L-03": {
+      "title": "Processes, logs and capacity — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Linux shell or local Linux VM",
+        "standard command-line tools"
+      ],
+      "requirements": [
+        "Start a disposable sleep process, inspect its pid and terminate only that pid; collect a short local log and disk-use summary.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The named process ends; unrelated processes are untouched; distinguish bytes from inode capacity."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-L-04": {
+      "title": "Shell pipelines and safe automation — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Linux shell or local Linux VM",
+        "standard command-line tools"
+      ],
+      "requirements": [
+        "Parse a five-line local access log to count status codes and report malformed lines separately.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Counts sum to valid lines; an empty log gives zero counts; failed input reads cannot appear successful."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-N-01": {
+      "title": "IP addressing and subnets — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Local terminal",
+        "standard networking tools",
+        "paper"
+      ],
+      "requirements": [
+        "For 192.168.10.0/24, list the mask, network, broadcast and usable-host count; repeat for /30.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The /24 has 254 usable hosts and /30 has 2 under conventional subnet rules; explain reserved addresses."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-N-02": {
+      "title": "DNS and TCP diagnosis — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Local terminal",
+        "standard networking tools",
+        "paper"
+      ],
+      "requirements": [
+        "Write a diagnostic decision tree for DNS failure, connection refused and timeout; use saved illustrative outputs instead of external scanning.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Every symptom leads to a distinct next check; distinguish name resolution from service reachability."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-N-03": {
+      "title": "TLS and HTTP request boundaries — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Local terminal",
+        "standard networking tools",
+        "paper"
+      ],
+      "requirements": [
+        "Draw a browser-to-service request flow and classify retries for GET versus a payment POST without an idempotency key.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Identify certificate-host matching and TLS termination; flag payment retries as potentially duplicating work."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-N-04": {
+      "title": "Load balancing and health checks — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Local terminal",
+        "standard networking tools",
+        "paper"
+      ],
+      "requirements": [
+        "Given two healthy replicas and one failing replica, simulate round-robin routing before and after removing the failed endpoint.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Requests no longer reach the removed replica; explain why process liveness does not prove dependency readiness."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-C-01": {
+      "title": "Cloud services and responsibility — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Paper or local text editor",
+        "spreadsheet optional"
+      ],
+      "requirements": [
+        "Compare one virtual machine, one managed database and object storage for a tiny log-processing workload; assign patching responsibilities.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Separate provider infrastructure responsibility from user data/access responsibility; no cloud account is needed."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-C-02": {
+      "title": "Failure domains and availability — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Paper or local text editor",
+        "spreadsheet optional"
+      ],
+      "requirements": [
+        "Draw a two-zone service design with one data store; describe outcomes of losing one instance and one whole zone.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Distinguish instance, zone and region failures; name any remaining single point of failure."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-C-03": {
+      "title": "Cloud costs and scaling — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Paper or local text editor",
+        "spreadsheet optional"
+      ],
+      "requirements": [
+        "For fictional rates of 2 units per VM-hour and 0.1 per GB-month, calculate 3 VMs for 10 hours plus 20 GB for one month.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The estimate totals 62 units; identify omitted traffic and managed-service costs; do not present fictional rates as vendor prices."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-B-01": {
+      "title": "Container images and processes — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Terraform",
+        "Docker Engine",
+        "local terminal"
+      ],
+      "requirements": [
+        "Build a local image serving one static page; bind its port only to loopback and record its image id.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The page is reachable locally; rebuild after a content change yields a different image id; stop and remove the test container."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-B-02": {
+      "title": "Terraform — local Docker resource lifecycle",
+      "sourceType": "Selected course tasks",
+      "techStack": [
+        "Terraform",
+        "Docker Engine",
+        "local terminal"
+      ],
+      "requirements": [
+        "Follow the local Docker build-infrastructure exercise, then inspect and destroy only its sample resources. No AWS or paid account.",
+        "Complete only the named tasks. Course submission, certificate and optional extensions are not required."
+      ],
+      "acceptanceCriteria": [
+        "Record plan, apply and destroy outputs; the local sample is removed afterwards."
+      ],
+      "source": {
+        "title": "Terraform — local Docker resource lifecycle",
+        "url": "https://developer.hashicorp.com/terraform/tutorials/docker-get-started/docker-build",
+        "access": "Public instructions and local work; no paid enrollment required.",
+        "verifiedOn": "2026-10-27"
+      },
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Use only the linked exercise starter files or scaffolding, with attribution; write the solution independently and do not open completed solutions.",
+      "estimatedHours": 8
+    },
+    "CD-B-03": {
+      "title": "Infrastructure drift and state — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Terraform",
+        "Docker Engine",
+        "local terminal"
+      ],
+      "requirements": [
+        "Using a local Terraform configuration, change a managed resource outside Terraform, inspect the next plan and explain reconciliation.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The plan distinguishes desired and actual state; never delete state to hide drift; work only with disposable local resources."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-B-04": {
+      "title": "Git and delivery pipelines — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Terraform",
+        "Docker Engine",
+        "local terminal"
+      ],
+      "requirements": [
+        "Create a disposable local Git repository and a shell-based build/check/package pipeline for a static file.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "A failing check prevents packaging; a release manifest records the commit and artifact checksum; no hosted CI or deployment is required."
+      ],
+      "source": {
+        "title": "Git guide supplied by Full Stack Open",
+        "url": "https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners",
+        "access": "Public course-supplied reference; local work only.",
+        "verifiedOn": "2026-10-27"
+      },
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-K-01": {
+      "title": "Pods, Services and namespaces — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Local Kubernetes cluster with kind or minikube",
+        "kubectl"
+      ],
+      "requirements": [
+        "Create two tiny local pods and a ClusterIP Service using a disposable namespace.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The Service selects only matching pods; deleting the namespace removes all exercise resources."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-K-02": {
+      "title": "Readiness, liveness and startup — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Local Kubernetes cluster with kind or minikube",
+        "kubectl"
+      ],
+      "requirements": [
+        "Give a sample local workload a readiness probe and compare a failing readiness probe with a failing liveness probe.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Record readiness exclusion separately from restart count; avoid probes that unnecessarily restart healthy processes."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-K-03": {
+      "title": "Resources and rolling updates — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Local Kubernetes cluster with kind or minikube",
+        "kubectl"
+      ],
+      "requirements": [
+        "Set small requests/limits on a local deployment; change its image tag and inspect rollout status.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The manifest names both request and limit; record which replicas are available during the update; clean up the namespace."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-I-01": {
+      "title": "Least privilege policies — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Local text files",
+        "kubectl with a disposable local cluster"
+      ],
+      "requirements": [
+        "Create a local namespace Role allowing get/list of pods and bind it to a test service account.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "An authorization check permits pod reads and denies secret reads and pod deletion."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-I-02": {
+      "title": "Secrets and configuration boundaries — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Local text files",
+        "kubectl with a disposable local cluster"
+      ],
+      "requirements": [
+        "Write a local demonstration that reads a dummy secret from a restricted file; replace its value and reload.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "No dummy secret appears in the log or repository; document rotation and distinguish encoding from encryption."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-I-03": {
+      "title": "Short-lived identity and network boundaries — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Local text files",
+        "kubectl with a disposable local cluster"
+      ],
+      "requirements": [
+        "Draw a CI-to-cloud short-lived identity flow and contrast it with a committed long-lived key; propose a deny-by-default namespace policy.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The flow identifies issuer, audience and expiry; no real credential is created or transmitted."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-S-01": {
+      "title": "Service indicators and objectives — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Local CSV or text files",
+        "shell",
+        "spreadsheet optional"
+      ],
+      "requirements": [
+        "From a fictional 10000 requests with 15 failures, calculate success rate and remaining allowance under a 99.9% target.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Success is 99.85%; the budget is exceeded by 5 requests; distinguish a target from a guarantee."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-S-02": {
+      "title": "Metrics and alert interpretation — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Local CSV or text files",
+        "shell",
+        "spreadsheet optional"
+      ],
+      "requirements": [
+        "Use counter readings 100,160,220 at 0,60,120 seconds to compute rates; design an alert requiring sustained errors.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Each interval is 1 request/second; a single brief spike does not trigger the sustained-error rule."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-S-03": {
+      "title": "Incident notes and diagnosis — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Local CSV or text files",
+        "shell",
+        "spreadsheet optional"
+      ],
+      "requirements": [
+        "Write a one-page incident report for a fictional dependency timeout with a time-ordered timeline and two competing hypotheses.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Separate observations from guesses; include a rollback decision and one measurable follow-up."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-R-01": {
+      "title": "Backup and restore evidence — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Local files",
+        "shell",
+        "paper"
+      ],
+      "requirements": [
+        "Back up a disposable three-file dataset, alter it, restore it and compare checksums; record elapsed restore time.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "All restored checksums match; explain which changes the backup could not preserve; no personal files are used."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-R-02": {
+      "title": "Bounded retries and overload — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Local files",
+        "shell",
+        "paper"
+      ],
+      "requirements": [
+        "Simulate three clients retrying a failing call with a maximum of three attempts; compare immediate retries and a provided increasing-delay schedule.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Total calls are bounded at 9; log the schedule and explain why jitter reduces synchronized retries."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "CD-R-03": {
+      "title": "Queue capacity and resilience tradeoffs — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Local files",
+        "shell",
+        "paper"
+      ],
+      "requirements": [
+        "For arrivals of 12 jobs/minute and service of 10, compute backlog after 15 minutes; propose a recovery rate.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Backlog grows by 30; distinguish increasing service capacity from retrying the same failed work."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    }
+  },
+  "courseOverrides": {
+    "CD-L": {
+      "provider": "Linux Foundation"
+    },
+    "CD-N": {
+      "provider": "NPTEL / IIT Kharagpur"
+    },
+    "CD-C": {
+      "provider": "AWS Training"
+    },
+    "CD-B": {
+      "provider": "HashiCorp Developer"
+    },
+    "CD-K": {
+      "provider": "Linux Foundation"
+    },
+    "CD-I": {
+      "provider": "AWS Training"
+    },
+    "CD-S": {
+      "provider": "Google SRE"
+    },
+    "CD-R": {
+      "provider": "Google SRE"
+    }
+  }
+}

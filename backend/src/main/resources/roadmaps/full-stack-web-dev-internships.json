@@ -1,0 +1,145 @@
+{
+  "contentVersion": "internships-v1",
+  "opportunities": [
+    {
+      "id": "baap-full-stack",
+      "employer": "The Baap Company",
+      "role": "Full Stack Developer Intern",
+      "location": "Paregaon, Sangamner, Maharashtra, India",
+      "workMode": "On campus",
+      "eligibleCountries": [
+        "IN"
+      ],
+      "undergraduateEligible": true,
+      "eligibilityResolved": true,
+      "minimumSemester": 1,
+      "maximumSemester": 8,
+      "eligibility": "No year or institution restriction stated; local availability remains the applicant’s responsibility.",
+      "compensation": "Not stated",
+      "duration": "Not stated",
+      "deadline": null,
+      "sourceUrl": "https://baapcompany.com/careers/",
+      "applicationUrl": "https://baapcompany.com/careers/",
+      "applicationInstructions": "Follow the role-specific application instructions on the official employer page. No application is submitted by this website.",
+      "status": "open",
+      "feeRequired": false,
+      "verifiedAt": "2026-10-27T13:13:11Z",
+      "verification": "Official current role and its application route reviewed on 27 October 2026; no fee listed and no application submitted.",
+      "requirements": [
+        {
+          "label": "JavaScript foundations",
+          "courseTopicIds": [
+            "FS-W-03"
+          ],
+          "assignmentTopicIds": [
+            "FS-W-03"
+          ],
+          "alignment": "The linked course covers this subject and the selected individual exercise practises the named skill; completion is not checked."
+        },
+        {
+          "label": "Backend programming in Java",
+          "courseTopicIds": [
+            "FS-J-01",
+            "FS-J-02",
+            "FS-J-03",
+            "FS-J-04"
+          ],
+          "assignmentTopicIds": [
+            "FS-J-01",
+            "FS-J-02",
+            "FS-J-03",
+            "FS-J-04"
+          ],
+          "alignment": "The linked course covers this subject and the selected individual exercise practises the named skill; completion is not checked."
+        },
+        {
+          "label": "SQL foundations",
+          "courseTopicIds": [
+            "FS-D-01",
+            "FS-D-02",
+            "FS-D-03"
+          ],
+          "assignmentTopicIds": [
+            "FS-D-01",
+            "FS-D-02",
+            "FS-D-03"
+          ],
+          "alignment": "The linked course covers this subject and the selected individual exercise practises the named skill; completion is not checked."
+        }
+      ]
+    },
+    {
+      "id": "baap-java",
+      "employer": "The Baap Company",
+      "role": "Java Developer Intern",
+      "location": "Paregaon, Sangamner, Maharashtra, India",
+      "workMode": "On campus",
+      "eligibleCountries": [
+        "IN"
+      ],
+      "undergraduateEligible": true,
+      "eligibilityResolved": true,
+      "minimumSemester": 1,
+      "maximumSemester": 8,
+      "eligibility": "No year or institution restriction stated; local availability remains the applicant’s responsibility.",
+      "compensation": "Not stated",
+      "duration": "Not stated",
+      "deadline": null,
+      "sourceUrl": "https://baapcompany.com/careers/",
+      "applicationUrl": "https://baapcompany.com/careers/",
+      "applicationInstructions": "Follow the role-specific application instructions on the official employer page. No application is submitted by this website.",
+      "status": "open",
+      "feeRequired": false,
+      "verifiedAt": "2026-10-27T13:13:11Z",
+      "verification": "Official current role and its application route reviewed on 27 October 2026; no fee listed and no application submitted.",
+      "requirements": [
+        {
+          "label": "Core Java",
+          "courseTopicIds": [
+            "FS-J-01",
+            "FS-J-02",
+            "FS-J-03",
+            "FS-J-04"
+          ],
+          "assignmentTopicIds": [
+            "FS-J-01",
+            "FS-J-02",
+            "FS-J-03",
+            "FS-J-04"
+          ],
+          "alignment": "The linked course covers this subject and the selected individual exercise practises the named skill; completion is not checked."
+        },
+        {
+          "label": "Spring Boot foundations",
+          "courseTopicIds": [
+            "FS-A-01",
+            "FS-A-02",
+            "FS-A-03",
+            "FS-A-04"
+          ],
+          "assignmentTopicIds": [
+            "FS-A-01",
+            "FS-A-02",
+            "FS-A-03",
+            "FS-A-04"
+          ],
+          "alignment": "The linked course covers this subject and the selected individual exercise practises the named skill; completion is not checked."
+        },
+        {
+          "label": "SQL foundations",
+          "courseTopicIds": [
+            "FS-D-01",
+            "FS-D-02",
+            "FS-D-03"
+          ],
+          "assignmentTopicIds": [
+            "FS-D-01",
+            "FS-D-02",
+            "FS-D-03"
+          ],
+          "alignment": "The linked course covers this subject and the selected individual exercise practises the named skill; completion is not checked."
+        }
+      ]
+    }
+  ]
+}

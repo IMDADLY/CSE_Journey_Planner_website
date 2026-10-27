@@ -1,6 +1,7 @@
 package com.example.cseplanner.controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.example.cseplanner.services.SpecializationRoadmapCatalog;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.annotation.Id;
@@ -20,12 +21,15 @@ public class SpecializationJourneyController {
             "data-engineering", "game-development", "embedded-systems");
     private final Map<String, JsonNode> banks = new HashMap<>();
     private final MongoTemplate mongo;
+    private final Map<String,SpecializationRoadmapCatalog> roadmaps = new HashMap<>();
 
     public SpecializationJourneyController(ObjectMapper mapper, MongoTemplate mongo) throws IOException {
         this.mongo = mongo;
         for (String slug : SUPPORTED) {
             try (var input = new ClassPathResource("assessment/" + slug + "-common-v2.json").getInputStream()) {
-                banks.put(slug, mapper.readTree(input));
+                JsonNode bank=mapper.readTree(input);
+                banks.put(slug, bank);
+                roadmaps.put(slug, new SpecializationRoadmapCatalog(mapper,bank,slug));
             }
         }
     }
@@ -78,7 +82,7 @@ public class SpecializationJourneyController {
             item.put("options",options);
             questions.add(item);
         }
-        return Map.of("formId",bank.path("form").path("id").asText(),
+        return Map.of("roadmapContentVersion",roadmaps.get(specialization).version(),"formId",bank.path("form").path("id").asText(),
                 "version",bank.path("bankVersion").asText(),"specializationName",bank.path("specializationName").asText(),
                 "semesters",List.of(1,2,3,4,5,6,7,8),"subtopics",topics,"questions",questions);
     }
@@ -162,54 +166,6 @@ public class SpecializationJourneyController {
     }
 
     private Map<String,Object> buildRoadmap(JsonNode bank,int semester,Map<String,Double> scores,List<Map<String,Object>> review) {
-        List<JsonNode> pending=new ArrayList<>(),ordered=new ArrayList<>();
-        bank.path("subtopics").forEach(pending::add);
-        Set<String> scheduled=new HashSet<>();
-        while (!pending.isEmpty()) {
-            JsonNode next=pending.stream().filter(t -> {
-                for (JsonNode prerequisite:t.path("prerequisites")) if (!scheduled.contains(prerequisite.asText())) return false;
-                return true;
-            }).min(Comparator.comparingDouble(t->scores.getOrDefault(t.path("id").asText(),0.0))).orElseThrow();
-            pending.remove(next);ordered.add(next);scheduled.add(next.path("id").asText());
-        }
-        List<Map<String,Object>> semesters=new ArrayList<>();
-        int remaining=9-semester;
-        for (int sem=semester;sem<=8;sem++) {
-            List<Map<String,Object>> units=new ArrayList<>();
-            for (int i=0;i<ordered.size();i++) {
-                if (semester+i*remaining/ordered.size()!=sem) continue;
-                JsonNode topic=ordered.get(i),course=topic.path("learningUnit");
-                String id=topic.path("id").asText();
-                double score=scores.get(id);
-                List<Map<String,Object>> gaps=review.stream().filter(r->id.equals(r.get("subtopicId")) && !Boolean.TRUE.equals(r.get("correct")))
-                        .map(r->Map.<String,Object>of("concept",r.get("concept"),"url",r.get("resourceUrl"))).distinct().toList();
-                Map<String,Object> unit=new LinkedHashMap<>();
-                unit.put("subtopicId",id);unit.put("subtopic",topic.path("name").asText());
-                unit.put("surveyScore",score);unit.put("studyFocus",topic.path("studyFocus").asText());
-                unit.put("evidence",topic.path("targetTechnicalCount").asInt()<4?"limited":"screening");
-                unit.put("exitEvidence",topic.path("exitEvidence").asText());
-                unit.put("missedConcepts",gaps.stream().map(g->(String)g.get("concept")).toList());
-                unit.put("focusItems",gaps);
-                unit.put("action",score<=50?"Study the linked material and complete a worked exercise for each missed concept.":
-                        score<85?"Review missed concepts and use them in a small tested project.":
-                                "Refresh this area while building your portfolio project.");
-                unit.put("course",Map.of("title",course.path("title").asText(),"provider",course.path("provider").asText(),
-                        "url",course.path("url").asText(),"selectedCoverage",course.path("selectedCoverage").asText()));
-                List<Map<String,String>> additional=new ArrayList<>();
-                for (JsonNode resource:course.path("additionalResources")) {
-                    additional.add(Map.of("title",resource.path("title").asText(),"url",resource.path("url").asText()));
-                }
-                unit.put("additionalResources",additional);
-                unit.put("status","PLANNED");units.add(unit);
-            }
-            String stage=sem<=2?"foundation":sem<=5?"intermediate":"capstone";
-            List<String> deliverables=new ArrayList<>();
-            deliverables.add(bank.path("deliverables").path(stage).asText());
-            if (sem>=5) deliverables.add("Prepare a specialization-specific internship or placement application and explain your project tradeoffs.");
-            semesters.add(Map.of("semester",sem,"learningUnits",units,"deliverables",deliverables));
-        }
-        return Map.of("semesters",semesters,"note",semester>=7?
-                "The remaining schedule is dense. Prioritize the largest prerequisite gaps and show practical evidence in a capstone.":
-                "Follow prerequisites and build the listed project evidence. Survey scores alone do not establish placement readiness.");
+        return roadmaps.get(bank.path("specializationId").asText()).build(semester,scores,review);
     }
 }

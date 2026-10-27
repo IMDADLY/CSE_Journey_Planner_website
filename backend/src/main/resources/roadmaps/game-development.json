@@ -1,0 +1,713 @@
+{
+  "contentVersion": "game-development-roadmap-v1",
+  "units": [
+    {
+      "id": "GD-C-01",
+      "parentSubtopicId": "GD-C",
+      "title": "C# objects and collections",
+      "studyFocus": "Classes, references and component ownership",
+      "goal": "Explain and apply classes, references and component ownership.",
+      "prerequisites": [],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Classes, references and component ownership"
+    },
+    {
+      "id": "GD-C-02",
+      "parentSubtopicId": "GD-C",
+      "title": "Unity lifecycle and input",
+      "studyFocus": "Start, Update and input edges",
+      "goal": "Explain and apply start, Update and input edges.",
+      "prerequisites": [
+        "GD-C-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Start, Update and input edges"
+    },
+    {
+      "id": "GD-C-03",
+      "parentSubtopicId": "GD-C",
+      "title": "Version control and debugging",
+      "studyFocus": "Git, readable changes and error diagnosis",
+      "goal": "Explain and apply git, readable changes and error diagnosis.",
+      "prerequisites": [
+        "GD-C-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Git, readable changes and error diagnosis"
+    },
+    {
+      "id": "GD-M-01",
+      "parentSubtopicId": "GD-M",
+      "title": "Vectors and normalized directions",
+      "studyFocus": "Magnitude, normalization and distance",
+      "goal": "Explain and apply magnitude, normalization and distance.",
+      "prerequisites": [
+        "GD-C-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Magnitude, normalization and distance"
+    },
+    {
+      "id": "GD-M-02",
+      "parentSubtopicId": "GD-M",
+      "title": "Transforms and coordinate frames",
+      "studyFocus": "Local versus world positions and rotations",
+      "goal": "Explain and apply local versus world positions and rotations.",
+      "prerequisites": [
+        "GD-M-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Local versus world positions and rotations"
+    },
+    {
+      "id": "GD-M-03",
+      "parentSubtopicId": "GD-M",
+      "title": "Dot products and interpolation",
+      "studyFocus": "Facing tests and smooth movement",
+      "goal": "Explain and apply facing tests and smooth movement.",
+      "prerequisites": [
+        "GD-M-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Facing tests and smooth movement"
+    },
+    {
+      "id": "GD-G-01",
+      "parentSubtopicId": "GD-G",
+      "title": "Frame-independent movement",
+      "studyFocus": "Delta time, velocity and update loops",
+      "goal": "Explain and apply delta time, velocity and update loops.",
+      "prerequisites": [
+        "GD-C-02",
+        "GD-M-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Delta time, velocity and update loops"
+    },
+    {
+      "id": "GD-G-02",
+      "parentSubtopicId": "GD-G",
+      "title": "Collisions and trigger behavior",
+      "studyFocus": "Collider roles and event handling",
+      "goal": "Explain and apply collider roles and event handling.",
+      "prerequisites": [
+        "GD-G-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Collider roles and event handling"
+    },
+    {
+      "id": "GD-G-03",
+      "parentSubtopicId": "GD-G",
+      "title": "Game state and restart behavior",
+      "studyFocus": "State transitions and deterministic reset",
+      "goal": "Explain and apply state transitions and deterministic reset.",
+      "prerequisites": [
+        "GD-G-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "State transitions and deterministic reset"
+    },
+    {
+      "id": "GD-G-04",
+      "parentSubtopicId": "GD-G",
+      "title": "Fixed-step simulation",
+      "studyFocus": "Physics timing and bounded catch-up",
+      "goal": "Explain and apply physics timing and bounded catch-up.",
+      "prerequisites": [
+        "GD-G-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Physics timing and bounded catch-up"
+    },
+    {
+      "id": "GD-A-01",
+      "parentSubtopicId": "GD-A",
+      "title": "Game UI and input alternatives",
+      "studyFocus": "UI focus, remapping and non-color cues",
+      "goal": "Explain and apply uI focus, remapping and non-color cues.",
+      "prerequisites": [
+        "GD-G-03"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "UI focus, remapping and non-color cues"
+    },
+    {
+      "id": "GD-A-02",
+      "parentSubtopicId": "GD-A",
+      "title": "Animation and audio cues",
+      "studyFocus": "Transitions, timing and volume boundaries",
+      "goal": "Explain and apply transitions, timing and volume boundaries.",
+      "prerequisites": [
+        "GD-G-03"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Transitions, timing and volume boundaries"
+    },
+    {
+      "id": "GD-A-03",
+      "parentSubtopicId": "GD-A",
+      "title": "Readable and accessible feedback",
+      "studyFocus": "Text size, motion comfort and layout",
+      "goal": "Explain and apply text size, motion comfort and layout.",
+      "prerequisites": [
+        "GD-A-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Text size, motion comfort and layout"
+    },
+    {
+      "id": "GD-P-01",
+      "parentSubtopicId": "GD-P",
+      "title": "Measure frame and memory behavior",
+      "studyFocus": "Profiler observations and frame budgets",
+      "goal": "Explain and apply profiler observations and frame budgets.",
+      "prerequisites": [
+        "GD-G-03"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Profiler observations and frame budgets"
+    },
+    {
+      "id": "GD-P-02",
+      "parentSubtopicId": "GD-P",
+      "title": "Object pooling and lifecycle",
+      "studyFocus": "Reuse, reset and retained references",
+      "goal": "Explain and apply reuse, reset and retained references.",
+      "prerequisites": [
+        "GD-C-02",
+        "GD-G-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Reuse, reset and retained references"
+    },
+    {
+      "id": "GD-P-03",
+      "parentSubtopicId": "GD-P",
+      "title": "Rendering and asset cost",
+      "studyFocus": "Visibility, overdraw and texture memory",
+      "goal": "Explain and apply visibility, overdraw and texture memory.",
+      "prerequisites": [
+        "GD-P-01",
+        "GD-M-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Visibility, overdraw and texture memory"
+    },
+    {
+      "id": "GD-N-01",
+      "parentSubtopicId": "GD-N",
+      "title": "Authority and message validation",
+      "studyFocus": "Client requests versus server-owned state",
+      "goal": "Explain and apply client requests versus server-owned state.",
+      "prerequisites": [
+        "GD-G-03",
+        "GD-P-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Client requests versus server-owned state"
+    },
+    {
+      "id": "GD-N-02",
+      "parentSubtopicId": "GD-N",
+      "title": "Latency and interpolation",
+      "studyFocus": "Snapshots, delayed arrival and interpolation",
+      "goal": "Explain and apply snapshots, delayed arrival and interpolation.",
+      "prerequisites": [
+        "GD-M-03",
+        "GD-N-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Snapshots, delayed arrival and interpolation"
+    },
+    {
+      "id": "GD-N-03",
+      "parentSubtopicId": "GD-N",
+      "title": "Prediction and reconciliation",
+      "studyFocus": "Input replay and duplicated effects",
+      "goal": "Explain and apply input replay and duplicated effects.",
+      "prerequisites": [
+        "GD-N-01",
+        "GD-N-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Input replay and duplicated effects"
+    },
+    {
+      "id": "GD-R-01",
+      "parentSubtopicId": "GD-R",
+      "title": "Reproducible local builds",
+      "studyFocus": "Build settings, regression checklist and version identity",
+      "goal": "Explain and apply build settings, regression checklist and version identity.",
+      "prerequisites": [
+        "GD-G-03",
+        "GD-C-03"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Build settings, regression checklist and version identity"
+    },
+    {
+      "id": "GD-R-02",
+      "parentSubtopicId": "GD-R",
+      "title": "Playability notes and release limits",
+      "studyFocus": "Self-review, bug reports and performance evidence",
+      "goal": "Explain and apply self-review, bug reports and performance evidence.",
+      "prerequisites": [
+        "GD-R-01",
+        "GD-P-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Self-review, bug reports and performance evidence"
+    }
+  ],
+  "assignments": {
+    "GD-C-01": {
+      "title": "C# objects and collections — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Unity Personal",
+        "C#",
+        "local desktop project"
+      ],
+      "requirements": [
+        "Create a C# ScoreCounter class and two separate instances, both starting at zero. Add nonnegative integer points and display their values in one local Unity scene; reject negative inputs.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Instances do not share score accidentally; negative points are rejected without changing either score."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "GD-C-02": {
+      "title": "Unity lifecycle and input — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Unity Personal",
+        "C#",
+        "local desktop project"
+      ],
+      "requirements": [
+        "Create a scene where one key press spawns one primitive and holding the key does not spawn every frame.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "One press produces one object; missing references are reported clearly; no downloaded art is required."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "GD-C-03": {
+      "title": "Version control and debugging — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Unity Personal",
+        "C#",
+        "local desktop project"
+      ],
+      "requirements": [
+        "Put a minimal Unity scene in a disposable local Git repository with generated/cache folders ignored; record and fix one null-reference error.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "A fresh local checkout preserves the scene; ignored cache directories are absent from history; explain the actual cause of the error."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "GD-M-01": {
+      "title": "Vectors and normalized directions — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Paper",
+        "C#",
+        "Unity primitives optional"
+      ],
+      "requirements": [
+        "For vectors (3,4) and (0,0), implement length and safe normalization in C# or work the calculations by hand.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Length is 5 for (3,4); zero vectors never divide by zero; normalized nonzero vectors have unit length."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "GD-M-02": {
+      "title": "Transforms and coordinate frames — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Paper",
+        "C#",
+        "Unity primitives optional"
+      ],
+      "requirements": [
+        "Place a child at local (1,0,0) under a parent translated by (2,0,0); predict and inspect world position before and after rotating the parent.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Before rotation the child is at (3,0,0); record rotation convention and distinguish local from world coordinates."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "GD-M-03": {
+      "title": "Dot products and interpolation — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Paper",
+        "C#",
+        "Unity primitives optional"
+      ],
+      "requirements": [
+        "For forward vector (1,0), classify targets (1,0),(-1,0),(0,1) by dot product; interpolate between (0,0) and (10,0).",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Facing classifications follow the chosen threshold; interpolation at t=0.5 gives (5,0)."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "GD-G-01": {
+      "title": "Frame-independent movement — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Unity Personal",
+        "C#",
+        "local project"
+      ],
+      "requirements": [
+        "Move one primitive at 2 units/second for a simulated 5 seconds at 30 and 60 updates/second.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Both runs travel approximately 10 units; explain why multiplying by delta time matters."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "GD-G-02": {
+      "title": "Unity — selected Play Fetch challenge fixes",
+      "sourceType": "Selected course tasks",
+      "techStack": [
+        "Unity Personal",
+        "C#",
+        "local project"
+      ],
+      "requirements": [
+        "Use the challenge starter files. Complete the five non-bonus behavior fixes only; leave both bonuses out.",
+        "Complete only the named tasks. Course submission, certificate and optional extensions are not required."
+      ],
+      "acceptanceCriteria": [
+        "Selected fixes follow the challenge behavior; record a manual run and explain the changes."
+      ],
+      "source": {
+        "title": "Unity — selected Play Fetch challenge fixes",
+        "url": "https://learn.unity.com/pathway/junior-programmer/unit/basic-gameplay/tutorial/challenge-2-play-fetch?version=",
+        "access": "Public tutorial; Unity ID may be required for learning progress or downloads. Unity Personal is sufficient for eligible students.",
+        "verifiedOn": "2026-10-27"
+      },
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Use only the linked exercise starter files or scaffolding, with attribution; write the solution independently and do not open completed solutions.",
+      "estimatedHours": 8
+    },
+    "GD-G-03": {
+      "title": "Game state and restart behavior — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Unity Personal",
+        "C#",
+        "local project"
+      ],
+      "requirements": [
+        "Build a tiny collect-three-primitives scene with Ready,Playing and Finished states and a restart button.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Collecting the third item ends play once; restart restores score and all three collectibles."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "GD-G-04": {
+      "title": "Fixed-step simulation — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Unity Personal",
+        "C#",
+        "local project"
+      ],
+      "requirements": [
+        "Write a local C# accumulator simulation for movement at 1 unit/second with variable frame durations; cap catch-up iterations.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Equal elapsed time gives equal distance within tolerance; long frames do not cause an unbounded loop."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "GD-A-01": {
+      "title": "Game UI and input alternatives — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Unity Personal",
+        "C#",
+        "primitive shapes and self-made audio optional"
+      ],
+      "requirements": [
+        "Add a keyboard-accessible pause menu to a local primitive scene and allow a key binding to be changed.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The remapped key works; menu state is visible without relying on color alone."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "GD-A-02": {
+      "title": "Animation and audio cues — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Unity Personal",
+        "C#",
+        "primitive shapes and self-made audio optional"
+      ],
+      "requirements": [
+        "Animate a primitive between two positions and trigger a local sound or visible subtitle on one state transition.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The cue fires once per transition; repeated frames do not duplicate it; sound is not the only signal."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "GD-A-03": {
+      "title": "Readable and accessible feedback — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Unity Personal",
+        "C#",
+        "primitive shapes and self-made audio optional"
+      ],
+      "requirements": [
+        "Create a score/status panel with a reduced-motion setting and longer translated placeholder labels.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Long labels remain readable; reduced motion disables the optional animation; keyboard focus stays visible."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "GD-P-01": {
+      "title": "Measure frame and memory behavior — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Unity Personal",
+        "C#",
+        "local profiler"
+      ],
+      "requirements": [
+        "Profile a scene with 20 primitive objects; record median and worst sampled frame times before changing anything.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The report identifies environment and sample count; observations are separated from guesses about bottlenecks."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "GD-P-02": {
+      "title": "Object pooling and lifecycle — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Unity Personal",
+        "C#",
+        "local profiler"
+      ],
+      "requirements": [
+        "Implement a pool of five primitive projectiles; spawn, deactivate and reuse them without creating a sixth object.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Reused objects have reset position/lifetime; inactive objects do not keep processing gameplay events."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "GD-P-03": {
+      "title": "Rendering and asset cost — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Unity Personal",
+        "C#",
+        "local profiler"
+      ],
+      "requirements": [
+        "Calculate uncompressed RGBA8 memory for a 256x256 image and compare scenes with visible and hidden primitives.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Base image memory is 262144 bytes; distinguish calculated memory from measured frame-time effects."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "GD-N-01": {
+      "title": "Authority and message validation — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "C# or pseudocode",
+        "local files",
+        "no networking package"
+      ],
+      "requirements": [
+        "Simulate a server accepting move requests bounded to one unit per tick; feed valid, oversized and duplicate requests.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Oversized moves are rejected; duplicate ids do not apply movement twice; clients cannot set the server position directly."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "GD-N-02": {
+      "title": "Latency and interpolation — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "C# or pseudocode",
+        "local files",
+        "no networking package"
+      ],
+      "requirements": [
+        "Interpolate two fictional position snapshots at t=0 and t=1 for x=0 and x=10; add an out-of-order arrival.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "At t=0.5 position is 5; stale snapshots cannot move presentation time backwards."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "GD-N-03": {
+      "title": "Prediction and reconciliation — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "C# or pseudocode",
+        "local files",
+        "no networking package"
+      ],
+      "requirements": [
+        "Simulate a client predicting two moves and reconciling with an authoritative position after the first input.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Only unacknowledged inputs are replayed; a cosmetic effect is not emitted twice during replay."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "GD-R-01": {
+      "title": "Reproducible local builds — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Unity Personal",
+        "C#",
+        "local desktop build"
+      ],
+      "requirements": [
+        "Build a tiny existing primitive scene for the local desktop, record its version and verify launch/restart/exit behavior.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The build launches without the editor; recorded steps reproduce the same scene and controls."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "GD-R-02": {
+      "title": "Playability notes and release limits — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Unity Personal",
+        "C#",
+        "local desktop build"
+      ],
+      "requirements": [
+        "Individually replay a tiny scene using a fixed five-step checklist; document two concrete issues and fix one.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Each issue has steps, expected and actual behavior; distinguish self-review from evidence about real users."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    }
+  },
+  "courseOverrides": {
+    "GD-C": {
+      "provider": "Unity Learn"
+    },
+    "GD-M": {
+      "provider": "MIT OpenCourseWare"
+    },
+    "GD-G": {
+      "provider": "Unity Learn"
+    },
+    "GD-A": {
+      "provider": "Unity Learn"
+    },
+    "GD-P": {
+      "provider": "Unity Learn"
+    },
+    "GD-N": {
+      "provider": "NPTEL / IIT Kharagpur"
+    },
+    "GD-R": {
+      "provider": "Unity Learn"
+    }
+  }
+}

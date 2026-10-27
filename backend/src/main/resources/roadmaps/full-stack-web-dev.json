@@ -1,0 +1,1013 @@
+{
+  "contentVersion": "full-stack-web-dev-roadmap-v1",
+  "units": [
+    {
+      "id": "FS-W-01",
+      "parentSubtopicId": "FS-W",
+      "title": "Semantic HTML and forms",
+      "studyFocus": "Headings, landmarks, labels and native controls",
+      "goal": "Explain and apply headings, landmarks, labels and native controls.",
+      "prerequisites": [],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Headings, landmarks, labels and native controls"
+    },
+    {
+      "id": "FS-W-02",
+      "parentSubtopicId": "FS-W",
+      "title": "CSS layout and responsive behavior",
+      "studyFocus": "Box model, flex layout and media queries",
+      "goal": "Explain and apply box model, flex layout and media queries.",
+      "prerequisites": [
+        "FS-W-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Box model, flex layout and media queries"
+    },
+    {
+      "id": "FS-W-03",
+      "parentSubtopicId": "FS-W",
+      "title": "JavaScript collections and functions",
+      "studyFocus": "Arrays, callbacks, comparisons and closures",
+      "goal": "Explain and apply arrays, callbacks, comparisons and closures.",
+      "prerequisites": [],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Arrays, callbacks, comparisons and closures"
+    },
+    {
+      "id": "FS-W-04",
+      "parentSubtopicId": "FS-W",
+      "title": "HTTP and browser request boundaries",
+      "studyFocus": "Methods, status codes, CORS and caching",
+      "goal": "Explain and apply methods, status codes, CORS and caching.",
+      "prerequisites": [
+        "FS-W-01",
+        "FS-W-03"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Methods, status codes, CORS and caching"
+    },
+    {
+      "id": "FS-W-05",
+      "parentSubtopicId": "FS-W",
+      "title": "Git changes and conflict resolution",
+      "studyFocus": "Branches, commits and merging",
+      "goal": "Explain and apply branches, commits and merging.",
+      "prerequisites": [],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Branches, commits and merging"
+    },
+    {
+      "id": "FS-J-01",
+      "parentSubtopicId": "FS-J",
+      "title": "Java values and control flow",
+      "studyFocus": "Methods, integer arithmetic, arrays and null",
+      "goal": "Explain and apply methods, integer arithmetic, arrays and null.",
+      "prerequisites": [],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Methods, integer arithmetic, arrays and null"
+    },
+    {
+      "id": "FS-J-02",
+      "parentSubtopicId": "FS-J",
+      "title": "Objects and value equality",
+      "studyFocus": "Classes, immutable state, equals and hashCode",
+      "goal": "Explain and apply classes, immutable state, equals and hashCode.",
+      "prerequisites": [
+        "FS-J-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Classes, immutable state, equals and hashCode"
+    },
+    {
+      "id": "FS-J-03",
+      "parentSubtopicId": "FS-J",
+      "title": "Collections and algorithm cost",
+      "studyFocus": "Lists, maps, sets and complexity",
+      "goal": "Explain and apply lists, maps, sets and complexity.",
+      "prerequisites": [
+        "FS-J-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Lists, maps, sets and complexity"
+    },
+    {
+      "id": "FS-J-04",
+      "parentSubtopicId": "FS-J",
+      "title": "Exceptions and isolated checks",
+      "studyFocus": "Boundary validation and pure domain methods",
+      "goal": "Explain and apply boundary validation and pure domain methods.",
+      "prerequisites": [
+        "FS-J-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Boundary validation and pure domain methods"
+    },
+    {
+      "id": "FS-D-01",
+      "parentSubtopicId": "FS-D",
+      "title": "Relational schema and constraints",
+      "studyFocus": "Primary keys, foreign keys and uniqueness",
+      "goal": "Explain and apply primary keys, foreign keys and uniqueness.",
+      "prerequisites": [],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Primary keys, foreign keys and uniqueness"
+    },
+    {
+      "id": "FS-D-02",
+      "parentSubtopicId": "FS-D",
+      "title": "Queries, joins and missing values",
+      "studyFocus": "JOIN, GROUP BY, aggregate functions and NULL",
+      "goal": "Explain and apply jOIN, GROUP BY, aggregate functions and NULL.",
+      "prerequisites": [
+        "FS-D-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "JOIN, GROUP BY, aggregate functions and NULL"
+    },
+    {
+      "id": "FS-D-03",
+      "parentSubtopicId": "FS-D",
+      "title": "Indexes and pagination",
+      "studyFocus": "Query plans and stable row order",
+      "goal": "Explain and apply query plans and stable row order.",
+      "prerequisites": [
+        "FS-D-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Query plans and stable row order"
+    },
+    {
+      "id": "FS-D-04",
+      "parentSubtopicId": "FS-D",
+      "title": "Document boundaries and transactions",
+      "studyFocus": "Embedded records versus references; atomic writes",
+      "goal": "Explain and apply embedded records versus references; atomic writes.",
+      "prerequisites": [
+        "FS-D-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Embedded records versus references; atomic writes"
+    },
+    {
+      "id": "FS-R-01",
+      "parentSubtopicId": "FS-R",
+      "title": "React components and props",
+      "studyFocus": "Reusable components and data flow",
+      "goal": "Explain and apply reusable components and data flow.",
+      "prerequisites": [
+        "FS-W-01",
+        "FS-W-03"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Reusable components and data flow"
+    },
+    {
+      "id": "FS-R-02",
+      "parentSubtopicId": "FS-R",
+      "title": "State updates and controlled inputs",
+      "studyFocus": "Functional updates, derived values and form state",
+      "goal": "Explain and apply functional updates, derived values and form state.",
+      "prerequisites": [
+        "FS-R-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Functional updates, derived values and form state"
+    },
+    {
+      "id": "FS-R-03",
+      "parentSubtopicId": "FS-R",
+      "title": "Effects and asynchronous requests",
+      "studyFocus": "Dependencies, cancellation and stale results",
+      "goal": "Explain and apply dependencies, cancellation and stale results.",
+      "prerequisites": [
+        "FS-R-02",
+        "FS-W-04"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Dependencies, cancellation and stale results"
+    },
+    {
+      "id": "FS-R-04",
+      "parentSubtopicId": "FS-R",
+      "title": "Accessible component behavior",
+      "studyFocus": "Labels, keyboard focus and error messages",
+      "goal": "Explain and apply labels, keyboard focus and error messages.",
+      "prerequisites": [
+        "FS-R-02",
+        "FS-W-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Labels, keyboard focus and error messages"
+    },
+    {
+      "id": "FS-A-01",
+      "parentSubtopicId": "FS-A",
+      "title": "Spring dependency boundaries",
+      "studyFocus": "Constructor injection and service responsibilities",
+      "goal": "Explain and apply constructor injection and service responsibilities.",
+      "prerequisites": [
+        "FS-J-02",
+        "FS-W-04"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Constructor injection and service responsibilities"
+    },
+    {
+      "id": "FS-A-02",
+      "parentSubtopicId": "FS-A",
+      "title": "REST validation and error contracts",
+      "studyFocus": "HTTP verbs, input constraints and exception handling",
+      "goal": "Explain and apply hTTP verbs, input constraints and exception handling.",
+      "prerequisites": [
+        "FS-A-01",
+        "FS-J-04"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "HTTP verbs, input constraints and exception handling"
+    },
+    {
+      "id": "FS-A-03",
+      "parentSubtopicId": "FS-A",
+      "title": "Persistence and transaction boundaries",
+      "studyFocus": "Repository behavior and transactional updates",
+      "goal": "Explain and apply repository behavior and transactional updates.",
+      "prerequisites": [
+        "FS-A-02",
+        "FS-D-01",
+        "FS-D-04"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Repository behavior and transactional updates"
+    },
+    {
+      "id": "FS-A-04",
+      "parentSubtopicId": "FS-A",
+      "title": "API compatibility and pagination",
+      "studyFocus": "Response shapes, limits and idempotent operations",
+      "goal": "Explain and apply response shapes, limits and idempotent operations.",
+      "prerequisites": [
+        "FS-A-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Response shapes, limits and idempotent operations"
+    },
+    {
+      "id": "FS-S-01",
+      "parentSubtopicId": "FS-S",
+      "title": "Authentication and object authorization",
+      "studyFocus": "Identity versus permission; ownership checks",
+      "goal": "Explain and apply identity versus permission; ownership checks.",
+      "prerequisites": [
+        "FS-A-02",
+        "FS-W-04"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Identity versus permission; ownership checks"
+    },
+    {
+      "id": "FS-S-02",
+      "parentSubtopicId": "FS-S",
+      "title": "Input handling and injection prevention",
+      "studyFocus": "Parameterized SQL, escaping and password-storage principles",
+      "goal": "Explain and apply parameterized SQL, escaping and password-storage principles.",
+      "prerequisites": [
+        "FS-D-02",
+        "FS-W-03"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Parameterized SQL, escaping and password-storage principles"
+    },
+    {
+      "id": "FS-S-03",
+      "parentSubtopicId": "FS-S",
+      "title": "Browser defenses and accessibility",
+      "studyFocus": "CSRF, XSS, cookie scope and keyboard flow",
+      "goal": "Explain and apply cSRF, XSS, cookie scope and keyboard flow.",
+      "prerequisites": [
+        "FS-W-04",
+        "FS-W-01",
+        "FS-W-03"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "CSRF, XSS, cookie scope and keyboard flow"
+    },
+    {
+      "id": "FS-O-01",
+      "parentSubtopicId": "FS-O",
+      "title": "Build artifacts and release steps",
+      "studyFocus": "Repeatable builds and release validation",
+      "goal": "Explain and apply repeatable builds and release validation.",
+      "prerequisites": [
+        "FS-W-01",
+        "FS-W-05"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Repeatable builds and release validation"
+    },
+    {
+      "id": "FS-O-02",
+      "parentSubtopicId": "FS-O",
+      "title": "Caching and latency measurement",
+      "studyFocus": "Cache invalidation, percentiles and request timing",
+      "goal": "Explain and apply cache invalidation, percentiles and request timing.",
+      "prerequisites": [
+        "FS-W-04"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Cache invalidation, percentiles and request timing"
+    },
+    {
+      "id": "FS-O-03",
+      "parentSubtopicId": "FS-O",
+      "title": "Rollback and operational diagnosis",
+      "studyFocus": "Timeouts, migrations and recovery plans",
+      "goal": "Explain and apply timeouts, migrations and recovery plans.",
+      "prerequisites": [
+        "FS-A-03",
+        "FS-O-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Timeouts, migrations and recovery plans"
+    },
+    {
+      "id": "FS-X-01",
+      "parentSubtopicId": "FS-X",
+      "title": "Concurrent updates and isolation",
+      "studyFocus": "Lost updates and compare-and-swap",
+      "goal": "Explain and apply lost updates and compare-and-swap.",
+      "prerequisites": [
+        "FS-D-04"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Lost updates and compare-and-swap"
+    },
+    {
+      "id": "FS-X-02",
+      "parentSubtopicId": "FS-X",
+      "title": "Idempotent retries",
+      "studyFocus": "Request identifiers and duplicate suppression",
+      "goal": "Explain and apply request identifiers and duplicate suppression.",
+      "prerequisites": [
+        "FS-J-03"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Request identifiers and duplicate suppression"
+    },
+    {
+      "id": "FS-X-03",
+      "parentSubtopicId": "FS-X",
+      "title": "Database and event consistency",
+      "studyFocus": "Atomic outbox and delivery boundaries",
+      "goal": "Explain and apply atomic outbox and delivery boundaries.",
+      "prerequisites": [
+        "FS-D-04",
+        "FS-X-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Atomic outbox and delivery boundaries"
+    }
+  ],
+  "assignments": {
+    "FS-W-01": {
+      "title": "MDN — selected HTML structure exercises",
+      "sourceType": "Selected course tasks",
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "browser"
+      ],
+      "requirements": [
+        "Complete only Text basics 1 and 2 from the linked MDN page in local files.",
+        "Complete only the named tasks. Course submission, certificate and optional extensions are not required."
+      ],
+      "acceptanceCriteria": [
+        "The supplied text has meaningful heading, paragraph and list structure; explain each element choice."
+      ],
+      "source": {
+        "title": "MDN — selected HTML structure exercises",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Test_your_skills/HTML_text_basics",
+        "access": "Public instructions and local work; no paid enrollment required.",
+        "verifiedOn": "2026-10-27"
+      },
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Use only the linked exercise starter files or scaffolding, with attribution; write the solution independently and do not open completed solutions.",
+      "estimatedHours": 8
+    },
+    "FS-W-02": {
+      "title": "CSS layout and responsive behavior — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "browser"
+      ],
+      "requirements": [
+        "Build a three-card layout that becomes one column below 600px; use local text and CSS only.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "At 390px no horizontal scrolling occurs; all cards remain readable at 200% zoom."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-W-03": {
+      "title": "JavaScript collections and functions — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "browser"
+      ],
+      "requirements": [
+        "Given prices [10,20,30], write functions for total, filtering values above 15, and a closure-based counter.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Total is 60; filtering returns [20,30]; two counters maintain independent state."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-W-04": {
+      "title": "HTTP and browser request boundaries — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "browser"
+      ],
+      "requirements": [
+        "Create a local JavaScript request viewer that accepts a mock response object and shows status, headers and body; compare 200,404 and network-failure fixtures.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "All three fixtures have distinct messages; explain why CORS is enforced by the browser rather than the JSON body."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-W-05": {
+      "title": "Git changes and conflict resolution — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "browser"
+      ],
+      "requirements": [
+        "In a disposable local repository, create two branches that change the same README line; resolve the merge and explain the final history.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Both branch commits remain reachable; no conflict markers remain; no remote push is needed."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-J-01": {
+      "title": "Java values and control flow — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Java JDK",
+        "standard library"
+      ],
+      "requirements": [
+        "Implement mean(int[]) and indexOf(int[],int); define behavior for empty arrays and missing targets.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Mean of [2,3] is 2.5; missing targets return -1; empty mean is rejected clearly."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-J-02": {
+      "title": "Objects and value equality — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Java JDK",
+        "standard library"
+      ],
+      "requirements": [
+        "Implement an immutable Book value with isbn and title. Reject blank strings; define equality using both fields. Put equal copies into a HashSet.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Equal books share a hash code; duplicate ISBN/title values do not increase set size; blank ISBN/title is rejected."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-J-03": {
+      "title": "Collections and algorithm cost — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Java JDK",
+        "standard library"
+      ],
+      "requirements": [
+        "Count frequencies in [red,blue,red] with a map and compare a list-based implementation; include empty input.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Counts are red=2 and blue=1; explain expected lookup costs without timing claims."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-J-04": {
+      "title": "Exceptions and isolated checks — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Java JDK",
+        "standard library"
+      ],
+      "requirements": [
+        "Implement transfer(balance,amount) returning the new balance; exercise negative amounts, overdrafts and an exact-balance transfer.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "An exact transfer gives zero; invalid inputs fail without changing the original value; document each boundary."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-D-01": {
+      "title": "Relational schema and constraints — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "SQLite CLI",
+        "SQL"
+      ],
+      "requirements": [
+        "Create customers(id,email) and orders(id,customer_id,total) in SQLite; insert two customers and three orders.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Duplicate customer ids and orphan orders are rejected with foreign keys enabled."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-D-02": {
+      "title": "Queries, joins and missing values — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "SQLite CLI",
+        "SQL"
+      ],
+      "requirements": [
+        "Using customers A and B with orders [10,20] for A only, report each customer and their order total including zero-order customers.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "A totals 30; B totals 0; explain why filtering the right table can turn an outer join into an inner join."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-D-03": {
+      "title": "Indexes and pagination — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "SQLite CLI",
+        "SQL"
+      ],
+      "requirements": [
+        "Create 30 synthetic orders; compare EXPLAIN QUERY PLAN before and after an index on customer_id; paginate with ORDER BY id.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Every id appears once across pages; save both plans and explain the chosen index."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-D-04": {
+      "title": "Document boundaries and transactions — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "SQLite CLI",
+        "SQL"
+      ],
+      "requirements": [
+        "Write a design note comparing one customer with embedded addresses against referenced addresses, then implement an SQLite two-statement transaction with a deliberate failure.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Explain ownership and update tradeoffs; rollback leaves both original rows unchanged."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-R-01": {
+      "title": "Full Stack Open — course information exercises 1.1–1.2",
+      "sourceType": "Selected course tasks",
+      "techStack": [
+        "JavaScript",
+        "React",
+        "Node.js",
+        "browser"
+      ],
+      "requirements": [
+        "Complete exercises 1.1 and 1.2 only, using the supplied course-information fixture; no server or deployment.",
+        "Complete only the named tasks. Course submission, certificate and optional extensions are not required."
+      ],
+      "acceptanceCriteria": [
+        "The UI shows the course information and total; components exchange data through props."
+      ],
+      "source": {
+        "title": "Full Stack Open — course information exercises 1.1–1.2",
+        "url": "https://fullstackopen.com/en/part1/introduction_to_react/",
+        "access": "Public instructions and local work; no paid enrollment required.",
+        "verifiedOn": "2026-10-27"
+      },
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Use only the linked exercise starter files or scaffolding, with attribution; write the solution independently and do not open completed solutions.",
+      "estimatedHours": 8
+    },
+    "FS-R-02": {
+      "title": "State updates and controlled inputs — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "JavaScript",
+        "React",
+        "Node.js",
+        "browser"
+      ],
+      "requirements": [
+        "Build a counter and a local grocery list with add/remove controls; calculate total items from state.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Two rapid increment actions add two; blank items are rejected; removing one item does not remove its neighbor."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-R-03": {
+      "title": "Effects and asynchronous requests — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "JavaScript",
+        "React",
+        "Node.js",
+        "browser"
+      ],
+      "requirements": [
+        "Build a mock search with promises where query A resolves after query B; show only the latest result.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "B remains visible after A resolves; loading and rejection states are distinguishable; no network service is needed."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-R-04": {
+      "title": "Accessible component behavior — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "JavaScript",
+        "React",
+        "Node.js",
+        "browser"
+      ],
+      "requirements": [
+        "Add a labeled email input and inline validation to a local React form; move focus to invalid input on submit.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The error is associated with the field; the full form works by keyboard; correction clears the error."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-A-01": {
+      "title": "Spring dependency boundaries — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Java",
+        "Spring Boot",
+        "Maven",
+        "local HTTP client"
+      ],
+      "requirements": [
+        "Create a local greeting service and controller with constructor injection; support a name parameter and a blank-name error.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Valid requests return a greeting; blank names return 400; the service can run without HTTP classes."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-A-02": {
+      "title": "REST validation and error contracts — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Java",
+        "Spring Boot",
+        "Maven",
+        "local HTTP client"
+      ],
+      "requirements": [
+        "Build an in-memory notes API: POST /notes accepts {title:string} and assigns an integer id; GET /notes/{id} returns {id,title}; DELETE /notes/{id} removes it. Require 1–80 trimmed title characters. Use {error:string} for failures.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Create returns 201 with {id,title}; missing ids return 404; invalid titles return 400 with {error:string}; successful deletion returns 204."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-A-03": {
+      "title": "Persistence and transaction boundaries — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Java",
+        "Spring Boot",
+        "Maven",
+        "local HTTP client"
+      ],
+      "requirements": [
+        "Create a minimal local Spring app with an embedded database and notes {id:integer,title:string}. Implement only create and read; require a nonblank title of at most 80 trimmed characters. Save one note, restart and fetch it; reject a second insert with the same id. No earlier assignment files are required.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The note survives restart; duplicate ids return a conflict without overwriting data; no authentication or deployment is required."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-A-04": {
+      "title": "API compatibility and pagination — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Java",
+        "Spring Boot",
+        "Maven",
+        "local HTTP client"
+      ],
+      "requirements": [
+        "Create a standalone in-memory API using fixture notes [{id:1,title:A},{id:2,title:B}]. GET /notes?limit=N returns ascending ids, with integer N from 1 to 20 (default 10). PUT /notes/{id} changes an existing title to 1–80 trimmed characters; return 404 for unknown ids and 400 for invalid input. No earlier assignment files are required.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Repeated identical PUTs produce the same final note; invalid limits return 400; unknown ids return 404; old sample requests still work."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-S-01": {
+      "title": "Authentication and object authorization — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Browser",
+        "local HTML/JavaScript",
+        "Java or pseudocode"
+      ],
+      "requirements": [
+        "Implement a pure canRead(userId,ownerId) function and a route sketch for two users and two private notes.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Cross-user reads are denied; missing identity is rejected; changing the URL id cannot bypass ownership."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-S-02": {
+      "title": "Input handling and injection prevention — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Browser",
+        "local HTML/JavaScript",
+        "Java or pseudocode"
+      ],
+      "requirements": [
+        "Prepare a local SQLite example using parameters for a user-supplied name; compare a normal string with a quote-containing string.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Both strings are treated as data; no SQL string concatenation is used; explain why hashing differs from encryption."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-S-03": {
+      "title": "Browser defenses and accessibility — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Browser",
+        "local HTML/JavaScript",
+        "Java or pseudocode"
+      ],
+      "requirements": [
+        "Write a small local page that renders user text as textContent and a request-flow diagram for a CSRF-protected form.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Text containing angle brackets is not executed; identify where a CSRF token is checked; no live targets are used."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-O-01": {
+      "title": "Build artifacts and release steps — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "JavaScript or Java",
+        "local files",
+        "browser"
+      ],
+      "requirements": [
+        "Create a release checklist and a local script that copies a tiny static page into a versioned build directory.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Two builds from unchanged inputs have the same file checksums; a failed step stops release."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-O-02": {
+      "title": "Caching and latency measurement — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "JavaScript or Java",
+        "local files",
+        "browser"
+      ],
+      "requirements": [
+        "For durations [10,20,30,40,500] compute median and nearest-rank p95; design a cache key for per-user profile data.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Median is 30 and p95 is 500; distinct users never share a private cache entry."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-O-03": {
+      "title": "Rollback and operational diagnosis — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "JavaScript or Java",
+        "local files",
+        "browser"
+      ],
+      "requirements": [
+        "Write a local release/rollback rehearsal for adding an optional note field; preserve a copy of the prior data and application.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The old version can still read existing records; rollback steps name exactly which files and schema changes are restored."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-X-01": {
+      "title": "Concurrent updates and isolation — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "SQLite",
+        "SQL",
+        "Java or pseudocode"
+      ],
+      "requirements": [
+        "Simulate two clients reading balance 100 and subtracting 10 and 20; compare blind writes with a version-column update.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Blind writes demonstrate lost work; a stale version is rejected and the accepted retry ends at 70."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-X-02": {
+      "title": "Idempotent retries — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "SQLite",
+        "SQL",
+        "Java or pseudocode"
+      ],
+      "requirements": [
+        "Implement a local map-backed payment recorder accepting request id and amount; repeat the same request twice.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "A duplicate produces one recorded payment; reusing an id with a different amount returns an error."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "FS-X-03": {
+      "title": "Database and event consistency — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "SQLite",
+        "SQL",
+        "Java or pseudocode"
+      ],
+      "requirements": [
+        "Create local orders and outbox tables; insert both in one transaction and simulate a failure before commit.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Neither row appears after rollback; explain why publishing an event after commit is still subject to retries."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    }
+  },
+  "courseOverrides": {
+    "FS-W": {
+      "provider": "MDN"
+    },
+    "FS-J": {
+      "provider": "NPTEL / IIT Kharagpur"
+    },
+    "FS-D": {
+      "provider": "Harvard CS50"
+    },
+    "FS-R": {
+      "provider": "University of Helsinki"
+    },
+    "FS-A": {
+      "provider": "Spring Academy"
+    },
+    "FS-S": {
+      "provider": "PortSwigger Web Security Academy"
+    },
+    "FS-O": {
+      "provider": "University of Helsinki"
+    },
+    "FS-X": {
+      "provider": "Carnegie Mellon University"
+    }
+  }
+}

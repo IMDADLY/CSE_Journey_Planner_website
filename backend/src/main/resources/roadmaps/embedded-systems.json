@@ -1,0 +1,873 @@
+{
+  "contentVersion": "embedded-systems-roadmap-v1",
+  "units": [
+    {
+      "id": "ER-C-01",
+      "parentSubtopicId": "ER-C",
+      "title": "C values, branches and loops",
+      "studyFocus": "Integer arithmetic and bounded iteration",
+      "goal": "Explain and apply integer arithmetic and bounded iteration.",
+      "prerequisites": [],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Integer arithmetic and bounded iteration"
+    },
+    {
+      "id": "ER-C-02",
+      "parentSubtopicId": "ER-C",
+      "title": "Pointers, arrays and bounds",
+      "studyFocus": "Object lifetime, indexing and safe buffers",
+      "goal": "Explain and apply object lifetime, indexing and safe buffers.",
+      "prerequisites": [
+        "ER-C-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Object lifetime, indexing and safe buffers"
+    },
+    {
+      "id": "ER-C-03",
+      "parentSubtopicId": "ER-C",
+      "title": "Bits and digital values",
+      "studyFocus": "Masks, shifts and signedness",
+      "goal": "Explain and apply masks, shifts and signedness.",
+      "prerequisites": [
+        "ER-C-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Masks, shifts and signedness"
+    },
+    {
+      "id": "ER-M-01",
+      "parentSubtopicId": "ER-M",
+      "title": "GPIO registers and safe updates",
+      "studyFocus": "Direction, pin state and masked writes",
+      "goal": "Explain and apply direction, pin state and masked writes.",
+      "prerequisites": [
+        "ER-C-03"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Direction, pin state and masked writes"
+    },
+    {
+      "id": "ER-M-02",
+      "parentSubtopicId": "ER-M",
+      "title": "ADC and PWM calculations",
+      "studyFocus": "Resolution, voltage conversion and duty cycle",
+      "goal": "Explain and apply resolution, voltage conversion and duty cycle.",
+      "prerequisites": [
+        "ER-M-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Resolution, voltage conversion and duty cycle"
+    },
+    {
+      "id": "ER-M-03",
+      "parentSubtopicId": "ER-M",
+      "title": "UART, I2C and SPI frames",
+      "studyFocus": "Serial framing, clocking and protocol choice",
+      "goal": "Explain and apply serial framing, clocking and protocol choice.",
+      "prerequisites": [
+        "ER-M-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Serial framing, clocking and protocol choice"
+    },
+    {
+      "id": "ER-T-01",
+      "parentSubtopicId": "ER-T",
+      "title": "Timers and sample periods",
+      "studyFocus": "Prescalers, counts and sampling units",
+      "goal": "Explain and apply prescalers, counts and sampling units.",
+      "prerequisites": [
+        "ER-M-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Prescalers, counts and sampling units"
+    },
+    {
+      "id": "ER-T-02",
+      "parentSubtopicId": "ER-T",
+      "title": "Interrupt handlers and shared state",
+      "studyFocus": "Short handlers, volatile and atomicity",
+      "goal": "Explain and apply short handlers, volatile and atomicity.",
+      "prerequisites": [
+        "ER-C-02",
+        "ER-T-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Short handlers, volatile and atomicity"
+    },
+    {
+      "id": "ER-T-03",
+      "parentSubtopicId": "ER-T",
+      "title": "Debouncing and nonblocking timing",
+      "studyFocus": "Edge filtering and elapsed-time comparisons",
+      "goal": "Explain and apply edge filtering and elapsed-time comparisons.",
+      "prerequisites": [
+        "ER-T-01",
+        "ER-M-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Edge filtering and elapsed-time comparisons"
+    },
+    {
+      "id": "ER-R-01",
+      "parentSubtopicId": "ER-R",
+      "title": "Tasks and scheduling",
+      "studyFocus": "Periodic tasks, deadlines and execution budgets",
+      "goal": "Explain and apply periodic tasks, deadlines and execution budgets.",
+      "prerequisites": [
+        "ER-T-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Periodic tasks, deadlines and execution budgets"
+    },
+    {
+      "id": "ER-R-02",
+      "parentSubtopicId": "ER-R",
+      "title": "Queues and bounded buffers",
+      "studyFocus": "Producer-consumer ownership and overflow",
+      "goal": "Explain and apply producer-consumer ownership and overflow.",
+      "prerequisites": [
+        "ER-C-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Producer-consumer ownership and overflow"
+    },
+    {
+      "id": "ER-R-03",
+      "parentSubtopicId": "ER-R",
+      "title": "Mutexes and priority inversion",
+      "studyFocus": "Shared resources and lock duration",
+      "goal": "Explain and apply shared resources and lock duration.",
+      "prerequisites": [
+        "ER-R-01",
+        "ER-R-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Shared resources and lock duration"
+    },
+    {
+      "id": "ER-K-01",
+      "parentSubtopicId": "ER-K",
+      "title": "Robot frames and planar motion",
+      "studyFocus": "Vectors, rotations and coordinate conventions",
+      "goal": "Explain and apply vectors, rotations and coordinate conventions.",
+      "prerequisites": [],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Vectors, rotations and coordinate conventions"
+    },
+    {
+      "id": "ER-K-02",
+      "parentSubtopicId": "ER-K",
+      "title": "Wheel motion and simple kinematics",
+      "studyFocus": "Distance, angular speed and wheelbase",
+      "goal": "Explain and apply distance, angular speed and wheelbase.",
+      "prerequisites": [
+        "ER-K-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Distance, angular speed and wheelbase"
+    },
+    {
+      "id": "ER-U-01",
+      "parentSubtopicId": "ER-U",
+      "title": "Feedback signs and proportional control",
+      "studyFocus": "Error, gain and negative feedback",
+      "goal": "Explain and apply error, gain and negative feedback.",
+      "prerequisites": [
+        "ER-K-01",
+        "ER-T-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Error, gain and negative feedback"
+    },
+    {
+      "id": "ER-U-02",
+      "parentSubtopicId": "ER-U",
+      "title": "Saturation and integral windup",
+      "studyFocus": "Actuator limits and bounded integral state",
+      "goal": "Explain and apply actuator limits and bounded integral state.",
+      "prerequisites": [
+        "ER-U-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Actuator limits and bounded integral state"
+    },
+    {
+      "id": "ER-U-03",
+      "parentSubtopicId": "ER-U",
+      "title": "Timing, noise and safe stop",
+      "studyFocus": "Sampling jitter and stale commands",
+      "goal": "Explain and apply sampling jitter and stale commands.",
+      "prerequisites": [
+        "ER-U-01",
+        "ER-T-03"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Sampling jitter and stale commands"
+    },
+    {
+      "id": "ER-O-01",
+      "parentSubtopicId": "ER-O",
+      "title": "ROS nodes and topic messages",
+      "studyFocus": "Publishers, subscribers and named messages",
+      "goal": "Explain and apply publishers, subscribers and named messages.",
+      "prerequisites": [
+        "ER-C-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Publishers, subscribers and named messages"
+    },
+    {
+      "id": "ER-O-02",
+      "parentSubtopicId": "ER-O",
+      "title": "Services, QoS and lifecycle",
+      "studyFocus": "Request-response behavior and delivery policies",
+      "goal": "Explain and apply request-response behavior and delivery policies.",
+      "prerequisites": [
+        "ER-O-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Request-response behavior and delivery policies"
+    },
+    {
+      "id": "ER-O-03",
+      "parentSubtopicId": "ER-O",
+      "title": "Frames, timestamps and integration",
+      "studyFocus": "Coordinate names, freshness and message frequency",
+      "goal": "Explain and apply coordinate names, freshness and message frequency.",
+      "prerequisites": [
+        "ER-O-01",
+        "ER-K-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Coordinate names, freshness and message frequency"
+    },
+    {
+      "id": "ER-E-01",
+      "parentSubtopicId": "ER-E",
+      "title": "Sensor weighting and uncertainty",
+      "studyFocus": "Variance, weighted estimates and innovation",
+      "goal": "Explain and apply variance, weighted estimates and innovation.",
+      "prerequisites": [
+        "ER-K-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Variance, weighted estimates and innovation"
+    },
+    {
+      "id": "ER-E-02",
+      "parentSubtopicId": "ER-E",
+      "title": "Grid paths and obstacle clearance",
+      "studyFocus": "Neighbors, path length and blocked cells",
+      "goal": "Explain and apply neighbors, path length and blocked cells.",
+      "prerequisites": [
+        "ER-K-01",
+        "ER-C-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Neighbors, path length and blocked cells"
+    },
+    {
+      "id": "ER-E-03",
+      "parentSubtopicId": "ER-E",
+      "title": "Estimation failures and recovery",
+      "studyFocus": "Outlier rejection and loss of localization",
+      "goal": "Explain and apply outlier rejection and loss of localization.",
+      "prerequisites": [
+        "ER-E-01"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Outlier rejection and loss of localization"
+    },
+    {
+      "id": "ER-V-01",
+      "parentSubtopicId": "ER-V",
+      "title": "Watchdog and command freshness",
+      "studyFocus": "Health checks and timeouts",
+      "goal": "Explain and apply health checks and timeouts.",
+      "prerequisites": [
+        "ER-R-01",
+        "ER-U-03"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Health checks and timeouts"
+    },
+    {
+      "id": "ER-V-02",
+      "parentSubtopicId": "ER-V",
+      "title": "Persistent records and interrupted writes",
+      "studyFocus": "Checksums, sequence numbers and recovery",
+      "goal": "Explain and apply checksums, sequence numbers and recovery.",
+      "prerequisites": [
+        "ER-C-02"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Checksums, sequence numbers and recovery"
+    },
+    {
+      "id": "ER-V-03",
+      "parentSubtopicId": "ER-V",
+      "title": "Fault injection and operating limits",
+      "studyFocus": "Controlled failures and documented assumptions",
+      "goal": "Explain and apply controlled failures and documented assumptions.",
+      "prerequisites": [
+        "ER-V-01",
+        "ER-V-02",
+        "ER-E-03"
+      ],
+      "estimatedStudyHours": 4,
+      "courseCoverage": "Controlled failures and documented assumptions"
+    }
+  ],
+  "assignments": {
+    "ER-C-01": {
+      "title": "CS50 C — Mario, less comfortable",
+      "sourceType": "Selected course tasks",
+      "techStack": [
+        "C compiler",
+        "standard library",
+        "terminal"
+      ],
+      "requirements": [
+        "Complete only the less-comfortable Mario exercise using the published input/output contract.",
+        "Complete only the named tasks. Course submission, certificate and optional extensions are not required."
+      ],
+      "acceptanceCriteria": [
+        "Check the published examples and invalid-input handling locally; no course submission or automated grading is required."
+      ],
+      "source": {
+        "title": "CS50 C — Mario, less comfortable",
+        "url": "https://cs50.harvard.edu/x/psets/1/mario/less/",
+        "access": "Public instructions and local work; no paid enrollment required.",
+        "verifiedOn": "2026-10-27"
+      },
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Use only the linked exercise starter files or scaffolding, with attribution; write the solution independently and do not open completed solutions.",
+      "estimatedHours": 8
+    },
+    "ER-C-02": {
+      "title": "Pointers, arrays and bounds — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "C compiler",
+        "standard library",
+        "terminal"
+      ],
+      "requirements": [
+        "Implement a C function copying at most n-1 characters into a fixed buffer and adding a terminator.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "A four-byte buffer holds at most three characters plus terminator; zero capacity causes no write."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-C-03": {
+      "title": "Bits and digital values — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "C compiler",
+        "standard library",
+        "terminal"
+      ],
+      "requirements": [
+        "Write C helpers to set, clear and inspect bit 3 of an unsigned byte; exercise inputs 0 and 255.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Setting bit 3 of zero gives 8; clearing it in 255 gives 247; no shift exceeds the type width."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-M-01": {
+      "title": "GPIO registers and safe updates — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "C compiler",
+        "local register simulator",
+        "no hardware required"
+      ],
+      "requirements": [
+        "Model an 8-bit GPIO register in C and change only pin 2 while preserving all other bits.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Unrelated pins retain their values; repeated set/clear operations are predictable."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-M-02": {
+      "title": "ADC and PWM calculations — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "C compiler",
+        "local register simulator",
+        "no hardware required"
+      ],
+      "requirements": [
+        "For an ideal 10-bit ADC spanning 0–3.3V, compute endpoints and midscale; model a PWM duty counter at 25% and 75%.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "ADC code 1023 maps to 3.3V under the stated endpoint convention; 100 PWM ticks have 25 or 75 high ticks."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-M-03": {
+      "title": "UART, I2C and SPI frames — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "C compiler",
+        "local register simulator",
+        "no hardware required"
+      ],
+      "requirements": [
+        "Draw UART 8N1 framing for one byte and compare I2C address/ACK with SPI chip-select and clock signals.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "UART uses 10 bits per byte under 8N1; identify which protocols supply a shared clock and how a receiver is selected."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-T-01": {
+      "title": "Timers and sample periods — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "C compiler",
+        "local simulation",
+        "paper"
+      ],
+      "requirements": [
+        "Given a 1 MHz timer after prescaling, calculate counts for a 1 ms interrupt and simulate ten timestamps.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Each interval uses 1000 counts; document off-by-one register conventions rather than silently assuming them."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-T-02": {
+      "title": "Interrupt handlers and shared state — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "C compiler",
+        "local simulation",
+        "paper"
+      ],
+      "requirements": [
+        "Write a simulated ISR that increments a counter and a foreground loop that snapshots it; explain a multi-byte read race.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The ISR performs bounded work; distinguish volatile visibility from atomic access."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-T-03": {
+      "title": "Debouncing and nonblocking timing — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "C compiler",
+        "local simulation",
+        "paper"
+      ],
+      "requirements": [
+        "Process timestamped button values with a 20 ms stability rule without busy-waiting.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Contact bounce creates one press; long unrelated work is not blocked by a delay loop."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-R-01": {
+      "title": "Tasks and scheduling — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "C compiler",
+        "local scheduler simulation"
+      ],
+      "requirements": [
+        "Simulate two tasks with periods 10 and 20 ms and execution costs 2 and 3 ms over 100 ms.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Every release and finish time is recorded; state the scheduling policy and identify any missed deadline."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-R-02": {
+      "title": "Queues and bounded buffers — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "C compiler",
+        "local scheduler simulation"
+      ],
+      "requirements": [
+        "Implement a four-element C ring buffer with enqueue/dequeue; fill it, overflow it and wrap indices.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "FIFO order survives wraparound; overflow is reported without overwriting unread data."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-R-03": {
+      "title": "Mutexes and priority inversion — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "C compiler",
+        "local scheduler simulation"
+      ],
+      "requirements": [
+        "Write a three-task execution trace showing a low-priority holder delaying a high-priority task; compare priority inheritance.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The trace identifies the blocking interval; explain why interrupt masking is not a universal mutex replacement."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-K-01": {
+      "title": "Robot frames and planar motion — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Paper",
+        "C compiler optional"
+      ],
+      "requirements": [
+        "Rotate point (1,0) by 90 degrees counterclockwise, then translate by (2,3); compare translation followed by rotation.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The first order gives (2,4); the two transformation orders differ and all frame conventions are named."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-K-02": {
+      "title": "Wheel motion and simple kinematics — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Paper",
+        "C compiler optional"
+      ],
+      "requirements": [
+        "For wheel radius 0.1m, compute distance after 10 revolutions; describe straight motion versus unequal wheel speeds.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Distance is 2*pi metres; units are consistent; explain the differential-drive turning direction."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-U-01": {
+      "title": "Feedback signs and proportional control — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "C compiler or spreadsheet",
+        "local simulation"
+      ],
+      "requirements": [
+        "Simulate x_next=x+0.1*u with target 1 and u=2*(target-x), starting at zero for 20 steps.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The first step is 0.2; error decreases; reversing the feedback sign is identified as destabilizing."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-U-02": {
+      "title": "Saturation and integral windup — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "C compiler or spreadsheet",
+        "local simulation"
+      ],
+      "requirements": [
+        "Add an output clamp [-1,1] to a toy PI controller and compare integral accumulation with a simple anti-windup rule.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Output never exceeds limits; log integral growth and explain the selected anti-windup behavior."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-U-03": {
+      "title": "Timing, noise and safe stop — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "C compiler or spreadsheet",
+        "local simulation"
+      ],
+      "requirements": [
+        "Simulate a controller that receives commands at 0,20,40ms and stops when the latest command is more than 50ms old. Check at 90 and 100ms; use only a software state variable, not a physical motor.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "A check at 90ms keeps running and 100ms triggers stop; no physical motor is used."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-O-01": {
+      "title": "ROS nodes and topic messages — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "ROS 2 Jazzy local installation",
+        "ROS command-line tools",
+        "local text editor"
+      ],
+      "requirements": [
+        "Use the existing ROS 2 Jazzy course demos to run a local talker/listener pair carrying an integer counter. Use the supplied demo nodes; writing Python or C++ is not required.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "The subscriber receives increasing values; stop both nodes cleanly; no robot or external service is required."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-O-02": {
+      "title": "Services, QoS and lifecycle — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "ROS 2 Jazzy local installation",
+        "ROS command-line tools",
+        "local text editor"
+      ],
+      "requirements": [
+        "Run the course-supplied add-two-integers service/client demo locally and inspect its service type. Compare publisher/subscriber QoS settings in a supplied topic example; do not write a new client library.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "A request for 2+3 returns 5; explain one incompatible QoS configuration without claiming a universal fix."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-O-03": {
+      "title": "Frames, timestamps and integration — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "ROS 2 Jazzy local installation",
+        "ROS command-line tools",
+        "local text editor"
+      ],
+      "requirements": [
+        "Create a local five-message pose fixture with frame_id and UTC timestamp fields, based on the course message examples. Inspect monotonic time and frame consistency; include one out-of-order stamp and one unexpected frame. No motion or custom node is required.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Out-of-order timestamps and unexpected frames are reported separately; no motion is commanded."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-E-01": {
+      "title": "Sensor weighting and uncertainty — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Paper",
+        "C compiler optional",
+        "local fixtures"
+      ],
+      "requirements": [
+        "Combine measurements 10 and 14 with inverse-variance weights for variances 1 and 4; compare equal weighting.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Weighted estimate is 10.8; equal weighting is 12; explain why confidence affects the result."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-E-02": {
+      "title": "Grid paths and obstacle clearance — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Paper",
+        "C compiler optional",
+        "local fixtures"
+      ],
+      "requirements": [
+        "Find a four-neighbor path on a 5x5 grid from (0,0) to (4,4), with only (2,2) blocked; verify every step.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Every move is adjacent and avoids the blocked cell; handle a fully blocked goal without an infinite loop."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-E-03": {
+      "title": "Estimation failures and recovery — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "Paper",
+        "C compiler optional",
+        "local fixtures"
+      ],
+      "requirements": [
+        "For predicted position 10 and readings [10.1,9.9,100], flag innovations greater than 2 and state a recovery rule if all are rejected.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "100 is rejected; the report distinguishes no valid estimate from a confident position."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-V-01": {
+      "title": "Watchdog and command freshness — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "C compiler",
+        "local files",
+        "simulated clock"
+      ],
+      "requirements": [
+        "Simulate two task heartbeats and service a watchdog only when both are recent; stop one heartbeat deliberately.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "A stale task prevents servicing the watchdog; a busy but unhealthy main loop does not hide the failure."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-V-02": {
+      "title": "Persistent records and interrupted writes — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "C compiler",
+        "local files",
+        "simulated clock"
+      ],
+      "requirements": [
+        "Represent two slots containing value, sequence and checksum; corrupt the newer slot and select the latest valid record.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Recovery chooses the older valid slot; document the checksum limitation and the case where both slots are invalid."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    },
+    "ER-V-03": {
+      "title": "Fault injection and operating limits — individual exercise",
+      "sourceType": "Original course-aligned exercise",
+      "techStack": [
+        "C compiler",
+        "local files",
+        "simulated clock"
+      ],
+      "requirements": [
+        "Create a local fault table for stale commands, impossible sensor values and failed storage; simulate each through a state machine.",
+        "Keep the work limited to this fixture and the named behavior. Record inputs, outputs and a short explanation; no full application is required."
+      ],
+      "acceptanceCriteria": [
+        "Each injected fault leads to a named safe state; explicitly state that simulation is not hardware certification."
+      ],
+      "source": null,
+      "setup": "Use the linked course setup and its supplied references. Work locally with fictional or self-created data. No paid service, public deployment or hardware purchase is required.",
+      "starterCode": "Start with an empty local file or project unless the selected course task explicitly provides starter files. Do not copy completed solutions.",
+      "estimatedHours": 6
+    }
+  },
+  "courseOverrides": {
+    "ER-O": {
+      "url": "https://github.com/ros2/ros2_documentation/tree/jazzy/source/Tutorials",
+      "access": "Public ROS 2 Jazzy tutorial sources; rendered docs may present an anti-bot access check.",
+      "provider": "ROS 2 documentation"
+    },
+    "ER-C": {
+      "provider": "Harvard CS50"
+    },
+    "ER-M": {
+      "provider": "NPTEL / IIT Kharagpur"
+    },
+    "ER-T": {
+      "provider": "NPTEL / IIT Kharagpur"
+    },
+    "ER-R": {
+      "provider": "NPTEL / IIT Kharagpur"
+    },
+    "ER-K": {
+      "provider": "NPTEL / IISc"
+    },
+    "ER-U": {
+      "provider": "Northwestern University"
+    },
+    "ER-E": {
+      "provider": "Northwestern University"
+    },
+    "ER-V": {
+      "provider": "NPTEL / IIT Kharagpur"
+    }
+  }
+}

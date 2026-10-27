@@ -63,12 +63,19 @@ function Report({ result, topics, specializationName, onNewSurvey }) {
             <p className="aiml-disclaimer">{result.roadmap.note}</p>
             {result.roadmap.semesters.map(plan=><section className="aiml-panel aiml-semester-plan" key={plan.semester}>
                 <div className="aiml-section-head"><span className="aiml-step">S{plan.semester}</span><div><h2>Semester {plan.semester}</h2><p>{plan.learningUnits.length} focused learning units</p></div></div>
-                <div className="aiml-units">{plan.learningUnits.map(unit=><article className="aiml-unit" key={unit.subtopicId}>
-                    <span className="aiml-unit-score">Survey: {unit.surveyScore}%</span><h3>{unit.subtopic}</h3>
+                <div className="aiml-units">{plan.learningUnits.map(unit=><article className="aiml-unit" key={unit.learningUnitId || unit.subtopicId}>
+                    <span className="aiml-unit-score">{unit.scoreScope==='parent-area'?'Area survey':'Survey'}: {unit.surveyScore}%</span><h3>{unit.subtopic}</h3>
+                    {unit.parentSubtopic&&<small>{unit.parentSubtopic}</small>}
+                    {unit.learningGoal&&<p><strong>Goal:</strong> {unit.learningGoal}</p>}
+                    {unit.learningUnitId&&<p><strong>Study focus:</strong> {unit.studyFocus}</p>}
+                    {unit.estimatedStudyHours&&<p><strong>Selected study:</strong> about {unit.estimatedStudyHours} hours · assignment time is separate</p>}
+                    {unit.prerequisites?.length>0&&<p><strong>Study first:</strong> {unit.prerequisites.map(p=>p.title).join('; ')}</p>}
                     <p>{unit.action}</p>
-                    {unit.focusItems?.length>0?<div><strong>Review these concepts:</strong><ul>{unit.focusItems.map((focus,i)=><li key={`${focus.concept}-${i}`}>{focus.url?<a href={focus.url} target="_blank" rel="noopener noreferrer">{focus.concept} ↗</a>:focus.concept}</li>)}</ul></div>:
+                    {unit.focusItems?.length>0?<div><strong>{unit.reviewScope==='parent-area'?'Review from this broad area:':'Review these concepts:'}</strong><ul>{unit.focusItems.map((focus,i)=><li key={`${focus.concept}-${i}`}>{focus.url?<a href={focus.url} target="_blank" rel="noopener noreferrer">{focus.concept} ↗</a>:focus.concept}</li>)}</ul></div>:
                         unit.missedConcepts?.length>0&&<p><strong>Review:</strong> {unit.missedConcepts.join(', ')}</p>}
                     <a href={unit.course.url} target="_blank" rel="noopener noreferrer">Study: {unit.course.title} ↗</a><small>{unit.course.provider} · Focus on the relevant modules</small>
+                    {unit.learningUnitId&&unit.course.selectedCoverage!==unit.studyFocus&&<p><strong>Course modules:</strong> {unit.course.selectedCoverage}</p>}
+                    {unit.course.access&&<small>{unit.course.access}</small>}
                     {unit.additionalResources?.length>0&&<p>More resources: {unit.additionalResources.map((resource,i)=><React.Fragment key={resource.url}>{i>0?' · ':''}<a href={resource.url} target="_blank" rel="noopener noreferrer">{resource.title} ↗</a></React.Fragment>)}</p>}
                     {unit.exitEvidence&&<p><strong>Show your work:</strong> {unit.exitEvidence}</p>}
                 </article>)}</div>
@@ -123,7 +130,7 @@ export default function AiMlJourneySurvey({ specializationId='ai-ml', specializa
             setForm(data);setAnswers(saved.answers || {});
             if(saved.semester>=1&&saved.semester<=8)setSemester(saved.semester);
             if(saved.section>=0)setSection(saved.section);
-            try {const prior=JSON.parse(localStorage.getItem(resultKey) || 'null');if(prior?.version===data.version && (!data.roadmapContentVersion || prior.result?.roadmap?.contentVersion===data.roadmapContentVersion))setResult(prior.result);else if(prior && data.roadmapContentVersion)setNotice('Assignment requirements have been updated. Submit your survey to generate a current roadmap.');}catch(_){}
+            try {const prior=JSON.parse(localStorage.getItem(resultKey) || 'null');if(prior?.version===data.version && (!data.roadmapContentVersion || prior.result?.roadmap?.contentVersion===data.roadmapContentVersion))setResult(prior.result);else if(prior && data.roadmapContentVersion)setNotice('Your roadmap has been updated. Submit your survey to see the current learning steps, assignments and internships.');}catch(_){}
             setLoading(false);
         }).catch(e=>{if(live){setError(e.message);setLoading(false);}});
         return ()=>{live=false;};
