@@ -1891,3 +1891,22 @@ body {
 @media(max-width:800px) { .aiml-section-nav { grid-template-columns:repeat(2,minmax(0,1fr)); } .aiml-units,.aiml-skill-list { grid-template-columns:1fr; } }
 @media(max-width:530px) { .aiml-wrap { width:calc(100% - 1.2rem); } .aiml-hero { padding:1.4rem; } .aiml-question,.aiml-panel { padding:1rem; } .aiml-section-nav { grid-template-columns:1fr; } .aiml-topbar-inner { gap:.4rem; } .aiml-topbar-inner strong { font-size:.85rem; } }
 @media(prefers-reduced-motion:reduce) { .aiml-progress-track span,.aiml-skill-track span { transition:none; } }
+
+/* Course-linked individual requirements, present only on the AI/ML roadmap. */
+.aiml-assignment { margin: 1.5rem 0; border: 1px solid #cbd5e1; border-radius: 12px; background: #f8fafc; }
+.aiml-assignment summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem; cursor: pointer; color: #0f172a; }
+.aiml-assignment summary strong, .aiml-assignment summary small { display: block; }
+.aiml-assignment summary small { margin-top: .4rem; color: #475569; }
+.aiml-assignment summary:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; border-radius: 12px; }
+.aiml-assignment-toggle { font-size: .85rem; color: #1d4ed8; flex-shrink: 0; }
+.aiml-assignment[open] .aiml-assignment-toggle { display: none; }
+.aiml-assignment-body { padding: 0 1.25rem 1.25rem; color: #334155; overflow-wrap: anywhere; line-height: 1.65; }
+.aiml-assignment-body h3 { color: #0f172a; }
+.aiml-assignment-body h4 { margin: 1.4rem 0 .4rem; color: #0f172a; }
+.aiml-assignment-body ul, .aiml-assignment-body ol { padding-left: 1.4rem; }
+.aiml-assignment-body li { margin: .4rem 0; }
+.aiml-assignment-body a { color: #1d4ed8; text-decoration: underline; }
+@media (max-width: 600px) {
+    .aiml-assignment summary { align-items: flex-start; flex-direction: column; padding: 1rem; }
+    .aiml-assignment-body { padding: 0 1rem 1rem; }
+}

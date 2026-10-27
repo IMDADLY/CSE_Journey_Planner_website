@@ -1,3 +1,4 @@
+import AssignmentRequirements from './AssignmentRequirements';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
@@ -70,6 +71,7 @@ function Report({ result, topics, specializationName, onNewSurvey }) {
                     {unit.additionalResources?.length>0&&<p>More resources: {unit.additionalResources.map((resource,i)=><React.Fragment key={resource.url}>{i>0?' · ':''}<a href={resource.url} target="_blank" rel="noopener noreferrer">{resource.title} ↗</a></React.Fragment>)}</p>}
                     {unit.exitEvidence&&<p><strong>Show your work:</strong> {unit.exitEvidence}</p>}
                 </article>)}</div>
+                {plan.projectRequirements&&<AssignmentRequirements document={plan.projectRequirements}/>}
                 <div className="aiml-deliverables"><strong>Build and prepare</strong><ul>{plan.deliverables.map((item,i)=><li key={i}>{item}</li>)}</ul></div>
             </section>)}
         </>}
@@ -119,7 +121,7 @@ export default function AiMlJourneySurvey({ specializationId='ai-ml', specializa
             setForm(data);setAnswers(saved.answers || {});
             if(saved.semester>=1&&saved.semester<=8)setSemester(saved.semester);
             if(saved.section>=0)setSection(saved.section);
-            try {const prior=JSON.parse(localStorage.getItem(resultKey) || 'null');if(prior?.version===data.version)setResult(prior.result);}catch(_){}
+            try {const prior=JSON.parse(localStorage.getItem(resultKey) || 'null');if(prior?.version===data.version && (!data.roadmapContentVersion || prior.result?.roadmap?.contentVersion===data.roadmapContentVersion))setResult(prior.result);else if(prior && data.roadmapContentVersion)setNotice('Assignment requirements have been updated. Submit your survey to generate a current roadmap.');}catch(_){}
             setLoading(false);
         }).catch(e=>{if(live){setError(e.message);setLoading(false);}});
         return ()=>{live=false;};

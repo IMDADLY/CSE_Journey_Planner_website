@@ -125,6 +125,66 @@ class AiMlSurveyControllerTest {
     }
 
     @SuppressWarnings("unchecked")
+    @Test
+    void everyStartingSemesterHasCompleteCourseAlignedAssignmentsAcrossScorePatterns() throws Exception {
+        var mapper = new ObjectMapper();
+        var controller = new AiMlSurveyController(mapper, mock(MongoTemplate.class));
+        JsonNode bank = mapper.readTree(new ClassPathResource("assessment/ai-ml-common-v1.json").getInputStream());
+        JsonNode catalog = mapper.readTree(new ClassPathResource("assessment/ai-ml-assignments-v1.json").getInputStream());
+        Map<String,AiMlSurveyController.Answer> correct = new HashMap<>();
+        Map<String,AiMlSurveyController.Answer> mixed = new HashMap<>();
+        for (JsonNode question : bank.path("questions")) {
+            if (!"technical".equals(question.path("type").asText())) continue;
+            var answer = new AiMlSurveyController.Answer("answered", question.path("correctOptionId").asText());
+            correct.put(question.path("id").asText(), answer);
+            if (question.path("subtopicId").asText().hashCode() % 2 == 0)
+                mixed.put(question.path("id").asText(), answer);
+        }
+        assertEquals(30, catalog.size());
+        assertNotNull(controller.getForm().get("roadmapContentVersion"));
+        for (var answers : List.of(Map.<String,AiMlSurveyController.Answer>of(), correct, mixed)) {
+            for (int start = 1; start <= 8; start++) {
+                var result = controller.submit(new AiMlSurveyController.Submission(start, "test", answers));
+                var roadmap = (Map<String,Object>)result.get("roadmap");
+                assertEquals(controller.getForm().get("roadmapContentVersion"), roadmap.get("contentVersion"));
+                var semesters = (List<Map<String,Object>>)roadmap.get("semesters");
+                assertEquals(9-start, semesters.size());
+                var scheduled = new java.util.HashSet<String>();
+                var assignmentIds = new java.util.HashSet<Object>();
+                for (var semester : semesters) {
+                    var units = (List<Map<String,Object>>)semester.get("learningUnits");
+                    var doc = (Map<String,Object>)semester.get("projectRequirements");
+                    assertTrue(assignmentIds.add(doc.get("id")), "Do not repeat an assignment");
+                    var focus = units.stream().filter(u -> u.get("subtopicId").equals(doc.get("subtopicId"))).findFirst().orElseThrow();
+                    assertEquals(focus.get("course"), doc.get("course"));
+                    for (var unit : units) {
+                        String id = (String)unit.get("subtopicId");
+                        for (JsonNode prerequisite : bank.path("subtopics")) {
+                            if (id.equals(prerequisite.path("id").asText()))
+                                for (JsonNode parent : prerequisite.path("prerequisites"))
+                                    assertTrue(scheduled.contains(parent.asText()), id + " requires " + parent.asText());
+                        }
+                        scheduled.add(id);
+                    }
+                    for (String field : List.of("title", "sourceType", "setup", "starterCode", "scope", "independentWork"))
+                        assertFalse(doc.get(field).toString().isBlank(), field);
+                    for (String field : List.of("goals", "prerequisites", "techStack", "requirements", "acceptanceCriteria", "submission", "proofOfLearning"))
+                        assertFalse(((List<?>)doc.get(field)).isEmpty(), field);
+                    int hours = (int)doc.get("estimatedHours");
+                    assertTrue(hours >= 6 && hours <= 12);
+                    int total = ((List<Map<String,Object>>)doc.get("timeline")).stream().mapToInt(t -> (int)t.get("hours")).sum();
+                    assertEquals(hours, total);
+                    boolean hasCourseTask = units.stream().anyMatch(u -> "Selected course tasks".equals(catalog.path((String)u.get("subtopicId")).path("sourceType").asText()));
+                    if (hasCourseTask) {
+                        assertEquals("Selected course tasks", doc.get("sourceType"));
+                        assertTrue(((Map<?,?>)doc.get("source")).get("url").toString().startsWith("https://"));
+                    }
+                }
+            }
+        }
+    }
+
+    @SuppressWarnings("unchecked")
     private static List<Map<String,Object>> flattenRoadmap(Map<String,Object> roadmap) {
         List<Map<String,Object>> result=new java.util.ArrayList<>();
         for(Map<String,Object> semester:(List<Map<String,Object>>)roadmap.get("semesters"))

@@ -1,6 +1,7 @@
 package com.example.cseplanner.controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.example.cseplanner.services.AiMlAssignmentCatalog;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.annotation.Id;
@@ -17,11 +18,13 @@ import java.util.*;
 @RequestMapping("/api/ai-ml/survey")
 public class AiMlSurveyController {
     private final JsonNode bank;
+    private final AiMlAssignmentCatalog assignmentCatalog;
     private final MongoTemplate mongo;
 
     public AiMlSurveyController(ObjectMapper mapper, MongoTemplate mongo) throws IOException {
         this.bank = mapper.readTree(new ClassPathResource("assessment/ai-ml-common-v1.json").getInputStream());
         this.mongo = mongo;
+        this.assignmentCatalog = new AiMlAssignmentCatalog(mapper, bank);
     }
 
     public record Answer(String status, String optionId) {}
@@ -59,6 +62,7 @@ public class AiMlSurveyController {
                     "stem", q.path("stem").asText(), "format", q.path("format").asText(), "options", options));
         }
         return Map.of("formId", bank.path("form").path("id").asText(), "version", bank.path("bankVersion").asText(),
+                "roadmapContentVersion", AiMlAssignmentCatalog.CONTENT_VERSION,
                 "semesters", List.of(1,2,3,4,5,6,7,8), "subtopics", topics, "questions", questions);
     }
 
@@ -159,23 +163,21 @@ public class AiMlSurveyController {
                 unit.put("subtopicId",id);unit.put("subtopic",t.path("name").asText());unit.put("surveyScore",score);
                 unit.put("studyFocus",t.path("studyFocus").asText());unit.put("missedConcepts",missed);
                 unit.put("action",score<=50?"Study the relevant modules, then complete a worked exercise.":
-                        score<85?"Review missed concepts, then apply them in a small project.":
-                                "Refresh this topic while building your portfolio project.");
+                        score<85?"Review missed concepts before attempting the semester assignment.":
+                                "Refresh this topic and explain it independently in the semester assignment.");
                 unit.put("course",Map.of("title",course.path("title").asText(),"provider",course.path("provider").asText(),
                         "url",course.path("url").asText(),"selectedCoverage",course.path("selectedCoverage").asText()));
                 unit.put("status","PLANNED");
                 units.add(unit);
             }
             List<String> deliverables = new ArrayList<>();
-            if (sem<=2) deliverables.add("Build a tested Python/data exploration repository.");
-            else if (sem<=4) deliverables.add("Build a leakage-aware classical ML project with a baseline and error analysis.");
-            else if (sem<=6) deliverables.add("Build a reproducible deep-learning or grounded-AI project; document its limitations.");
-            else deliverables.add("Complete a deployed AI/ML capstone with tests, monitoring, portfolio write-up and interview practice.");
+            deliverables.add("Complete the individual course-linked assignment below after studying its prerequisite modules.");
             if (sem>=5) deliverables.add("Prepare targeted AI/ML internship or placement applications and explain project tradeoffs.");
-            semesters.add(Map.of("semester",sem,"learningUnits",units,"deliverables",deliverables));
+            semesters.add(Map.of("semester",sem,"learningUnits",units,"deliverables",deliverables,
+                    "projectRequirements",assignmentCatalog.forSemester(units)));
         }
-        return Map.of("semesters",semesters,"note",semester>=7?
-                "The remaining schedule is dense. Prioritize the strongest gaps and disclose unfinished work; graduation placement cannot be guaranteed.":
-                "Follow prerequisites and build the listed project evidence. Course completion and survey scores alone do not establish placement readiness.");
+        return Map.of("contentVersion",AiMlAssignmentCatalog.CONTENT_VERSION,"semesters",semesters,"note",semester>=7?
+                "The remaining course schedule is dense. Follow prerequisites before the individual assignment; report unfinished learning honestly. Assignment difficulty follows course material, not semester number.":
+                "Follow prerequisites and complete the individual course-linked assignments. Course completion and survey scores alone do not establish placement readiness.");
     }
 }

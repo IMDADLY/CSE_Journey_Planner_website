@@ -1,0 +1,590 @@
+{
+  "AML-01": {
+    "title": "Savings simulation — MIT Problem Set 1, Part A",
+    "sourceType": "Selected course tasks",
+    "techStack": [
+      "Python 3",
+      "standard library"
+    ],
+    "requirements": [
+      "Complete only Part A of MIT Problem Set 1; use its stated inputs, constants and sample cases. Parts B and C are excluded.",
+      "Report months required and trace savings for the first three months."
+    ],
+    "acceptanceCriteria": [
+      "Match all Part A sample outputs; explain monthly interest and savings updates."
+    ],
+    "source": {
+      "title": "MIT OCW — Problem Set 1, Part A",
+      "url": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/resources/mit6_0001f16_ps1/",
+      "access": "Public reading and local completion; no sign-in or paid enrollment required. Course submission and certificates are not required.",
+      "verifiedOn": "2026-10-27"
+    },
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Use only the selected course section’s supplied scaffolding, utilities or starter files, with attribution. Write the required solution yourself; do not copy worked implementations or open solution files."
+  },
+  "AML-02": {
+    "title": "Trace and compare two searches",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Python 3",
+      "standard library"
+    ],
+    "requirements": [
+      "Implement linear search and binary search over the sorted list [2,4,6,8,10,12,14,16]; return an index or -1 and comparison count.",
+      "Run searches for 2, 10 and 15, plus an empty list; explain the sorted-input precondition."
+    ],
+    "acceptanceCriteria": [
+      "Both methods agree on found/missing results; binary search never indexes outside the list."
+    ],
+    "source": null,
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-03": {
+    "title": "Clean a tiny marks table",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Python 3",
+      "NumPy",
+      "pandas"
+    ],
+    "requirements": [
+      "Create a CSV with rows (Ada,80),(Ben,blank),(Ada,80),(Cy,100). Load it, remove duplicate rows, and fill missing marks with the mean of observed unique rows.",
+      "Output the cleaned CSV and count, mean and maximum; keep the raw file unchanged."
+    ],
+    "acceptanceCriteria": [
+      "Three rows remain, Ben receives 90, and the cleaned mean is 90; an all-missing column produces a clear error."
+    ],
+    "source": null,
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-04": {
+    "title": "Cyberchase — selected SQL queries",
+    "sourceType": "Selected course tasks",
+    "techStack": [
+      "SQLite 3 CLI",
+      "SQL"
+    ],
+    "requirements": [
+      "Use the official Cyberchase database and complete only queries 1–5 from the linked assignment. Keep the database unchanged.",
+      "Save one SQL file per selected query; record local output and explain one filter and one ordering decision."
+    ],
+    "acceptanceCriteria": [
+      "All five queries run against the supplied database; output columns and ordering match their prompts."
+    ],
+    "source": {
+      "title": "Harvard CS50 SQL — Cyberchase",
+      "url": "https://cs50.harvard.edu/sql/psets/0/cyberchase/",
+      "access": "Public reading and local completion; no sign-in or paid enrollment required. Course submission and certificates are not required.",
+      "verifiedOn": "2026-10-27"
+    },
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Use only the selected course section’s supplied scaffolding, utilities or starter files, with attribution. Write the required solution yourself; do not copy worked implementations or open solution files."
+  },
+  "AML-05": {
+    "title": "Matrix operations by hand",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Paper or plain-text calculations",
+      "no software required"
+    ],
+    "requirements": [
+      "For A=[[1,2],[3,4]] and v=[2,1], compute Av, A transpose and det(A); solve Ax=[5,11].",
+      "Show intermediate arithmetic and explain why a nonzero determinant gives a unique solution."
+    ],
+    "acceptanceCriteria": [
+      "Av=[4,10], det(A)=-2 and x=[1,2]; identify why [[1,2],[2,4]] has no unique inverse."
+    ],
+    "source": null,
+    "setup": "Use paper or a local text editor; a basic calculator is optional. No coding language is required for this mathematics exercise.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-06": {
+    "title": "Trace gradient descent",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Paper or plain-text calculations",
+      "no software required"
+    ],
+    "requirements": [
+      "For f(w)=(w-3)^2, derive the gradient and perform five updates from w=0 with learning rate 0.1.",
+      "Tabulate w and f(w) after every update; repeat three updates with learning rate 1.1."
+    ],
+    "acceptanceCriteria": [
+      "The first run decreases loss; the second oscillates with growing loss; explain the step-size effect."
+    ],
+    "source": null,
+    "setup": "Use paper or a local text editor; a basic calculator is optional. No coding language is required for this mathematics exercise.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-07": {
+    "title": "A small Bayesian diagnostic",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Paper or plain-text calculations",
+      "no software required"
+    ],
+    "requirements": [
+      "Use prevalence 0.01, sensitivity 0.90 and specificity 0.95 to compute the probability of disease after a positive result.",
+      "Draw a probability tree and repeat with prevalence 0.10."
+    ],
+    "acceptanceCriteria": [
+      "Both conditional probabilities are between 0 and 1; show the false-positive term and explain the prevalence effect."
+    ],
+    "source": null,
+    "setup": "Use paper or a local text editor; a basic calculator is optional. No coding language is required for this mathematics exercise.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-08": {
+    "title": "Compare two sample means",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Paper or plain-text calculations",
+      "no software required"
+    ],
+    "requirements": [
+      "For A=[2,4,6,8] and B=[3,5,7,9], compute means, unbiased sample variances and the difference in means.",
+      "Explain why four observations cannot establish a population-wide causal improvement; describe a randomized follow-up."
+    ],
+    "acceptanceCriteria": [
+      "Means are 5 and 6; both sample variances are 20/3; separate descriptive evidence from causal claims."
+    ],
+    "source": null,
+    "setup": "Use paper or a local text editor; a basic calculator is optional. No coding language is required for this mathematics exercise.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-09": {
+    "title": "Define a prediction task without leakage",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Python 3",
+      "standard library CSV module"
+    ],
+    "requirements": [
+      "Create six synthetic loan records with id, income, requested_amount, approved and post_decision_note. Define approved as target.",
+      "Write a schema audit reporting missing fields and exclude id and post_decision_note from predictors."
+    ],
+    "acceptanceCriteria": [
+      "A record missing income is flagged; no target or post-outcome field appears in the predictor list."
+    ],
+    "source": null,
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-10": {
+    "title": "Fit preprocessing on training data",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Python 3",
+      "NumPy"
+    ],
+    "requirements": [
+      "Use training values [1,2,3,blank] and held-out values [100,blank]. Fit mean imputation and scaling using training values only.",
+      "Save fitted statistics, transformed arrays and a comparison with incorrectly fitting on all rows."
+    ],
+    "acceptanceCriteria": [
+      "Training imputation mean is 2; held-out values cannot change fitted statistics; no NaN remains."
+    ],
+    "source": null,
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-11": {
+    "title": "Audit a grouped validation split",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Python 3",
+      "standard library"
+    ],
+    "requirements": [
+      "Create records for users A,B,C with two observations each. Assign A and B to training and C to test.",
+      "Write assertions for no shared users and no shared row ids; demonstrate a deliberately invalid split being rejected."
+    ],
+    "acceptanceCriteria": [
+      "Valid split passes; duplicated user or row across splits fails with an explanatory message."
+    ],
+    "source": null,
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-12": {
+    "title": "Fit a one-variable linear predictor",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Python 3",
+      "NumPy"
+    ],
+    "requirements": [
+      "Fit y=a*x+b on x=[0,1,2,3], y=[1,3,5,7] using least squares. Predict for x=[4,5].",
+      "Compare training mean squared error with a constant-mean baseline and handle mismatched input lengths."
+    ],
+    "acceptanceCriteria": [
+      "a=2 and b=1 within 1e-6; predictions are [9,11]; invalid lengths are rejected."
+    ],
+    "source": null,
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-13": {
+    "title": "Compare two model complexities",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Python 3",
+      "NumPy"
+    ],
+    "requirements": [
+      "Generate x=0..19 and y=2*x+1+(-1)^x. Use rows 0–11 for training, 12–15 for validation and 16–19 for test.",
+      "Fit degree-1 and degree-3 polynomials, choose by validation MSE and evaluate the chosen model once on test."
+    ],
+    "acceptanceCriteria": [
+      "Report all split ids and validation losses; test data is absent from fitting and selection."
+    ],
+    "source": null,
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-14": {
+    "title": "Compute threshold metrics",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Python 3",
+      "standard library"
+    ],
+    "requirements": [
+      "For labels [0,1,1,0] and scores [0.1,0.4,0.8,0.7], compute confusion counts, precision and recall at thresholds 0.5 and 0.75.",
+      "Use predicted positive when score >= threshold; define a zero-denominator policy."
+    ],
+    "acceptanceCriteria": [
+      "At 0.5, TP=1,FP=1,FN=1,TN=1; at 0.75 precision=1 and recall=0.5; test an all-negative prediction."
+    ],
+    "source": null,
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-15": {
+    "title": "One-dimensional k-means trace",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Python 3",
+      "NumPy"
+    ],
+    "requirements": [
+      "Cluster [0,1,9,10] from initial centers [0,10]. Alternate assignment and center updates until stable or ten iterations.",
+      "Record centers and assignments each iteration; use the lowest-index cluster to break ties."
+    ],
+    "acceptanceCriteria": [
+      "Final centers are 0.5 and 9.5; stop within ten iterations; define how an empty cluster is retained."
+    ],
+    "source": null,
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-16": {
+    "title": "Automatic differentiation — selected D2L exercises",
+    "sourceType": "Selected course tasks",
+    "techStack": [
+      "Python 3",
+      "CPU PyTorch"
+    ],
+    "requirements": [
+      "Use the exercises in D2L section 2.5: implement the sine derivative task and the dynamic-control-flow differentiation task only.",
+      "Write your own experiment code; include analytical checks and a short graph explanation."
+    ],
+    "acceptanceCriteria": [
+      "Compare sine gradients with cosine at three inputs within 1e-5; explain which executed branch produced the gradient."
+    ],
+    "source": {
+      "title": "D2L authors — section 2.5 exercises",
+      "url": "https://d2l.ai/chapter_preliminaries/autograd.html#exercises",
+      "access": "Public reading and local completion; no sign-in or paid enrollment required. Course submission and certificates are not required.",
+      "verifiedOn": "2026-10-27"
+    },
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Use only the selected course section’s supplied scaffolding, utilities or starter files, with attribution. Write the required solution yourself; do not copy worked implementations or open solution files."
+  },
+  "AML-17": {
+    "title": "Mini-batch learning — selected D2L exercise",
+    "sourceType": "Selected course tasks",
+    "techStack": [
+      "Python 3",
+      "CPU PyTorch"
+    ],
+    "requirements": [
+      "Use D2L section 3.4 and its exercise about batch size. Compare batch sizes 1 and 10 on 100 synthetic examples with a fixed seed for three epochs.",
+      "Report epoch losses and learned parameters; use only the section-provided synthetic data and utilities."
+    ],
+    "acceptanceCriteria": [
+      "Both runs produce finite losses; record seed and settings and explain the difference in update counts."
+    ],
+    "source": {
+      "title": "D2L authors — section 3.4 exercises",
+      "url": "https://d2l.ai/chapter_linear-regression/linear-regression-scratch.html#exercises",
+      "access": "Public reading and local completion; no sign-in or paid enrollment required. Course submission and certificates are not required.",
+      "verifiedOn": "2026-10-27"
+    },
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Use only the selected course section’s supplied scaffolding, utilities or starter files, with attribution. Write the required solution yourself; do not copy worked implementations or open solution files."
+  },
+  "AML-18": {
+    "title": "Padding and stride — selected D2L exercises",
+    "sourceType": "Selected course tasks",
+    "techStack": [
+      "Python 3",
+      "CPU PyTorch"
+    ],
+    "requirements": [
+      "Use D2L section 7.3 exercises about output shape. Test a single-channel 8x8 input with 3x3 kernels, stride 1 or 2, padding 0 or 1.",
+      "Predict four output shapes before running the experiments; compare them with observed shapes."
+    ],
+    "acceptanceCriteria": [
+      "All four predicted shapes match runtime shapes; explain why padding and stride change dimensions. No model training is required."
+    ],
+    "source": {
+      "title": "D2L authors — section 7.3 exercises",
+      "url": "https://d2l.ai/chapter_convolutional-neural-networks/padding-and-strides.html#exercises",
+      "access": "Public reading and local completion; no sign-in or paid enrollment required. Course submission and certificates are not required.",
+      "verifiedOn": "2026-10-27"
+    },
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Use only the selected course section’s supplied scaffolding, utilities or starter files, with attribution. Write the required solution yourself; do not copy worked implementations or open solution files."
+  },
+  "AML-19": {
+    "title": "Tokenization inspection",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Python 3",
+      "transformers tokenizer",
+      "CPU"
+    ],
+    "requirements": [
+      "Follow the tokenization steps in the linked Hugging Face section using its public bert-base-cased tokenizer on three short sentences you write.",
+      "Print tokens, ids and decoded text; compare punctuation and capitalization. No language-model generation or fine-tuning."
+    ],
+    "acceptanceCriteria": [
+      "IDs round-trip to token strings; explain special tokens and one decoding difference. Download only public tokenizer files."
+    ],
+    "source": {
+      "title": "Hugging Face LLM Course — Tokenizers (reference material)",
+      "url": "https://huggingface.co/learn/llm-course/chapter2/4",
+      "access": "Public reading and public tokenizer download; no sign-in required.",
+      "verifiedOn": "2026-10-27"
+    },
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-20": {
+    "title": "Measure truncation effects",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Python 3",
+      "transformers tokenizer",
+      "CPU"
+    ],
+    "requirements": [
+      "Use the linked course tokenizer with four self-written sentences of different lengths; compare truncation at 8 and 16 tokens.",
+      "Tabulate original length, retained length and removed tokens; include special tokens in the limit."
+    ],
+    "acceptanceCriteria": [
+      "Every truncated sequence respects its limit; identify information removed from a long sentence. No model training."
+    ],
+    "source": {
+      "title": "Hugging Face LLM Course — Tokenizers (reference material)",
+      "url": "https://huggingface.co/learn/llm-course/chapter2/4",
+      "access": "Public reading and public tokenizer download; no sign-in required.",
+      "verifiedOn": "2026-10-27"
+    },
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-21": {
+    "title": "Local retrieval without generation",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Python 3",
+      "standard library"
+    ],
+    "requirements": [
+      "Write five one-sentence documents with ids and three queries. Rank documents by count of shared lowercase whitespace-separated words.",
+      "Return up to two matches with document ids; return no match when overlap is zero; use id order to break ties."
+    ],
+    "acceptanceCriteria": [
+      "Exact-word matches rank above zero overlap; absent terms return no match; every result cites an existing id. No LLM or external API."
+    ],
+    "source": null,
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-22": {
+    "title": "Forecast with a naive baseline",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Python 3",
+      "standard library"
+    ],
+    "requirements": [
+      "Use series [10,12,11,13,12,14,13,15,14,16,15,17]. Predict each of the last four values using only the immediately preceding observation.",
+      "Output forecast, actual and absolute error per time step and overall MAE; compare with a constant training-mean baseline."
+    ],
+    "acceptanceCriteria": [
+      "Four forecasts use only earlier values; naive MAE is 1.5; no random split or future values are used."
+    ],
+    "source": null,
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-23": {
+    "title": "Rank a tiny recommendation catalog",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Python 3",
+      "standard library"
+    ],
+    "requirements": [
+      "Create five items with binary topic tags and a user with two liked items. Score unseen items by shared tags with the union of liked tags.",
+      "Return top three unseen ids, using id order for ties; return an empty list when no unseen item exists."
+    ],
+    "acceptanceCriteria": [
+      "Liked items are never recommended; tie order is deterministic; explain a new-user fallback without inventing preferences."
+    ],
+    "source": null,
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-24": {
+    "title": "Pacman search — Berkeley questions 1–2",
+    "sourceType": "Selected course tasks",
+    "techStack": [
+      "Python 3",
+      "Berkeley course starter files"
+    ],
+    "requirements": [
+      "Complete only Project 1 questions 1 and 2 (DFS and BFS), using the official starter archive linked on the assignment page.",
+      "Run the local q1 and q2 autograder checks and manually trace a small search frontier."
+    ],
+    "acceptanceCriteria": [
+      "Both selected local checks pass; explain why BFS finds a shortest path with unit edge costs. Other questions are excluded."
+    ],
+    "source": {
+      "title": "UC Berkeley CS188 Fall 2024 — Project 1",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/fa24/projects/proj1/",
+      "access": "Public reading and local completion; no sign-in or paid enrollment required. Course submission and certificates are not required.",
+      "verifiedOn": "2026-10-27"
+    },
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Use only the selected course section’s supplied scaffolding, utilities or starter files, with attribution. Write the required solution yourself; do not copy worked implementations or open solution files."
+  },
+  "AML-25": {
+    "title": "Gridworld — Berkeley question 1",
+    "sourceType": "Selected course tasks",
+    "techStack": [
+      "Python 3",
+      "Berkeley course starter files"
+    ],
+    "requirements": [
+      "Complete only Project 3 question 1 (value iteration) using its official starter archive and Gridworld environment.",
+      "Run the local q1 autograder and manually trace two value updates for one state."
+    ],
+    "acceptanceCriteria": [
+      "The selected local check passes; explain terminal states and discounting. Q-learning and other questions are excluded."
+    ],
+    "source": {
+      "title": "UC Berkeley CS188 Fall 2024 — Project 3",
+      "url": "https://inst.eecs.berkeley.edu/~cs188/archive/fa24/projects/proj3/",
+      "access": "Public reading and local completion; no sign-in or paid enrollment required. Course submission and certificates are not required.",
+      "verifiedOn": "2026-10-27"
+    },
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Use only the selected course section’s supplied scaffolding, utilities or starter files, with attribution. Write the required solution yourself; do not copy worked implementations or open solution files."
+  },
+  "AML-26": {
+    "title": "Test a prediction function",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Python 3",
+      "standard library unittest"
+    ],
+    "requirements": [
+      "Implement predict(rows, weights, bias) for numeric rows using a weighted sum. Use weights=[2,-1] and bias=1.",
+      "Separate logic from file I/O and write tests for valid rows, wrong feature count, empty input and nonnumeric input."
+    ],
+    "acceptanceCriteria": [
+      "[3,4] predicts 3; empty input returns []; bad shape or type raises a clear error; all tests run locally."
+    ],
+    "source": null,
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-27": {
+    "title": "Batch prediction and timing",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Python 3",
+      "standard library time and unittest"
+    ],
+    "requirements": [
+      "Use the fixed rule y=2*x+1 to predict 100 and 1000 numeric inputs, individually and in batches.",
+      "Check identical outputs and measure elapsed time over five repeats; report median timings without promising a speedup."
+    ],
+    "acceptanceCriteria": [
+      "Both paths return identical predictions; reject nonnumeric inputs; record environment and timing limitations. No web server."
+    ],
+    "source": null,
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-28": {
+    "title": "A local pipeline manifest",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Python 3",
+      "standard library CSV, hashlib and unittest"
+    ],
+    "requirements": [
+      "Create a ten-row x,y CSV with y=2*x+1. Run read, validate, predict with the fixed rule and report MSE as separate functions.",
+      "Write a JSON manifest with input SHA-256, row count and MSE; run twice and compare stable fields."
+    ],
+    "acceptanceCriteria": [
+      "Both runs have the same input hash and zero MSE; malformed rows fail before evaluation. No orchestration service."
+    ],
+    "source": null,
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-29": {
+    "title": "Audit group error rates",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Python 3",
+      "standard library"
+    ],
+    "requirements": [
+      "Use groups [A,A,B,B], labels [1,0,1,0] and predictions [1,0,0,0]. Compute per-group error rates and false-negative rates.",
+      "Document small-sample limitations and a privacy-safe schema without names or identifiers."
+    ],
+    "acceptanceCriteria": [
+      "Error rates are 0 for A and 0.5 for B; false-negative rates are 0 and 1; no claim of fairness from four rows."
+    ],
+    "source": null,
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  },
+  "AML-30": {
+    "title": "Reproduce a tiny numerical result",
+    "sourceType": "Original course-aligned exercise",
+    "techStack": [
+      "Python 3",
+      "standard library"
+    ],
+    "requirements": [
+      "Reproduce the claim that for x=0..9 and y=2*x+1, predictor 2*x+1 has lower MSE than constant 10.",
+      "Record fixture, formulas, environment and two independent runs; change the slope to 1 and explain the result."
+    ],
+    "acceptanceCriteria": [
+      "Exact predictor MSE is zero; both baseline runs agree; explain which conclusions this synthetic example cannot support."
+    ],
+    "source": null,
+    "setup": "Use the linked course setup instructions. Work locally; CPU only, no paid accounts or services.",
+    "starterCode": "Start with an empty file; course examples may be consulted but completed solutions may not be copied."
+  }
+}
