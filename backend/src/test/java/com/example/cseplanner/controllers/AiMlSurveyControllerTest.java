@@ -149,6 +149,18 @@ class AiMlSurveyControllerTest {
                 assertEquals(controller.getForm().get("roadmapContentVersion"), roadmap.get("contentVersion"));
                 var semesters = (List<Map<String,Object>>)roadmap.get("semesters");
                 assertEquals(9-start, semesters.size());
+                var selectedTopics = semesters.stream()
+                        .map(plan -> (Map<String,Object>)plan.get("projectRequirements"))
+                        .map(doc -> doc.get("subtopicId")).collect(java.util.stream.Collectors.toSet());
+                for (var role : (List<Map<String,Object>>)roadmap.get("internshipOpportunities")) {
+                    assertFalse(role.containsKey("score"));
+                    for (var material : (List<Map<String,Object>>)role.get("relatedMaterial")) {
+                        assertTrue(selectedTopics.contains(material.get("assignmentTopicId")));
+                        assertTrue(flattenRoadmap(roadmap).stream().anyMatch(unit ->
+                                unit.get("subtopicId").equals(material.get("courseTopicId"))
+                                        && unit.get("course").equals(material.get("course"))));
+                    }
+                }
                 var scheduled = new java.util.HashSet<String>();
                 var assignmentIds = new java.util.HashSet<Object>();
                 for (var semester : semesters) {

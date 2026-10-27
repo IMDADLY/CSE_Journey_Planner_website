@@ -2,6 +2,7 @@ package com.example.cseplanner.controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.example.cseplanner.services.AiMlAssignmentCatalog;
+import com.example.cseplanner.services.AiMlInternshipCatalog;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.annotation.Id;
@@ -17,7 +18,9 @@ import java.util.*;
 @RestController
 @RequestMapping("/api/ai-ml/survey")
 public class AiMlSurveyController {
+    private static final String ROADMAP_CONTENT_VERSION = AiMlAssignmentCatalog.CONTENT_VERSION + "+" + AiMlInternshipCatalog.CONTENT_VERSION;
     private final JsonNode bank;
+    private final AiMlInternshipCatalog internshipCatalog;
     private final AiMlAssignmentCatalog assignmentCatalog;
     private final MongoTemplate mongo;
 
@@ -25,6 +28,7 @@ public class AiMlSurveyController {
         this.bank = mapper.readTree(new ClassPathResource("assessment/ai-ml-common-v1.json").getInputStream());
         this.mongo = mongo;
         this.assignmentCatalog = new AiMlAssignmentCatalog(mapper, bank);
+        this.internshipCatalog = new AiMlInternshipCatalog(mapper);
     }
 
     public record Answer(String status, String optionId) {}
@@ -62,7 +66,7 @@ public class AiMlSurveyController {
                     "stem", q.path("stem").asText(), "format", q.path("format").asText(), "options", options));
         }
         return Map.of("formId", bank.path("form").path("id").asText(), "version", bank.path("bankVersion").asText(),
-                "roadmapContentVersion", AiMlAssignmentCatalog.CONTENT_VERSION,
+                "roadmapContentVersion", ROADMAP_CONTENT_VERSION,
                 "semesters", List.of(1,2,3,4,5,6,7,8), "subtopics", topics, "questions", questions);
     }
 
@@ -176,7 +180,8 @@ public class AiMlSurveyController {
             semesters.add(Map.of("semester",sem,"learningUnits",units,"deliverables",deliverables,
                     "projectRequirements",assignmentCatalog.forSemester(units)));
         }
-        return Map.of("contentVersion",AiMlAssignmentCatalog.CONTENT_VERSION,"semesters",semesters,"note",semester>=7?
+        return Map.of("contentVersion",ROADMAP_CONTENT_VERSION,"semesters",semesters,
+                "internshipOpportunities",internshipCatalog.forRoadmap(semesters, semester),"note",semester>=7?
                 "The remaining course schedule is dense. Follow prerequisites before the individual assignment; report unfinished learning honestly. Assignment difficulty follows course material, not semester number.":
                 "Follow prerequisites and complete the individual course-linked assignments. Course completion and survey scores alone do not establish placement readiness.");
     }

@@ -1,3 +1,4 @@
+import InternshipOpportunities from './InternshipOpportunities';
 import AssignmentRequirements from './AssignmentRequirements';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
@@ -74,6 +75,7 @@ function Report({ result, topics, specializationName, onNewSurvey }) {
                 {plan.projectRequirements&&<AssignmentRequirements document={plan.projectRequirements}/>}
                 <div className="aiml-deliverables"><strong>Build and prepare</strong><ul>{plan.deliverables.map((item,i)=><li key={i}>{item}</li>)}</ul></div>
             </section>)}
+            {result.roadmap.internshipOpportunities&&<InternshipOpportunities opportunities={result.roadmap.internshipOpportunities}/>}
         </>}
         {view==='skills' && <section className="aiml-panel"><h2>Your subtopic evidence</h2><p>Scores summarize the technical MCQs in each subtopic. Use the concept details in Answer review to decide what to practise.</p>
             <div className="aiml-skill-list">{result.subtopics.map(t=><div className="aiml-skill" key={t.id}>

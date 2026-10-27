@@ -1,0 +1,59 @@
+{
+  "opportunities": [
+    {
+      "id": "livingai-applied-ai-intern",
+      "employer": "LivingAI Solutions",
+      "role": "Applied AI Engineer Intern",
+      "location": "Bengaluru, India",
+      "workMode": "On-site",
+      "eligibleCountries": ["IN"],
+      "undergraduateEligible": true,
+      "eligibilityResolved": true,
+      "minimumSemester": 1,
+      "maximumSemester": 8,
+      "eligibility": "No degree, year or institution restriction stated; on-site availability is required.",
+      "compensation": "Stipend + Hardware; amount not stated",
+      "duration": "Not stated",
+      "deadline": null,
+      "sourceUrl": "https://livingai.in/careers/#applied-ai-intern",
+      "applicationUrl": "https://livingai.in/careers/#applied-ai-intern",
+      "applicationInstructions": "The employer accepts a resume and portfolio link by email; follow the instructions on the official role page.",
+      "status": "open",
+      "feeRequired": false,
+      "verifiedAt": "2026-10-27T12:35:27Z",
+      "verification": "Live employer page lists this role among current openings with an email application route. No application was sent. No fee is listed.",
+      "requirements": [
+        {
+          "label": "Python foundations",
+          "courseTopicIds": ["AML-01"],
+          "assignmentTopicIds": ["AML-01", "AML-02", "AML-03", "AML-09", "AML-10", "AML-11", "AML-12", "AML-13", "AML-14", "AML-15", "AML-16", "AML-17", "AML-19", "AML-20", "AML-21", "AML-22", "AML-23", "AML-24", "AML-25", "AML-26", "AML-27", "AML-28", "AML-29", "AML-30"],
+          "alignment": "The Python course teaches programming; the linked selected exercise practises it."
+        },
+        {
+          "label": "Linear algebra foundations",
+          "courseTopicIds": ["AML-05"],
+          "assignmentTopicIds": ["AML-05", "AML-15", "AML-16", "AML-17", "AML-18"],
+          "alignment": "The mathematics course introduces vectors and matrices; the selected exercise uses matrix, vector or tensor operations."
+        },
+        {
+          "label": "Core machine learning concepts",
+          "courseTopicIds": ["AML-12"],
+          "assignmentTopicIds": ["AML-12", "AML-13", "AML-15", "AML-16", "AML-17"],
+          "alignment": "The ML course supplies the model foundations; the selected exercise practises fitting, model comparison, clustering or differentiation."
+        },
+        {
+          "label": "Exploration of generative AI",
+          "courseTopicIds": ["AML-19", "AML-20"],
+          "assignmentTopicIds": ["AML-19", "AML-20", "AML-21"],
+          "alignment": "The language-model course and selected text exercise offer relevant exploration. Interest is personal and is not assessed by this website."
+        },
+        {
+          "label": "Independent technical exploration",
+          "courseTopicIds": ["AML-26", "AML-30"],
+          "assignmentTopicIds": ["AML-12", "AML-13", "AML-15", "AML-16", "AML-17", "AML-18", "AML-19", "AML-20", "AML-21", "AML-22", "AML-23", "AML-24", "AML-25", "AML-30"],
+          "alignment": "The course covers experimentation or reproducibility; the selected individual exercise includes an experiment and explanation. Completion is not checked."
+        }
+      ]
+    }
+  ]
+}

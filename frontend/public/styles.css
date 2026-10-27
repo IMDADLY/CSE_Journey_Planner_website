@@ -1910,3 +1910,17 @@ body {
     .aiml-assignment summary { align-items: flex-start; flex-direction: column; padding: 1rem; }
     .aiml-assignment-body { padding: 0 1rem 1rem; }
 }
+
+.aiml-internship { border-top: 1px solid #e2e8f0; padding-top: 1.25rem; margin-top: 1.25rem; overflow-wrap: anywhere; }
+.aiml-internship-employer { color: #475569; }
+.aiml-internship-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.aiml-internship-facts dt { font-weight: 600; color: #0f172a; }
+.aiml-internship-facts dd { margin: .3rem 0 0; color: #475569; }
+.aiml-internships a { color: #1d4ed8; text-decoration: underline; }
+.aiml-internship-material { margin-top: 1.25rem; }
+.aiml-internship-material summary { cursor: pointer; font-weight: 600; padding: .6rem 0; }
+.aiml-internship-material summary:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
+.aiml-internship-material ul { padding-left: 1.25rem; }
+.aiml-internship-material li { margin: 1rem 0; }
+.aiml-assignment { scroll-margin-top: 1.5rem; }
+@media (max-width: 600px) { .aiml-internship-facts { grid-template-columns: 1fr; } }

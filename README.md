@@ -33,6 +33,12 @@ The server loads the versioned Review 2 question bank from `backend/src/main/res
 
 The report shows six-question subtopic evidence and a current-semester roadmap with learning links and project work. Scores are provisional learning signals. Faculty review and a student pilot are still needed before using score thresholds as validated measures of mastery or placement readiness.
 
+### AI/ML internship opportunities
+
+The AI/ML roadmap ends with current opportunities whose mandatory requirements align with its courses and selected assignment descriptions. Assignment completion and student proficiency are not checked. Rebuild/restart the app and submit the AI/ML survey again to replace an older cached roadmap. Empty matches show no replacement recommendations.
+
+Listings are manually researched and expire at the earlier of a published deadline and seven days after verification, including in cached browser reports. See [the research and maintenance ledger](docs/AI_ML_Internship_Research.md) for sources, exclusions and catalog refresh instructions. Software checks for matching and expiry are separate from student work; run `node scripts/test-ai-ml-internships.cjs` for the frontend checks.
+
 ## Five additional specialization surveys
 
 Full Stack Web Development, Cloud Computing & DevOps, Data Engineering & Big Data, Game Development & Interactive Media, and Embedded Systems & Robotics / IoT now use the same survey-to-roadmap flow. Each has 130 items: 120 weighted technical MCQs and 10 separately scored practice MCQs. The technical set combines 50 questions from the earlier bank with 70 original extensions. All eight semesters receive the same form; only the roadmap schedule changes with the current semester. Questions map to learning nodes and resources in `question_bank/roadmap_sources/`, with individual study links for missed concepts and practical exit evidence. Scores remain screening signals until faculty review and student pilot calibration.

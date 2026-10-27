@@ -3,7 +3,7 @@ import React from 'react';
 const Items = ({items}) => <ul>{items.map((item,i)=><li key={i}>{item}</li>)}</ul>;
 
 export default function AssignmentRequirements({document: doc}) {
-    return <details className="aiml-assignment">
+    return <details className="aiml-assignment" id={`assignment-${doc.subtopicId}`}>
         <summary><span><strong>Individual assignment: {doc.title}</strong><small>{doc.estimatedHours} hours · {doc.duration} · {doc.sourceType}</small></span><span className="aiml-assignment-toggle" aria-hidden="true">Requirements ↓</span></summary>
         <div className="aiml-assignment-body">
             <h3>Assignment requirements</h3>
